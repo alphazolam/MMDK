@@ -86,14 +86,20 @@ end
 local clone
 
 --Makes a duplicate of an array at size 'new_array_sz' of type 'td_name'
-local function clone_array(re_array, new_array_sz, td_name)
+local function clone_array(re_array, new_array_sz, td_name, do_copy_only)
 	new_array_sz = new_array_sz or #re_array
 	td_name = td_name or re_array:get_type_definition():get_full_name():gsub("%[%]", "")
 	local new_array = sdk.create_managed_array(td_name, new_array_sz):add_ref()
 	for i, item in pairs(re_array) do 
-		new_array[i] = (sdk.is_managed_object(item) and not item.type and clone(item)) or item
+		if item ~= nil then
+			new_array[i] = (not do_copy_only and sdk.is_managed_object(item) and not item.type and clone(item)) or item
+		end
 	end
 	return new_array
+end
+
+local function copy_array(re_array, new_array_sz, td_name)
+	return clone_array(re_array, new_array_sz, td_name, true)
 end
 
 --Clones all elements of a source Generic.List's '._items' Array to a target Generic.List
@@ -109,32 +115,30 @@ end
 
 --Adds one new blank item to a SystemArray; can be passed the array or a string typename if the array doesnt yet exist
 local function append_to_array(re_array, new_item)
+	
 	if type(re_array) == "string" then 
 		re_array =  sdk.create_managed_array(re_array, 0):add_ref()
 	end
-	local sz = re_array:get_size()
+	local sz = 0
 	local td_name = re_array:get_type_definition():get_full_name():gsub("%[%]", "")
-	local td = sdk.find_type_definition(td_name)
-	local new_arr = clone_array(re_array, sz+1, td_name)
-	if new_item ~= nil then
-		new_arr[sz] = new_item 
+	local new_array = sdk.create_managed_array(td_name, re_array:get_size()+1):add_ref()
+	for i, item in pairs(new_array) do 
+		if re_array[i] ~= nil then
+			new_array[i] = re_array[i] 
+		else 
+			new_array[i] = new_item or (sdk.create_instance(td_name) or sdk.create_instance(td_name, true)):add_ref()
+			sz = i + 1
+			break
+		end
 	end
-	return new_arr
+	
+	return new_array, sz
 end
 
 --Adds a new entry to a Systems.Collections.Generic.List
 local function append_to_list(list, new_item)
-	list._items = append_to_array(list._items)
-	list._size = list._size + 1
+	list._items, list._size = append_to_array(list._items, new_item)
 	return list._size, new_item
-end
-
---Combines elements of table B into table A
-local function merge_tables(table_a, table_b)
-	for key_b, value_b in pairs(table_b) do 
-		table_a[key_b] = value_b 
-	end
-	return table_a
 end
 
 --Find the index containing a value (or value as a field) in a table
@@ -152,6 +156,24 @@ local function find_index(tbl, value, key)
 			end
 		end
 	end
+end
+
+--Combines elements of table B into table A
+local function merge_tables(table_a, table_b)
+	for key_b, value_b in pairs(table_b) do 
+		table_a[key_b] = value_b 
+	end
+	return table_a
+end
+
+--Adds elements of indexed table B to indexed table A
+local function extend_tables(table_a, table_b, unique_only)
+	for i, value_b in ipairs(table_b) do 
+		if not unique_only or not find_index(table_a, value_b) then
+			table.insert(table_a, value_b)
+		end
+	end
+	return table_a
 end
 
 --Check if a table of objects has an object with a given key/value pair, and get the key for that object
@@ -489,6 +511,7 @@ fn = {
 	clear_list = clear_list,
 	clone = clone,
 	clone_array = clone_array,
+	copy_array = copy_array,
 	copy_fields = copy_fields,
 	clone_list_items = clone_list_items,
 	create_poslist = create_poslist,
@@ -503,6 +526,7 @@ fn = {
 	edit_tgrp_dict = edit_tgrp_dict,
 	edit_triggerkey = edit_triggerkey,
 	edit_worldkey = edit_worldkey,
+	extend_tables = extend_tables,
 	find_index = find_index,
 	find_key = find_key,
 	getC = getC,

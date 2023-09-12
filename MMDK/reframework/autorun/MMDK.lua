@@ -1,7 +1,7 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6
 -- By alphaZomega
--- September 11, 2023
-local version = "0.4.1"
+-- September 12, 2023
+local version = "1.0.1"
 
 player_data = {}
 local changed = false
@@ -9,43 +9,46 @@ local ran_once = false
 local can_setup = false
 local time_last_reset = 0.0
 local action_speed = 1.0
+local hud_fn, tmp_fn
 
 local was_changed = false
 local function set_wc() 
 	was_changed = was_changed or changed 
 end
 
+local gBattle = sdk.find_type_definition("gBattle")
+local gCommand = gBattle:get_field("Command"):get_data()
+local gPlayer = gBattle:get_field("Player"):get_data()
+local gResource = gBattle:get_field("Resource"):get_data()
+local gRollback = gBattle:get_field("Rollback"):get_data()
+local gWork = gBattle:get_field("Work"):get_data()
+local mot_info = sdk.create_instance("via.motion.MotionInfo"):add_ref()
 local scene = sdk.call_native_func(sdk.get_native_singleton("via.SceneManager"), sdk.find_type_definition("via.SceneManager"), "get_CurrentScene()")
 local speed_sfix = sdk.find_type_definition("via.sfix"):get_field("Zero"):get_data(nil)
-local gBattle = sdk.find_type_definition("gBattle")
-local gPlayer = sdk.find_type_definition("gBattle"):get_field("Player"):get_data()
-local mot_info = sdk.create_instance("via.motion.MotionInfo"):add_ref()
-local gCommand = sdk.find_type_definition("gBattle"):get_field("Command"):get_data()
-local gResource = sdk.find_type_definition("gBattle"):get_field("Resource"):get_data()
-local gWork = sdk.find_type_definition("gBattle"):get_field("Work"):get_data()
-local gRollback = sdk.find_type_definition("gBattle"):get_field("Rollback"):get_data()
-local hud_fn, tmp_fn
+
 
 local fn = require("MMDK\\functions")
-local recurse_def_settings = fn.recurse_def_settings
+local append_to_list = fn.append_to_list
+local clone = fn.clone
 local create_resource = fn.create_resource
+local edit_obj = fn.edit_obj
+local extend_tables = fn.extend_tables
+local find_index = fn.find_index
+local find_key = fn.find_key
+local getC = fn.getC
+local get_unique_name = fn.get_unique_name
 local lua_get_array = fn.lua_get_array
 local lua_get_dict = fn.lua_get_dict
 local merge_tables = fn.merge_tables
-local find_index = fn.find_index
-local find_key = fn.find_key
-local append_to_list = fn.append_to_list
-local write_valuetype = fn.write_valuetype
-local get_unique_name = fn.get_unique_name
 local read_sfix = fn.read_sfix
-local clone = fn.clone
-local getC = fn.getC
-local edit_obj = fn.edit_obj
+local recurse_def_settings = fn.recurse_def_settings
+local write_valuetype = fn.write_valuetype
 
-local engines = {}
-local spawned_projectiles = {}
 local common_move_dict = {}
+local engines = {}
+local last_r_info = {}
 local moveset_functions = {}
+local spawned_projectiles = {}
 local tooltips = {}
 
 local characters = { 
@@ -70,6 +73,13 @@ local characters = {
 	[21] = "Jamie", 
 }
 
+local chara_list = {}
+for chara_id, chara_name in pairs(characters) do 
+	table.insert(chara_list, chara_name) 
+end
+table.sort(chara_list)
+table.insert(chara_list, 1, "All Characters")
+
 local default_mmsettings = {
 	enabled = true,
 	p1_hud = true,
@@ -80,6 +90,8 @@ local default_mmsettings = {
 	transparent_window = false,
 	fighter_options = {},
 	hotkeys = {
+		["Enable/Disable Autorun"] = "Alpha1",
+		["Show Research Window"] = "Alpha2",
 		["Framestep Backward"] = "Left",
 		["Framestep Forward"] = "Right",
 		["Pause/Resume"] = "Space",
@@ -88,14 +100,14 @@ local default_mmsettings = {
 	},
 }
 
-for chara_id, chara_name in pairs(characters) do
+for i, chara_name in ipairs(chara_list) do
 	default_mmsettings.fighter_options[chara_name] = {enabled=false, [chara_name]={enabled=true}}
 	moveset_functions[chara_name] = {}
 	tooltips[chara_name] = "Contains:"
 	for i, path in ipairs(fs.glob([[MMDK\\]]..chara_name..[[\\.*.lua]], "$autorun")) do
 		local filename = path:match("^.+\\(.+)%.lua")
 		local lua_file = require(path:gsub(".lua", ""))
-		moveset_functions[chara_name][i] = {filename=filename, lua=lua_file, name=(lua_file.mod_name ~= "" and lua_file.mod_name or filename)}
+		moveset_functions[chara_name][i] = {chara_name=chara_name, filename=filename, lua=lua_file, name=(lua_file.mod_name ~= "" and lua_file.mod_name or filename)}
 		moveset_functions[chara_name][i].tooltip = "Version " .. lua_file.mod_version .. "\n" .. (((lua_file.mod_author ~= "") and "By "..lua_file.mod_author.."\n") or "") .. "reframework\\autorun\\" .. path 
 		if not default_mmsettings.fighter_options[chara_name][filename] then 
 			default_mmsettings.fighter_options[chara_name][filename] = {enabled=true}
@@ -230,7 +242,7 @@ local PlayerData = {
 		
 		for j, keys_list in pairs(lua_get_array(fab_action.Keys)) do
 			if keys_list._items[0] then
-				local keytype_name = keys_list[0]:get_type_definition():get_name()
+				local keytype_name = keys_list._items[0]:get_type_definition():get_name()
 				for k, key in pairs(lua_get_array(keys_list, true)) do
 					move[keytype_name] = move[keytype_name] or {}
 					move[keytype_name][k] = key
@@ -339,6 +351,7 @@ local PlayerData = {
 				end
 				if move[keytype_name] then
 					move[keytype_name].list = keys_list
+					move[keytype_name].keys_index = j-1
 				end
 			end
 		end
@@ -670,7 +683,7 @@ local PlayerData = {
 			local simple_playerdata = {moves_dict={By_Name = {}, By_ID = {}, By_Index={}}, person=person, name=chara_name, chara_id=chara_id, name=characters[chara_id], hit_datas={}}
 			self.basic_fighter_data[chara_id] = simple_playerdata
 			local isvec2 = ValueType.new(sdk.find_type_definition("nAction.isvec2"))
-			for id, hit_dt_tbl in pairs(json.load_file("MMDK\\"..characters[chara_id].." HIT_DT.json") or {}) do
+			for id, hit_dt_tbl in pairs(json.load_file("MMDK\\HIT_DTs\\"..characters[chara_id].." HIT_DT.json") or {}) do
 				simple_playerdata.hit_datas[tonumber(id)] = sdk.create_instance("nBattle.HIT_DT_TBL"):add_ref()
 				for p_name, param_tbl in pairs(hit_dt_tbl) do 
 					for j, hit_dt in pairs(param_tbl) do
@@ -718,7 +731,6 @@ local PlayerData = {
 
 fn.PlayerData = PlayerData
 
---DO NOT GET MOVE DICT IN RE.ON_FRAME
 local function set_player_data(player_index)
 	tmp_fn = function()
 		tmp_fn = nil
@@ -788,12 +800,14 @@ local function check_make_playerdata()
 				player_data[i] = PlayerData:new(i, true)
 				
 				--Run functions to change moveset:
-				for c, character_tbl in ipairs(moveset_functions[chara_name]) do
-					if mmsettings.fighter_options[chara_name][character_tbl.filename].enabled then
+				local all_copy = (mmsettings.fighter_options["All Characters"].enabled and merge_tables({}, moveset_functions["All Characters"])) or {}
+				for c, character_tbl in ipairs(extend_tables(all_copy, moveset_functions[chara_name])) do
+					if mmsettings.fighter_options[character_tbl.chara_name][character_tbl.filename].enabled then
 						print(os.clock() .. " Autorunning moveset function from '" .. character_tbl.name .. ".lua' for " .. chara_name)
 						character_tbl.lua.apply_moveset_changes(player_data[i]) 
 					end
 				end
+				
 			end
 		end
 		set_huds() 
@@ -806,6 +820,7 @@ re.on_application_entry("UpdateBehavior", function()
 		tmp_fn()
 	end
 	check_make_playerdata()
+	
 end)
 
 re.on_frame(function()
@@ -814,26 +829,31 @@ re.on_frame(function()
 		hud_fn()
 	end
 	
+	pressed_skip_fwd, pressed_skip_bwd, pressed_pause = false, false, false
+	last_r_info.last_action_speed = (action_speed ~= 0) and action_speed or last_r_info.last_action_speed or 1.0
+	local p_idx = (mmsettings.research_p2 and 2) or 1
+	local other_p_idx = ((p_idx == 1) and 2) or 1
+	local data = player_data[p_idx]
+	local other_data = player_data[other_p_idx]
+	
 	if reframework:is_drawing_ui() and gPlayer.move_ctr > 0 and engines[1] and (os.clock() - time_last_reset) > 0.5 then
 		
 		if not mmsettings.research_enabled or imgui.begin_window("MMDK - Moveset Research ", true, (mmsettings.transparent_window and 128) or 0) == false then 
 			mmsettings.research_enabled = false
 		else
-			local p_idx = (mmsettings.research_p2 and 2) or 1
-			local other_p_idx = ((p_idx == 1) and 2) or 1
-			local data = player_data[p_idx]
 			
-			if not data or data.do_refresh then
+			if not data or data.do_refresh or not next(data.moves_dict.By_ID) then
 				imgui.end_window()
 				set_player_data(p_idx)
 				return nil
 			end
 			
-			local other_data = player_data[other_p_idx]
-			local r_info = data.research_info or {time_last_clicked=os.clock()}
+			
+			local r_info = data.research_info or {time_last_clicked=os.clock(), data=data, other_data=other_data}
+			last_r_info = r_info
 			data.research_info = r_info
 			
-			if not other_data then
+			if not other_data or not next(other_data.moves_dict.By_ID) then
 				imgui.end_window()
 				set_player_data(other_p_idx)
 				return nil
@@ -863,6 +883,7 @@ re.on_frame(function()
 			local current_act_id = data.engine:get_ActionID()
 			local current_move = data.moves_dict.By_ID[current_act_id] or other_data.moves_dict.By_ID[current_act_id]
 			local current_act_name = current_move and current_move.name:gsub("*", "")
+			r_info.current_move = current_move
 			
 			if r_info.last_act_id ~= current_act_id and not r_info.was_typed then
 				r_info.text = current_act_name
@@ -927,52 +948,24 @@ re.on_frame(function()
 			end
 			tooltip("Play an action by name or by ID\n	Hotkey:    " .. hk.get_button_string("Request Last Action"))
 			
-			local do_pause = false
-			hk_timers.bwd = hk.check_hotkey("Framestep Backward", true) and hk_timers.bwd or os.clock()
-			hk_timers.fwd = hk.check_hotkey("Framestep Forward", true) and hk_timers.fwd or os.clock()
-			
 			imgui.same_line()
-			if imgui.button("<--") or ((os.clock() - hk_timers.bwd) > 0.25) or hk.check_hotkey("Framestep Backward") then
-				do_pause = (action_speed ~= 0.0)
-				local value = math.floor(current_frame - 1 >= 0 and current_frame - 1 or 0) + 0.0
-				write_valuetype(data.engine, 84, speed_sfix:call("From(System.Single)", value))
-				if current_move and (current_move.guest or current_move.owner) then 
-					write_valuetype(engines[other_p_idx], 84, speed_sfix:call("From(System.Single)", value)) 
-					engines[other_p_idx]:set_Speed(speed_sfix:call("From(System.Single)", 0))
-				end
-			end
+			pressed_skip_bwd = imgui.button("<--")
 			tooltip("Step backward one frame and pause\n	Hotkey:    " .. hk.get_button_string("Framestep Backward") .. "     (HOLD to seek)")
 			
 			imgui.same_line()
-			if imgui.button("-->") or ((os.clock() - hk_timers.fwd) > 0.25) or hk.check_hotkey("Framestep Forward") then
-				do_pause = (action_speed ~= 0.0)
-				local value = math.floor(current_frame + 1 <= engine_endframe and current_frame + 1 or engine_endframe) + 0.0
-				write_valuetype(data.engine, 84, speed_sfix:call("From(System.Single)", value))
-				if current_move and (current_move.guest or current_move.owner) then 
-					write_valuetype(engines[other_p_idx], 84, speed_sfix:call("From(System.Single)", value)) 
-					engines[other_p_idx]:set_Speed(speed_sfix:call("From(System.Single)", 0))
-				end
-			end
+			pressed_skip_fwd = imgui.button("-->")
 			tooltip("Step forward one frame and pause\n	Hotkey:    " .. hk.get_button_string("Framestep Forward") .. "    (HOLD to seek)")
 			
 			imgui.same_line()
-			if imgui.button((is_paused and "Resume") or "Pause") or do_pause or hk.check_hotkey("Pause/Resume") then
-				r_info.last_slow_mo_speed = (not is_paused and action_speed) or r_info.last_slow_mo_speed or action_speed
-				action_speed = (is_paused and r_info.last_slow_mo_speed and (((r_info.last_slow_mo_speed==0.0) and 1.0) or r_info.last_slow_mo_speed)) or 0
-				speed_sfix = speed_sfix:call("From(System.Single)", action_speed)
-				engines[1]:set_Speed(speed_sfix)
-				engines[2]:set_Speed(speed_sfix)
-			end
+			pressed_pause = imgui.button((is_paused and "Resume") or "Pause")
 			tooltip("Pause speed to 0%% or resume at the last chosen speed\n	Hotkey:    " .. hk.get_button_string("Pause/Resume"))
 			
 			if imgui.begin_list_box(data.name .. " action", #r_info.names) then
 				for j, action_name in ipairs(r_info.names) do
 					if imgui.menu_item(action_name, r_info.id_map[action_name], (r_info.new_action_idx==j), true) then
 						r_info.new_action_idx = j
-						--if not r_info.was_typed or type(r_info.was_typed)=="number" or os.clock() - r_info.time_last_clicked < 0.25 then
-							r_info.text = action_name
-							r_info.was_typed = true--os.clock()
-						--end
+						r_info.text = action_name
+						r_info.was_typed = true
 						r_info.time_last_clicked = os.clock()
 						data.cPlayer:setAction(tonumber(r_info.id_map[action_name]), sdk.find_type_definition("via.sfix"):get_field("Zero"):get_data(nil))
 						r_info.last_engine_start_frame = r_info.frame_ctr
@@ -984,13 +977,16 @@ re.on_frame(function()
 				imgui.end_list_box()
 			end
 			
-			--r_info.was_typed = (((type(r_info.was_typed) ~= "number") or ((os.clock() - r_info.was_typed) < 2.0)) and data.moves_dict.By_ID[num or -1234] and r_info.was_typed) or changed
 			r_info.was_typed = data.moves_dict.By_ID[num or -1234] and r_info.was_typed or changed
 			
 			if imgui.button("Apply moveset mod") then
-				for c, character_tbl in ipairs(moveset_functions[data.name]) do
-					if mmsettings.fighter_options[data.name][character_tbl.filename].enabled then
-						character_tbl.lua.apply_moveset_changes(data) 
+				tmp_fn = function()
+					tmp_fn = nil
+					local all_copy = (mmsettings.fighter_options["All Characters"].enabled and merge_tables({}, moveset_functions["All Characters"])) or {}
+					for c, character_tbl in ipairs(extend_tables(all_copy, moveset_functions[data.name])) do
+						if mmsettings.fighter_options[character_tbl.chara_name][character_tbl.filename].enabled then
+							character_tbl.lua.apply_moveset_changes(data) 
+						end
 					end
 				end
 				set_huds(data.player_index)
@@ -1029,7 +1025,7 @@ re.on_frame(function()
 			
 			imgui.same_line()
 			if imgui.button("Dump HIT_DT json") then
-				local hit_json = json.load_file("MMDK\\" .. data.name .. " HIT_DT.json") or {}
+				local hit_json = {}
 				for key, hit_dt_tbl in pairs(lua_get_dict(data.hit_datas)) do
 					hit_json[key] = {param={}, common={}}
 					for n, name in ipairs({"param", "common"}) do
@@ -1046,9 +1042,9 @@ re.on_frame(function()
 						end
 					end
 				end
-				json.dump_file("MMDK\\" .. data.name .. " HIT_DT.json", hit_json)
+				json.dump_file("MMDK\\HIT_DTs\\" .. data.name .. " HIT_DT.json", hit_json)
 			end
-			tooltip("Saves damage data to\n	reframeworkd\\data\\MMDK\\" .. data.name .. " HIT_DT.json")
+			tooltip("Saves damage data to\n	reframework\\data\\MMDK\\HIT_DTs\\" .. data.name .. " HIT_DT.json")
 			
 			if EMV then 
 			
@@ -1326,6 +1322,51 @@ re.on_frame(function()
 		data:update()
 	end
 	
+	if hk.check_hotkey("Enable/Disable Autorun") then
+		mmsettings.enabled = not mmsettings.enabled
+	end
+	
+	if hk.check_hotkey("Show Research Window") then
+		mmsettings.research_enabled = not mmsettings.research_enabled
+	end
+	
+	if mmsettings.research_enabled and engines[2] then
+		
+		hk_timers.bwd = hk.check_hotkey("Framestep Backward", true) and hk_timers.bwd or os.clock()
+		hk_timers.fwd = hk.check_hotkey("Framestep Forward", true) and hk_timers.fwd or os.clock()
+		
+		if pressed_skip_bwd or ((os.clock() - hk_timers.bwd) > 0.25) or hk.check_hotkey("Framestep Backward") then
+			pressed_pause = (action_speed ~= 0.0)
+			local current_frame = read_sfix(engines[p_idx].mParam.frame)
+			local value = math.floor(current_frame - 1 >= 0 and current_frame - 1 or 0) + 0.0
+			write_valuetype(engines[p_idx], 84, speed_sfix:call("From(System.Single)", value))
+			if last_r_info.current_move and (last_r_info.current_move.guest or last_r_info.current_move.owner) then 
+				write_valuetype(engines[other_p_idx], 84, speed_sfix:call("From(System.Single)", value)) 
+				engines[other_p_idx]:set_Speed(speed_sfix:call("From(System.Single)", 0))
+			end
+		end
+		
+		imgui.same_line()
+		if pressed_skip_fwd or ((os.clock() - hk_timers.fwd) > 0.25) or hk.check_hotkey("Framestep Forward") then
+			pressed_pause = (action_speed ~= 0.0)
+			local current_frame, engine_endframe = read_sfix(engines[p_idx].mParam.frame), read_sfix(engines[p_idx]:get_ActionFrameNum())
+			local value = math.floor(current_frame + 1 <= engine_endframe and current_frame + 1 or engine_endframe) + 0.0
+			write_valuetype(engines[p_idx], 84, speed_sfix:call("From(System.Single)", value))
+			if last_r_info.current_move and (last_r_info.current_move.guest or last_r_info.current_move.owner) then 
+				write_valuetype(engines[other_p_idx], 84, speed_sfix:call("From(System.Single)", value)) 
+				engines[other_p_idx]:set_Speed(speed_sfix:call("From(System.Single)", 0))
+			end
+		end
+		
+		if pressed_pause or hk.check_hotkey("Pause/Resume") then
+			action_speed = (action_speed ~= 0) and 0 or last_r_info.last_action_speed
+			speed_sfix = fn.to_sfix(action_speed)
+			engines[1]:set_Speed(speed_sfix)
+			engines[2]:set_Speed(speed_sfix)
+		end
+		
+	end
+	
 	if was_changed then
 		hk.update_hotkey_table(mmsettings.hotkeys)
 		json.dump_file("MMDK\\MMDKsettings.json", mmsettings)
@@ -1355,11 +1396,11 @@ re.on_draw_ui(function()
 		changed, mmsettings.p2_hud = imgui.checkbox("Modify P2 HUD", mmsettings.p2_hud); set_wc() 
 		tooltip("Changes P2 HUD to blue when modded")
 		
-		if imgui.tree_node("Enabled characters") then
+		if imgui.tree_node("Enabled mods") then
 			imgui.begin_rect()
-			for i, chara_name in pairs(characters) do
+			for i, chara_name in ipairs(chara_list) do
 				changed, mmsettings.fighter_options[chara_name].enabled = imgui.checkbox(chara_name, mmsettings.fighter_options[chara_name].enabled); set_wc()
-				tooltip(tooltips[chara_name])
+				tooltip("Enable/Disable autorun for this character\n" .. (i==1 and "Loads for all enabled characters\n" or "") .. tooltips[chara_name])
 				imgui.same_line()
 				local tree_open = imgui.tree_node_str_id(chara_name.."Options", "")
 				tooltip("Select files to load")
@@ -1369,6 +1410,13 @@ re.on_draw_ui(function()
 						local mm_tbl = mmsettings.fighter_options[chara_name][character_tbl.filename]
 						changed, mm_tbl.enabled = imgui.checkbox(character_tbl.name, mm_tbl.enabled); set_wc()
 						tooltip(character_tbl.tooltip)
+						if mm_tbl.enabled and character_tbl.lua.imgui_options then 
+							imgui.indent()
+							
+							character_tbl.lua.imgui_options()
+							
+							imgui.unindent()
+						end
 					end
 					imgui.end_rect(2)
 					imgui.spacing()
@@ -1391,6 +1439,8 @@ re.on_draw_ui(function()
 			
 			if imgui.tree_node("Hotkeys") then
 				imgui.begin_rect()
+				changed = hk.hotkey_setter("Enable/Disable Autorun"); set_wc()
+				changed = hk.hotkey_setter("Show Research Window"); set_wc()
 				changed = hk.hotkey_setter("Pause/Resume"); set_wc()
 				changed = hk.hotkey_setter("Switch P1/P2"); set_wc()
 				changed = hk.hotkey_setter("Framestep Backward"); set_wc()
@@ -1445,7 +1495,7 @@ sdk.hook(sdk.find_type_definition("app.BattleResource"):get_method("LoadUniqueAs
 
 sdk.hook(sdk.find_type_definition("nAction.Engine"):get_method("Prepare"),
 	function(args)
-		if action_speed ~= 1.0 then
+		if mmsettings.research_enabled and action_speed ~= 1.0 then
 			sdk.to_managed_object(args[2]):call("set_Speed(via.sfix)", speed_sfix)
 		end
 	end

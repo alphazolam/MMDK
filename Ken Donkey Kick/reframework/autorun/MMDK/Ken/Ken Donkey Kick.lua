@@ -89,8 +89,7 @@ local function apply_moveset_changes(data)
 		--100604 is Ryu's original bankID, so his original MotionKeys will work without edit:
 		data:add_dynamic_motionbank("Product/Animation/esf/esf001/v00/motionlist/SpecialSkill/esf001v00_SpecialSkill_04.motlist", 100604) 
 		
-		move.AttackCollisionKey.list[0].AttackDataListIndex = -1
-		new_hit_dt_tbl, new_attack_key = data:clone_dmg(ryu_moves_by_id[1025].dmg[181], 1337, move, nil, #move.AttackCollisionKey-1)
+		local new_hit_dt_tbl, new_attack_key = data:clone_dmg(ryu_moves_by_id[1025].dmg[181], 1337, move, nil, #move.AttackCollisionKey-1)
 		--edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=1000, DmgType=11, MoveTime=24, MoveType=13, HitStopOwner=20, HitStopTarget=20, MoveDest=to_isvec2(200, 70), JuggleLimit=10, HitStun=20, SndPower=4, HitmarkStrength=3})
 		
 		local new_hit_rect = data:add_rect_to_col_key(new_attack_key, "BoxList", 451, 0)
@@ -213,6 +212,7 @@ end
 
 return {
 	apply_moveset_changes = apply_moveset_changes,
+	imgui_options = imgui_options,
 	mod_version = mod_version,
 	mod_name = mod_name,
 	mod_author = mod_author,

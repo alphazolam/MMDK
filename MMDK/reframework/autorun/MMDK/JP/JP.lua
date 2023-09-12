@@ -16,7 +16,7 @@ local clear_list = fn.clear_list
 local clone = fn.clone
 local clone_array = fn.clone_array
 local clone_list_items = fn.clone_list_items
-local clone_list_items = fn.clone_list_items
+local copy_array = fn.copy_array
 local copy_fields = fn.copy_fields
 local create_poslist = fn.create_poslist
 local create_resource = fn.create_resource
@@ -70,6 +70,12 @@ local hit_types = {
 	},
 }
 
+local function imgui_options()
+	local changed, wc
+	--The imgui options menu for the mod will be displayed from here
+	
+end
+
 --This function runs on match start:
 local function apply_moveset_changes(data)
 	print(os.clock() .. " Running MMDK function for " .. data.name .. "\n	" .. mod_name .. " v" .. mod_version .. ((mod_author~="" and " by " .. mod_author) or ""))	
@@ -78,10 +84,6 @@ local function apply_moveset_changes(data)
 	local moves_by_id = data.moves_dict.By_ID
 	local moves_by_name = data.moves_dict.By_Name
 	
-	--Fetch a basic copy of Ryu's move dict
-	local ryu = data:get_simple_fighter_data("Ryu")
-	local ryu_moves_by_id = ryu.moves_dict.By_ID
-	
 	
 	--Mod code here
 	
@@ -89,8 +91,11 @@ local function apply_moveset_changes(data)
 	return true
 end
 
+
+
 return {
 	apply_moveset_changes = apply_moveset_changes,
+	imgui_options = imgui_options,
 	mod_version = mod_version,
 	mod_name = mod_name,
 	mod_author = mod_author,

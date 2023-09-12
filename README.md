@@ -164,7 +164,7 @@ end
 
 ## Tips
 
-- Use the EMV Engine with the Moveset Research window to see what's available to edit. The contents shown under `[Lua Data]` are Lua tables exactly as you can access them from the `data` parameter.
+- Use EMV Engine with the Moveset Research window to see what's available to edit. The contents shown under `[Lua Data]` are Lua tables exactly as you can access them from the `data` parameter.
 - The Moveset Research window can be used to view moves and their keys frame-by-frame and in slow motion
 
 ## Credits
