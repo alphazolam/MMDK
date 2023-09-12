@@ -124,7 +124,7 @@ local function apply_moveset_changes(data)
 	for name, move_tbl in pairs(moves_by_name) do
 		local max_frame = move_tbl.fab.ActionFrame.MarginFrame - 15
 		if move_tbl.guest and move_tbl.name:find("NGA") then
-			local cf = ((max_frame > cf) and max_frame) or cf
+			local cf = ((cf > max_frame) and max_frame) or cf
 			data.interests[move_tbl.id] = move_tbl
 			local keys, last_pair_idx = move_tbl.fab.Keys[di_counter_tbl.CameraKey.keys_index]
 			for i=0, math.floor(max_frame/cf) do

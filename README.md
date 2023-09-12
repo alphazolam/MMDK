@@ -4,10 +4,12 @@ MMDK is a [REFramework](https://github.com/praydog/REFramework) script and mod d
 
 It also can produce a "Moveset Research" window where you can set the current move being performed, view its keys live and skip frame-by-frame as they are executed. Combined with the [Hitbox Viewer](https://github.com/WistfulHopes/SF6Mods), it can provide a lot of insight into SF6's mechanics.
 
+MMDK allows for full moveset modding including adding entirely new moves with new command inputs while using animations, VFX, keyframe data and damage data from any characters. Mods for MMDK are created as Lua files and multiple of them can run on a character per match.
+
 ## Installation
 
 1. Download [REFramework](https://github.com/praydog/REFramework) SF6.zip [here](https://github.com/praydog/REFramework-nightly/releases/download/latest/SF6.zip) (must be newer than Sept 8 2023) and place its dinput8.dll in your game folder
-2. Download this repository under Code -> Download as Zip and extract the contents to your game folder or install as a mod with [Fluffy Mod Manager](https://www.fluffyquack.com/)
+2. Download this repository under Code -> Download as Zip and extract the the contents of each folder inside to your game folder or install each as a mod with [Fluffy Mod Manager](https://www.fluffyquack.com/)
 
 ## Usage
 
@@ -92,6 +94,8 @@ Functions.lua is included with Moveset Mod and is shared among all its scripts b
 
 
 ## Fighter Lua Examples
+
+Check out 'Ken Donkey Kick.lua' and 'Throw Angles.lua' for some working examples of MDMK scripts. Since these are Lua scripts, you have full access to what [REFramework provides](https://cursey.github.io/reframework-book/api/sdk.html) inside each mod and can add things like loading options from json files or creating hooks and callbacks to support your changes.
 
 #### Getting a move:
 ```lua
