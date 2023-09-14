@@ -1,4 +1,4 @@
-# MMDK - MMDK Development Kit
+# MMDK - Moveset Mod Development Kit
 
 MMDK is a [REFramework](https://github.com/praydog/REFramework) script and mod development kit for creating and researching Lua moveset mods in Street Fighter 6. It creates a dictionary of all the relevant data needed to mod movesets for each fighter, along with functions and methods to change and add-to various aspects of the moves, and then allows you to edit this dictionary at the start of each match using a Lua file.
 
@@ -9,13 +9,13 @@ MMDK allows for full moveset modding including adding entirely new moves with ne
 ## Installation
 
 1. Download [REFramework](https://github.com/praydog/REFramework) SF6.zip [here](https://github.com/praydog/REFramework-nightly/releases/download/latest/SF6.zip) (must be newer than Sept 8 2023) and place its dinput8.dll in your game folder
-2. Download this repository under Code -> Download as Zip and extract the the contents of each folder inside to your game folder or install each as a mod with [Fluffy Mod Manager](https://www.fluffyquack.com/)
+2. Download this repository under Code -> Download as Zip and extract the the contents of each folder inside to your game folder or install as a mod with [Fluffy Mod Manager](https://www.fluffyquack.com/)
 
 ## Usage
 
 1. Open REFramework's main window by pressing **Insert** (default)
 2. Navigate to '`Script Generated UI`' and open the MMDK menu
-3. Here you can enable and disable the automatic modification of specific characters by the mod's fighter Lua files, and set the visibility of the Moveset Research window
+3. Here you can enable and disable the automatic modification of specific characters by the mod's fighter Lua files, control which mods are active for what characters, control individual mod options, and set the visibility of the Moveset Research window
 
 ## The Street Fighter Battle System
 
@@ -29,15 +29,15 @@ MMDK allows for full moveset modding including adding entirely new moves with ne
 ## Key Types
 
 - A **`MotionKey`** activates an animation (MotionID) from a motlist file (MotionType) at a certain frame
-- A **`AttackCollisionKey`** activates a hitbox rectangle from the character's rectangle list over a frame range
+- A **`AttackCollisionKey`** activates a hitbox rectangle from the character's rectangle list over a frame range, and applies damage from a linked 'HIT_DT_TBL' when the hit connects
 - A **`DamageCollisionKey`** activates a hurtbox rectangle over a frame range
 - A **`TriggerKey`** determines the move's cancel list (what actions the move can transition into)
 - A **`VfxKey`** plays a visual effect
-- A **`SteerKey`** moves the fighter in a X,Y direction
 - A **`BranchKey`** connects actions together automatically without player inputs
 - A **`ShotKey`** spawns a projectile (another action)
 - A **`SEKey`** plays a sound effect by its Trigger ID (number)
 - A **`FacialKey`** plays a facial animation, similar to a MotionKey
+- A **`SteerKey`** moves the fighter in a X,Y direction
 - A **`PlaceKey`** also moves a fighter in a X,Y direction during a move, but frame-by-frame
 - Various other types of keys are also available; test them in the Moveset Research window with EMV Engine
 
@@ -106,8 +106,8 @@ local ATK_5LP = moves_by_id[600] --Light punch
 
 #### Getting a move from another character
 ```lua
-local ryu = data:get_simple_fighter_data("Ryu")
-local ryu_moves_by_id = ryu.moves_dict.By_ID
+local ryu_data = data:get_simple_fighter_data("Ryu")
+local ryu_moves_by_id = ryu_data.moves_dict.By_ID
 local ryu_ATK_5HK = ryu_moves_by_id[617]
 ```
 
@@ -133,21 +133,22 @@ end
 ```
 
 #### Adding a new triggers to an ActionID and to different TriggerGroups
-Triggers control when a move is executed. They contain button presses and commands, as well as other requirements for doing the move. A move can have multiple independent triggers.
-TriggerGroups (also known as Cancel Lists) are lists of triggers that can only execute at a specific time, such as during the end of a different move (like a hit in a combo). 
+Triggers control when a move is executed. They contain button presses and commands, as well as other requirements for doing the move. A move (by ActionID) can have multiple independent triggers.
+TriggerGroups (also known as Cancel Lists) are lists of triggers that can only execute at a specific time, such as during the end of a different move (like a 2nd hit in a combo). 
 A TriggerKey gives a frame range during a move in which the triggers in its TriggerGroup can be triggered. 
-TriggerGroups also have priorities, this is determined by the Trigger's ID; its order in the Triggers list.
+TriggerGroups also have priorities, this is determined by the Trigger's ID: its order in the Triggers list.
 ```lua
 local new_trigs, new_trig_ids = data:add_triggers(18, 599, {10}, 112)
-    for id, trig in pairs(new_trigs_by_id) do
-        edit_obj(trig, {focus_need=1, focus_consume=5000, category_flags=1048476, function_id=3, })
-    end
-    local new_trigs2, new_trig_ids2 = data:add_triggers(663, 599, {30, 45}, 96)
-	--Edit new triggers to new inputs:
-    for id, trig in pairs(new_trigs_by_id2) do
-        edit_obj(trig, {focus_need=1, focus_consume=5000, category_flags=1048476, function_id=3})
-        edit_obj(trig.norm, {ok_key_flags=0, dc_exc_flags=(inputs.MP + inputs.MK + inputs.BACK), ok_key_cond_flags=16512})
-    end
+
+for id, trig in pairs(new_trigs) do
+	edit_obj(trig, {focus_need=1, focus_consume=5000, category_flags=1048476, function_id=3, })
+end
+
+local new_trigs2, new_trig_ids2 = data:add_triggers(663, 599, {30, 45}, 96)
+--Edit new triggers to new inputs:
+for id, trig in pairs(new_trigs2) do
+	edit_obj(trig, {focus_need=1, focus_consume=5000, category_flags=1048476, function_id=3})
+	edit_obj(trig.norm, {ok_key_flags=0, dc_exc_flags=(inputs.MP + inputs.MK + inputs.BACK), ok_key_cond_flags=16512})
 end
 ```
 
@@ -220,10 +221,15 @@ end
 ```
 
 ## Scripting Tips
-- After cloning an action, you can usually copy+paste the code block to create it and edit it a little to create a new action. You can clone things created from the new action to the newer one.
+- After cloning an action, you can usually copy+paste the code block used to create it and edit it a little to create another new action. You can clone things created for the first action to the second one.
 - Use [EMV Engine](https://github.com/alphazolam/EMV-Engine) with the Moveset Research window to see what's available to edit. The contents shown under `[Lua Data]` are Lua tables exactly as you can access them from the `data` parameter.
 - Search for function descriptions in MMDK.lua and functions.lua if you are confused about how to use them
 
 
 ## Credits
 Thanks to Killbox for testing and praydog for creating REFramework
+
+
+[Modding Haven Discord](https://discord.gg/acCRqRyUB2)
+
+[SF Moveset Modding Discord](https://discord.gg/T5raMgr)
