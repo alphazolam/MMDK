@@ -1,0 +1,418 @@
+{
+    "000": {
+        "000": "17 BAS_DASH_F",
+        "001": "18 BAS_DASH_B",
+        "003": "600 ATK_5LP",
+        "005": "613 ATK_5LK",
+        "007": "604 ATK_5MP(1)",
+        "010": "615 ATK_5MK",
+        "012": "608 ATK_5HP_MAX",
+        "014": "617 ATK_5HK_MAX",
+        "017": "621 ATK_2LP",
+        "018": "633 ATK_2LK",
+        "019": "625 ATK_2MP",
+        "020": "637 ATK_2MK",
+        "021": "627 ATK_2HP_MAX",
+        "022": "639 ATK_2HK_MAX",
+        "034": "666 ATK_6MP",
+        "038": "671 ATK_6HK_MAX",
+        "041": "686 ATK_4HP_MAX",
+        "043": "678 ATK_3HP_MAX",
+        "092": "900 SPA_Gradius_MAX",
+        "093": "901 SPA_Gradius_MAX(1)",
+        "094": "902 SPA_Gradius_MAX(2)",
+        "099": "923 SPA_Dimachaerus",
+        "102": "926 SPA_Dimachaerus(1)",
+        "105": "929 SPA_Dimachaerus(2)",
+        "111": "936 SPA_Phalanx",
+        "112": "937 SPA_Phalanx(1)",
+        "113": "938 SPA_Phalanx(2)",
+        "117": "943 SPA_Quadriga",
+        "118": "944 SPA_Quadriga(1)",
+        "119": "945 SPA_Quadriga(2)",
+        "124": "952 SPA_Scutum_START",
+        "130": "900 SPA_Gradius_MAX",
+        "131": "901 SPA_Gradius_MAX(1)",
+        "132": "902 SPA_Gradius_MAX(2)",
+        "146": "905 SPA_Gradius_M",
+        "147": "905 SPA_Gradius_M",
+        "149": "480 DPA_STD_START",
+        "155": "717 NGS",
+        "161": "854 ATK_CTA",
+        "171": "1200 SAA1_MAX",
+        "173": "1208 SAA2_NGS",
+        "176": "1213 SAA3_NGS",
+        "179": "1217 SAA3_NGS(1)",
+        "182": "903 SPA_Gradius_MAX(3)",
+        "183": "932 SPA_Dimachaerus(3)",
+        "186": "939 SPA_Phalanx(3)",
+        "187": "946 SPA_Quadriga(3)",
+        "188": "969 SPA_Scutum_START(1)",
+        "189": "903 SPA_Gradius_MAX(3)",
+        "192": "1497 DEM_APPEAL_01",
+        "200": "1100 _1100",
+        "204": "1104 _1104",
+        "207": "1107 _1107"
+    },
+    "001": {
+        "025": "645 ATK_8LP",
+        "026": "651 ATK_8LK",
+        "027": "646 ATK_8MP",
+        "029": "652 ATK_8MK",
+        "030": "648 ATK_8HP_MAX",
+        "031": "653 ATK_8HK_MAX"
+    },
+    "002": {
+        "025": "645 ATK_8LP",
+        "026": "651 ATK_8LK",
+        "027": "646 ATK_8MP",
+        "029": "652 ATK_8MK",
+        "030": "648 ATK_8HP_MAX",
+        "031": "653 ATK_8HK_MAX"
+    },
+    "003": {
+        "092": "900 SPA_Gradius_MAX",
+        "093": "901 SPA_Gradius_MAX(1)",
+        "094": "902 SPA_Gradius_MAX(2)",
+        "099": "923 SPA_Dimachaerus",
+        "102": "926 SPA_Dimachaerus(1)",
+        "105": "929 SPA_Dimachaerus(2)",
+        "111": "936 SPA_Phalanx",
+        "112": "937 SPA_Phalanx(1)",
+        "113": "938 SPA_Phalanx(2)",
+        "117": "943 SPA_Quadriga",
+        "118": "944 SPA_Quadriga(1)",
+        "119": "945 SPA_Quadriga(2)",
+        "124": "952 SPA_Scutum_START",
+        "130": "900 SPA_Gradius_MAX",
+        "131": "901 SPA_Gradius_MAX(1)",
+        "132": "902 SPA_Gradius_MAX(2)",
+        "149": "480 DPA_STD_START",
+        "161": "854 ATK_CTA",
+        "171": "1200 SAA1_MAX",
+        "173": "1208 SAA2_NGS",
+        "176": "1213 SAA3_NGS",
+        "178": "1217 SAA3_NGS(1)",
+        "179": "1217 SAA3_NGS(1)",
+        "182": "903 SPA_Gradius_MAX(3)",
+        "183": "932 SPA_Dimachaerus(3)",
+        "186": "939 SPA_Phalanx(3)",
+        "187": "946 SPA_Quadriga(3)",
+        "188": "969 SPA_Scutum_START(1)",
+        "189": "903 SPA_Gradius_MAX(3)"
+    },
+    "004": {
+        "092": "900 SPA_Gradius_MAX",
+        "093": "901 SPA_Gradius_MAX(1)",
+        "094": "902 SPA_Gradius_MAX(2)",
+        "099": "923 SPA_Dimachaerus",
+        "102": "926 SPA_Dimachaerus(1)",
+        "105": "929 SPA_Dimachaerus(2)",
+        "111": "936 SPA_Phalanx",
+        "112": "937 SPA_Phalanx(1)",
+        "113": "938 SPA_Phalanx(2)",
+        "117": "943 SPA_Quadriga",
+        "118": "944 SPA_Quadriga(1)",
+        "119": "945 SPA_Quadriga(2)",
+        "124": "952 SPA_Scutum_START",
+        "130": "900 SPA_Gradius_MAX",
+        "131": "901 SPA_Gradius_MAX(1)",
+        "132": "902 SPA_Gradius_MAX(2)",
+        "171": "1200 SAA1_MAX",
+        "173": "1208 SAA2_NGS",
+        "176": "1213 SAA3_NGS",
+        "179": "1217 SAA3_NGS(1)",
+        "182": "903 SPA_Gradius_MAX(3)",
+        "183": "932 SPA_Dimachaerus(3)",
+        "186": "939 SPA_Phalanx(3)",
+        "187": "946 SPA_Quadriga(3)",
+        "188": "969 SPA_Scutum_START(1)",
+        "189": "903 SPA_Gradius_MAX(3)"
+    },
+    "005": {
+        "001": "18 BAS_DASH_B",
+        "092": "900 SPA_Gradius_MAX",
+        "093": "901 SPA_Gradius_MAX(1)",
+        "094": "902 SPA_Gradius_MAX(2)",
+        "099": "923 SPA_Dimachaerus",
+        "102": "926 SPA_Dimachaerus(1)",
+        "105": "929 SPA_Dimachaerus(2)",
+        "111": "936 SPA_Phalanx",
+        "112": "937 SPA_Phalanx(1)",
+        "113": "938 SPA_Phalanx(2)",
+        "117": "943 SPA_Quadriga",
+        "118": "944 SPA_Quadriga(1)",
+        "119": "945 SPA_Quadriga(2)",
+        "124": "952 SPA_Scutum_START",
+        "130": "900 SPA_Gradius_MAX",
+        "131": "901 SPA_Gradius_MAX(1)",
+        "132": "902 SPA_Gradius_MAX(2)",
+        "149": "480 DPA_STD_START",
+        "161": "854 ATK_CTA",
+        "163": "850 ATK_CTA_4",
+        "171": "1200 SAA1_MAX",
+        "173": "1208 SAA2_NGS",
+        "175": "1213 SAA3_NGS",
+        "176": "1213 SAA3_NGS",
+        "178": "1217 SAA3_NGS(1)",
+        "179": "1217 SAA3_NGS(1)",
+        "182": "903 SPA_Gradius_MAX(3)",
+        "183": "932 SPA_Dimachaerus(3)",
+        "186": "939 SPA_Phalanx(3)",
+        "187": "946 SPA_Quadriga(3)",
+        "188": "969 SPA_Scutum_START(1)",
+        "189": "903 SPA_Gradius_MAX(3)"
+    },
+    "010": {
+        "150": "501 ATK_CTA_RUSH",
+        "151": "501 ATK_CTA_RUSH"
+    },
+    "011": {
+        "163": "850 ATK_CTA_4"
+    },
+    "012": {
+        "025": "645 ATK_8LP",
+        "026": "651 ATK_8LK",
+        "027": "646 ATK_8MP",
+        "029": "652 ATK_8MK",
+        "030": "648 ATK_8HP_MAX",
+        "031": "653 ATK_8HK_MAX",
+        "046": "657 ATK_82HP_MAX"
+    },
+    "015": {
+        "092": "900 SPA_Gradius_MAX",
+        "093": "901 SPA_Gradius_MAX(1)",
+        "094": "902 SPA_Gradius_MAX(2)",
+        "099": "923 SPA_Dimachaerus",
+        "102": "926 SPA_Dimachaerus(1)",
+        "105": "929 SPA_Dimachaerus(2)",
+        "111": "936 SPA_Phalanx",
+        "112": "937 SPA_Phalanx(1)",
+        "113": "938 SPA_Phalanx(2)",
+        "117": "943 SPA_Quadriga",
+        "118": "944 SPA_Quadriga(1)",
+        "119": "945 SPA_Quadriga(2)",
+        "130": "900 SPA_Gradius_MAX",
+        "131": "901 SPA_Gradius_MAX(1)",
+        "132": "902 SPA_Gradius_MAX(2)",
+        "146": "905 SPA_Gradius_M",
+        "147": "905 SPA_Gradius_M",
+        "149": "480 DPA_STD_START",
+        "155": "717 NGS",
+        "161": "854 ATK_CTA",
+        "171": "1200 SAA1_MAX",
+        "173": "1208 SAA2_NGS",
+        "176": "1213 SAA3_NGS",
+        "179": "1217 SAA3_NGS(1)",
+        "182": "903 SPA_Gradius_MAX(3)",
+        "183": "932 SPA_Dimachaerus(3)",
+        "186": "939 SPA_Phalanx(3)",
+        "187": "946 SPA_Quadriga(3)",
+        "189": "903 SPA_Gradius_MAX(3)",
+        "192": "1497 DEM_APPEAL_01"
+    },
+    "017": {
+        "171": "1200 SAA1_MAX",
+        "173": "1208 SAA2_NGS",
+        "176": "1213 SAA3_NGS",
+        "179": "1217 SAA3_NGS(1)",
+        "182": "903 SPA_Gradius_MAX(3)",
+        "183": "932 SPA_Dimachaerus(3)",
+        "186": "939 SPA_Phalanx(3)",
+        "187": "946 SPA_Quadriga(3)",
+        "189": "903 SPA_Gradius_MAX(3)",
+        "192": "1497 DEM_APPEAL_01"
+    },
+    "018": {
+        "119": "945 SPA_Quadriga(2)"
+    },
+    "024": {
+        "128": "964 SPA_Scutum_NGS"
+    },
+    "025": {
+        "188": "969 SPA_Scutum_START(1)"
+    },
+    "028": {
+        "149": "480 DPA_STD_START"
+    },
+    "032": {
+        "046": "657 ATK_82HP_MAX",
+        "092": "900 SPA_Gradius_MAX",
+        "093": "901 SPA_Gradius_MAX(1)",
+        "094": "902 SPA_Gradius_MAX(2)",
+        "099": "923 SPA_Dimachaerus",
+        "102": "926 SPA_Dimachaerus(1)",
+        "105": "929 SPA_Dimachaerus(2)",
+        "111": "936 SPA_Phalanx",
+        "112": "937 SPA_Phalanx(1)",
+        "113": "938 SPA_Phalanx(2)",
+        "117": "943 SPA_Quadriga",
+        "118": "944 SPA_Quadriga(1)",
+        "119": "945 SPA_Quadriga(2)",
+        "130": "900 SPA_Gradius_MAX",
+        "131": "901 SPA_Gradius_MAX(1)",
+        "132": "902 SPA_Gradius_MAX(2)",
+        "161": "854 ATK_CTA",
+        "171": "1200 SAA1_MAX",
+        "173": "1208 SAA2_NGS",
+        "176": "1213 SAA3_NGS",
+        "179": "1217 SAA3_NGS(1)",
+        "182": "903 SPA_Gradius_MAX(3)",
+        "183": "932 SPA_Dimachaerus(3)",
+        "186": "939 SPA_Phalanx(3)",
+        "187": "946 SPA_Quadriga(3)",
+        "189": "903 SPA_Gradius_MAX(3)"
+    },
+    "033": {
+        "171": "1200 SAA1_MAX",
+        "173": "1208 SAA2_NGS",
+        "176": "1213 SAA3_NGS",
+        "179": "1217 SAA3_NGS(1)"
+    },
+    "034": {
+        "050": "622 ATK_2LP_B",
+        "052": "634 ATK_2LK_B"
+    },
+    "035": {
+        "051": "623 ATK_2LP_C",
+        "053": "635 ATK_2LK_C"
+    },
+    "036": {
+        "050": "622 ATK_2LP_B",
+        "052": "634 ATK_2LK_B"
+    },
+    "037": {
+        "051": "623 ATK_2LP_C",
+        "053": "635 ATK_2LK_C"
+    },
+    "041": {
+        "067": "504 ATK_CTA_RUSH(1)",
+        "152": "504 ATK_CTA_RUSH(1)"
+    },
+    "045": {
+        "137": "953 SPA_Scutum_Loop",
+        "138": "953 SPA_Scutum_Loop",
+        "155": "717 NGS"
+    },
+    "050": {
+        "173": "1208 SAA2_NGS",
+        "175": "1213 SAA3_NGS",
+        "178": "1217 SAA3_NGS(1)"
+    },
+    "051": {
+        "175": "1213 SAA3_NGS",
+        "178": "1217 SAA3_NGS(1)"
+    },
+    "054": {
+        "004": "601 ATK_5LP_B"
+    },
+    "056": {
+        "055": "605 ATK_5MP_B"
+    },
+    "058": {
+        "013": "611 ATK_5HP_B"
+    },
+    "061": {
+        "035": "668 ATK_6MP_HP",
+        "036": "667 ATK_6MP_HK"
+    },
+    "063": {
+        "039": "674 ATK_6HK_B"
+    },
+    "065": {
+        "044": "681 ATK_3HP_B"
+    },
+    "068": {
+        "028": "647 ATK_8MP_B"
+    },
+    "079": {
+        "100": "924 SPA_Dimachaerus_B",
+        "101": "924 SPA_Dimachaerus_B"
+    },
+    "080": {
+        "103": "927 SPA_Dimachaerus_B(1)",
+        "104": "927 SPA_Dimachaerus_B(1)"
+    },
+    "081": {
+        "106": "930 SPA_Dimachaerus_B(2)",
+        "107": "930 SPA_Dimachaerus_B(2)"
+    },
+    "082": {
+        "184": "933 SPA_Dimachaerus_B(3)",
+        "185": "933 SPA_Dimachaerus_B(3)"
+    },
+    "085": {
+        "125": "958 SPA_Scutum_P",
+        "127": "962 SPA_Scutum_K",
+        "128": "964 SPA_Scutum_NGS"
+    },
+    "086": {
+        "126": "960 SPA_Scutum_P(2)"
+    },
+    "087": {
+        "135": "953 SPA_Scutum_Loop",
+        "136": "953 SPA_Scutum_Loop",
+        "137": "953 SPA_Scutum_Loop",
+        "138": "953 SPA_Scutum_Loop"
+    },
+    "088": {
+        "139": "970 SPA_Scutum_Loop(1)",
+        "140": "970 SPA_Scutum_Loop(1)",
+        "141": "970 SPA_Scutum_Loop(1)"
+    },
+    "098": {
+        "050": "622 ATK_2LP_B"
+    },
+    "099": {
+        "051": "623 ATK_2LP_C"
+    },
+    "120": {
+        "163": "850 ATK_CTA_4"
+    },
+    "123": {
+        "003": "600 ATK_5LP",
+        "005": "613 ATK_5LK",
+        "007": "604 ATK_5MP(1)",
+        "010": "615 ATK_5MK",
+        "012": "608 ATK_5HP_MAX",
+        "014": "617 ATK_5HK_MAX",
+        "017": "621 ATK_2LP",
+        "018": "633 ATK_2LK",
+        "019": "625 ATK_2MP",
+        "020": "637 ATK_2MK",
+        "021": "627 ATK_2HP_MAX",
+        "022": "639 ATK_2HK_MAX",
+        "034": "666 ATK_6MP",
+        "038": "671 ATK_6HK_MAX",
+        "041": "686 ATK_4HP_MAX",
+        "043": "678 ATK_3HP_MAX",
+        "092": "900 SPA_Gradius_MAX",
+        "093": "901 SPA_Gradius_MAX(1)",
+        "094": "902 SPA_Gradius_MAX(2)",
+        "099": "923 SPA_Dimachaerus",
+        "102": "926 SPA_Dimachaerus(1)",
+        "105": "929 SPA_Dimachaerus(2)",
+        "111": "936 SPA_Phalanx",
+        "112": "937 SPA_Phalanx(1)",
+        "113": "938 SPA_Phalanx(2)",
+        "117": "943 SPA_Quadriga",
+        "118": "944 SPA_Quadriga(1)",
+        "119": "945 SPA_Quadriga(2)",
+        "124": "952 SPA_Scutum_START",
+        "130": "900 SPA_Gradius_MAX",
+        "131": "901 SPA_Gradius_MAX(1)",
+        "132": "902 SPA_Gradius_MAX(2)",
+        "155": "717 NGS",
+        "161": "854 ATK_CTA",
+        "171": "1200 SAA1_MAX",
+        "173": "1208 SAA2_NGS",
+        "176": "1213 SAA3_NGS",
+        "179": "1217 SAA3_NGS(1)",
+        "182": "903 SPA_Gradius_MAX(3)",
+        "183": "932 SPA_Dimachaerus(3)",
+        "186": "939 SPA_Phalanx(3)",
+        "187": "946 SPA_Quadriga(3)",
+        "188": "969 SPA_Scutum_START(1)",
+        "189": "903 SPA_Gradius_MAX(3)"
+    }
+}

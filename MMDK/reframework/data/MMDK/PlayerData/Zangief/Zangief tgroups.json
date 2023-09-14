@@ -1,0 +1,320 @@
+{
+    "000": {
+        "000": "17 BAS_DASH_F",
+        "001": "18 BAS_DASH_B",
+        "002": "600 ATK_5LP",
+        "003": "611 ATK_5LK",
+        "004": "604 ATK_5MP",
+        "005": "613 ATK_5MK",
+        "006": "637 ATK_5HP_MAX",
+        "007": "615 ATK_5HK",
+        "010": "617 ATK_2LP",
+        "011": "627 ATK_2LK",
+        "012": "621 ATK_2MP",
+        "013": "631 ATK_2MK",
+        "014": "623 ATK_2HP",
+        "015": "684 ATK_2HK",
+        "029": "682 ATK_6MK",
+        "031": "662 ATK_6HK",
+        "033": "660 ATK_6HP",
+        "035": "678 ATK_22MK",
+        "039": "655 ATK_3MP",
+        "041": "633 ATK_3HK",
+        "079": "900 SPA_DLARIAT_END",
+        "082": "785 SPA_22HK_Idle",
+        "087": "1015 SPA_SUPLEX_NGS",
+        "093": "930 SPA_PILEDRIVER_NGS",
+        "094": "935 SPA_PILEDRIVER_NGS(1)",
+        "095": "940 SPA_PILEDRIVER_NGS(2)",
+        "107": "480 DPA_STD_START",
+        "113": "716 NGS_R(3)",
+        "125": "854 ATK_CTA",
+        "136": "1195 SAA_RUSSIASLAM_START",
+        "137": "1200 SAA_RUSSIASLAM_START(1)",
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)",
+        "154": "901 SPA_DLARIAT_END(1)",
+        "156": "1020 SPA_SUPLEX_NGS(1)",
+        "158": "945 SPA_PILEDRIVER_NGS(3)",
+        "166": "1497 DEM_APPEAL_01",
+        "172": "1100 _1100",
+        "177": "1104 _1104",
+        "181": "1111 _1111"
+    },
+    "001": {
+        "018": "640 ATK_8LP",
+        "019": "643 ATK_8LK",
+        "020": "641 ATK_8MP",
+        "021": "644 ATK_8MK",
+        "022": "642 ATK_8HP",
+        "023": "647 ATK_8HK_MAX",
+        "047": "692 ATK_82HP",
+        "090": "950 SPA_BORSCHT_NGS",
+        "157": "960 SPA_BORSCHT_NGS(1)"
+    },
+    "002": {
+        "018": "640 ATK_8LP",
+        "019": "643 ATK_8LK",
+        "020": "641 ATK_8MP",
+        "021": "644 ATK_8MK",
+        "022": "642 ATK_8HP",
+        "023": "647 ATK_8HK_MAX",
+        "047": "692 ATK_82HP",
+        "090": "950 SPA_BORSCHT_NGS",
+        "157": "960 SPA_BORSCHT_NGS(1)"
+    },
+    "003": {
+        "079": "900 SPA_DLARIAT_END",
+        "082": "785 SPA_22HK_Idle",
+        "087": "1015 SPA_SUPLEX_NGS",
+        "093": "930 SPA_PILEDRIVER_NGS",
+        "094": "935 SPA_PILEDRIVER_NGS(1)",
+        "095": "940 SPA_PILEDRIVER_NGS(2)",
+        "107": "480 DPA_STD_START",
+        "125": "854 ATK_CTA",
+        "136": "1195 SAA_RUSSIASLAM_START",
+        "137": "1200 SAA_RUSSIASLAM_START(1)",
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)",
+        "154": "901 SPA_DLARIAT_END(1)",
+        "156": "1020 SPA_SUPLEX_NGS(1)",
+        "158": "945 SPA_PILEDRIVER_NGS(3)"
+    },
+    "004": {
+        "031": "662 ATK_6HK",
+        "047": "692 ATK_82HP",
+        "079": "900 SPA_DLARIAT_END",
+        "082": "785 SPA_22HK_Idle",
+        "087": "1015 SPA_SUPLEX_NGS",
+        "093": "930 SPA_PILEDRIVER_NGS",
+        "094": "935 SPA_PILEDRIVER_NGS(1)",
+        "095": "940 SPA_PILEDRIVER_NGS(2)",
+        "136": "1195 SAA_RUSSIASLAM_START",
+        "137": "1200 SAA_RUSSIASLAM_START(1)",
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)",
+        "154": "901 SPA_DLARIAT_END(1)",
+        "156": "1020 SPA_SUPLEX_NGS(1)",
+        "158": "945 SPA_PILEDRIVER_NGS(3)"
+    },
+    "005": {
+        "001": "18 BAS_DASH_B",
+        "079": "900 SPA_DLARIAT_END",
+        "082": "785 SPA_22HK_Idle",
+        "087": "1015 SPA_SUPLEX_NGS",
+        "090": "950 SPA_BORSCHT_NGS",
+        "093": "930 SPA_PILEDRIVER_NGS",
+        "094": "935 SPA_PILEDRIVER_NGS(1)",
+        "095": "940 SPA_PILEDRIVER_NGS(2)",
+        "107": "480 DPA_STD_START",
+        "125": "854 ATK_CTA",
+        "136": "1195 SAA_RUSSIASLAM_START",
+        "137": "1200 SAA_RUSSIASLAM_START(1)",
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)",
+        "154": "901 SPA_DLARIAT_END(1)",
+        "156": "1020 SPA_SUPLEX_NGS(1)",
+        "158": "945 SPA_PILEDRIVER_NGS(3)"
+    },
+    "008": {
+        "093": "930 SPA_PILEDRIVER_NGS",
+        "094": "935 SPA_PILEDRIVER_NGS(1)",
+        "095": "940 SPA_PILEDRIVER_NGS(2)",
+        "140": "1218 SAA_ATOMICBUSTER_START",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "142": "1222 SAA_ATOMICBUSTER_START(1)",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)",
+        "158": "945 SPA_PILEDRIVER_NGS(3)"
+    },
+    "010": {
+        "108": "501 ATK_CTA_RUSH",
+        "109": "501 ATK_CTA_RUSH"
+    },
+    "011": {
+        "124": "850 ATK_CTA_4"
+    },
+    "012": {
+        "018": "640 ATK_8LP",
+        "019": "643 ATK_8LK",
+        "020": "641 ATK_8MP",
+        "021": "644 ATK_8MK",
+        "022": "642 ATK_8HP",
+        "023": "647 ATK_8HK_MAX",
+        "044": "657 ATK_88HP",
+        "047": "692 ATK_82HP",
+        "090": "950 SPA_BORSCHT_NGS",
+        "157": "960 SPA_BORSCHT_NGS(1)"
+    },
+    "015": {
+        "079": "900 SPA_DLARIAT_END",
+        "082": "785 SPA_22HK_Idle",
+        "087": "1015 SPA_SUPLEX_NGS",
+        "093": "930 SPA_PILEDRIVER_NGS",
+        "094": "935 SPA_PILEDRIVER_NGS(1)",
+        "095": "940 SPA_PILEDRIVER_NGS(2)",
+        "107": "480 DPA_STD_START",
+        "113": "716 NGS_R(3)",
+        "125": "854 ATK_CTA",
+        "136": "1195 SAA_RUSSIASLAM_START",
+        "137": "1200 SAA_RUSSIASLAM_START(1)",
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)",
+        "154": "901 SPA_DLARIAT_END(1)",
+        "156": "1020 SPA_SUPLEX_NGS(1)",
+        "158": "945 SPA_PILEDRIVER_NGS(3)",
+        "166": "1497 DEM_APPEAL_01"
+    },
+    "017": {
+        "136": "1195 SAA_RUSSIASLAM_START",
+        "137": "1200 SAA_RUSSIASLAM_START(1)",
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)",
+        "156": "1020 SPA_SUPLEX_NGS(1)",
+        "158": "945 SPA_PILEDRIVER_NGS(3)",
+        "166": "1497 DEM_APPEAL_01"
+    },
+    "018": {
+        "154": "901 SPA_DLARIAT_END(1)"
+    },
+    "019": {
+        "090": "950 SPA_BORSCHT_NGS",
+        "157": "960 SPA_BORSCHT_NGS(1)"
+    },
+    "021": {
+        "157": "960 SPA_BORSCHT_NGS(1)"
+    },
+    "024": {
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)"
+    },
+    "027": {
+        "107": "480 DPA_STD_START"
+    },
+    "032": {
+        "071": "504 ATK_CTA_RUSH(1)",
+        "079": "900 SPA_DLARIAT_END",
+        "082": "785 SPA_22HK_Idle",
+        "087": "1015 SPA_SUPLEX_NGS",
+        "093": "930 SPA_PILEDRIVER_NGS",
+        "094": "935 SPA_PILEDRIVER_NGS(1)",
+        "095": "940 SPA_PILEDRIVER_NGS(2)",
+        "111": "504 ATK_CTA_RUSH(1)",
+        "125": "854 ATK_CTA",
+        "136": "1195 SAA_RUSSIASLAM_START",
+        "137": "1200 SAA_RUSSIASLAM_START(1)",
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)",
+        "154": "901 SPA_DLARIAT_END(1)",
+        "156": "1020 SPA_SUPLEX_NGS(1)",
+        "158": "945 SPA_PILEDRIVER_NGS(3)"
+    },
+    "033": {
+        "136": "1195 SAA_RUSSIASLAM_START",
+        "137": "1200 SAA_RUSSIASLAM_START(1)",
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)"
+    },
+    "034": {
+        "059": "601 ATK_5LP_B",
+        "061": "618 ATK_2LP_B",
+        "063": "628 ATK_2LK_B"
+    },
+    "035": {
+        "060": "602 ATK_5LP_C",
+        "062": "619 ATK_2LP_C",
+        "064": "629 ATK_2LK_C"
+    },
+    "036": {
+        "059": "601 ATK_5LP_B",
+        "061": "618 ATK_2LP_B",
+        "063": "628 ATK_2LK_B"
+    },
+    "037": {
+        "060": "602 ATK_5LP_C",
+        "062": "619 ATK_2LP_C",
+        "064": "629 ATK_2LK_C"
+    },
+    "038": {
+        "059": "601 ATK_5LP_B",
+        "065": "618 ATK_2LP_B"
+    },
+    "041": {
+        "090": "950 SPA_BORSCHT_NGS",
+        "157": "960 SPA_BORSCHT_NGS(1)"
+    },
+    "045": {
+        "113": "716 NGS_R(3)"
+    },
+    "050": {
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)"
+    },
+    "051": {
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)"
+    },
+    "070": {
+        "050": "605 ATK_5MP_TC"
+    },
+    "071": {
+        "051": "606 ATK_5MP_END"
+    },
+    "073": {
+        "036": "679 ATK_22MK_TC"
+    },
+    "074": {
+        "037": "680 ATK_22MK_END"
+    },
+    "095": {
+        "071": "504 ATK_CTA_RUSH(1)",
+        "111": "504 ATK_CTA_RUSH(1)"
+    },
+    "099": {
+        "124": "850 ATK_CTA_4"
+    },
+    "102": {
+        "002": "600 ATK_5LP",
+        "003": "611 ATK_5LK",
+        "004": "604 ATK_5MP",
+        "005": "613 ATK_5MK",
+        "006": "637 ATK_5HP_MAX",
+        "007": "615 ATK_5HK",
+        "010": "617 ATK_2LP",
+        "011": "627 ATK_2LK",
+        "012": "621 ATK_2MP",
+        "013": "631 ATK_2MK",
+        "014": "623 ATK_2HP",
+        "015": "684 ATK_2HK",
+        "029": "682 ATK_6MK",
+        "031": "662 ATK_6HK",
+        "033": "660 ATK_6HP",
+        "035": "678 ATK_22MK",
+        "039": "655 ATK_3MP",
+        "041": "633 ATK_3HK",
+        "079": "900 SPA_DLARIAT_END",
+        "082": "785 SPA_22HK_Idle",
+        "087": "1015 SPA_SUPLEX_NGS",
+        "093": "930 SPA_PILEDRIVER_NGS",
+        "094": "935 SPA_PILEDRIVER_NGS(1)",
+        "095": "940 SPA_PILEDRIVER_NGS(2)",
+        "113": "716 NGS_R(3)",
+        "125": "854 ATK_CTA",
+        "136": "1195 SAA_RUSSIASLAM_START",
+        "137": "1200 SAA_RUSSIASLAM_START(1)",
+        "139": "1206 SAA_SLARIAT",
+        "141": "1218 SAA_ATOMICBUSTER_START",
+        "143": "1222 SAA_ATOMICBUSTER_START(1)",
+        "154": "901 SPA_DLARIAT_END(1)",
+        "156": "1020 SPA_SUPLEX_NGS(1)",
+        "158": "945 SPA_PILEDRIVER_NGS(3)"
+    }
+}

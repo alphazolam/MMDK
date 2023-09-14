@@ -1,4 +1,4 @@
-# MMDK - Moveset Mod Development Kit
+# MMDK - MMDK Development Kit
 
 MMDK is a [REFramework](https://github.com/praydog/REFramework) script and mod development kit for creating and researching Lua moveset mods in Street Fighter 6. It creates a dictionary of all the relevant data needed to mod movesets for each fighter, along with functions and methods to change and add-to various aspects of the moves, and then allows you to edit this dictionary at the start of each match using a Lua file.
 
@@ -14,7 +14,7 @@ MMDK allows for full moveset modding including adding entirely new moves with ne
 ## Usage
 
 1. Open REFramework's main window by pressing **Insert** (default)
-2. Navigate to '`Script Generated UI`' and open the Moveset Mod menu
+2. Navigate to '`Script Generated UI`' and open the MMDK menu
 3. Here you can enable and disable the automatic modification of specific characters by the mod's fighter Lua files, and set the visibility of the Moveset Research window
 
 ## The Street Fighter Battle System
@@ -43,7 +43,7 @@ MMDK allows for full moveset modding including adding entirely new moves with ne
 
 ## The 'Moveset Research' Window
 
-Under REFramework `Script Generated UI`, Moveset Mod features a checkbox to enable a Moveset Research window. This window will appear during a match and allow you to trigger moves from the fighter's list, seek across the frames of their move, play in slow motion (or reverse), and seek frame by frame. It can also preview animations and sound effects, among other things. 
+Under REFramework `Script Generated UI`, MMDK features a checkbox to enable a Moveset Research window. This window will appear during a match and allow you to trigger moves from the fighter's list, seek across the frames of their move, play in slow motion (or reverse), and seek frame by frame. It can also preview animations and sound effects, among other things. 
 
 ![image](https://i.imgur.com/56LRPki.png)
 
@@ -56,7 +56,7 @@ Download [EMV Engine + Console](https://github.com/alphazolam/EMV-Engine) to see
 
 # Scripting Fighter Lua Files
 
-Moveset Mod provides a lua file for each fighter by name, under `reframework/autorun/MovesetMod`. These files each contain a function called `apply_moveset_changes`, which is automatically run when the character is enabled in the mod and they are detected in a match.
+MMDK provides a lua file for each fighter by name, under `reframework/autorun/MMDK`. These files each contain a function called `apply_moveset_changes`, which is automatically run when the character is enabled in the mod and they are detected in a match.
 
 Within this function, you have access to many useful tables and objects from the battle system for the context of modding that character's moveset, all contained in the **`data`** parameter. **`data`** is a lua class, and it has several attached methods that facilitate adding new objects such as Actions, VFX, and Triggers to the moveset.
 
@@ -86,7 +86,7 @@ Then check out the [REFramework guide](https://cursey.github.io/reframework-book
 
 ## Functions.lua
 
-Functions.lua is included with Moveset Mod and is shared among all its scripts by Lua's 'require' function. Its functions can be accessed through the table **`fn`**, by default. Check the source code for a description of each function, provided in comments. Some useful functions being:
+Functions.lua is included with MMDK and is shared among all its scripts by Lua's 'require' function. Its functions can be accessed through the table **`fn`**, by default. Check the source code for a description of each function, provided in comments. Some useful functions being:
 - **edit_obj** - takes a RE Managed object and a table of fields / properties vs values in which to change, and changes them
 - **append_to_list** - takes a RE Managed Object 'Generic.Dictionary'object and adds a new element to it, then returns the incremented list
 - **append_key** - Takes a RE Engine System.Collections.Generic.List object, a string KeyType, and a table of field names vs values and adds a new instance of that key to the list object while applying the fields table to it as changes
@@ -104,6 +104,53 @@ local ATK_5LP = moves_by_name["ATK_5LP"] --Light punch
 local ATK_5LP = moves_by_id[600] --Light punch
 ```
 
+#### Getting a move from another character
+```lua
+local ryu = data:get_simple_fighter_data("Ryu")
+local ryu_moves_by_id = ryu.moves_dict.By_ID
+local ryu_ATK_5HK = ryu_moves_by_id[617]
+```
+
+
+#### Editing damage data:
+```lua
+--ATK_5LP
+
+for attack_idx, dmg_tbl in pairs(ATK_5LP.dmg) do
+    --Only going through dmg params for standing and crouching:
+	for i, param_idx in ipairs(hit_types.s_c_only) do
+		--Use 'to_isvec2' to save special isvec2 Vector2 fields like FloorDest
+		edit_obj(dmg_tbl.param[param_idx], {DmgType=11, MoveType=15,  JuggleLimit=15, JuggleAdd=1, FloorDest=to_isvec2(50, 80)})
+		
+		--or you can save fields one at a time:
+		dmg_tbl.param[tbl_idx].DmgType = 11
+		dmg_tbl.param[tbl_idx].MoveType = 15
+		dmg_tbl.param[tbl_idx].JuggleLimit = 15
+		dmg_tbl.param[tbl_idx].JuggleAdd = 1
+		write_valuetype(dmg_tbl.param[tbl_idx], "FloorDest", to_isvec2(50, 80)) --This is required when assigning oddball ValueTypes like isvec2 to fields
+	end
+end
+```
+
+#### Adding a new triggers to an ActionID and to different TriggerGroups
+Triggers control when a move is executed. They contain button presses and commands, as well as other requirements for doing the move. A move can have multiple independent triggers.
+TriggerGroups (also known as Cancel Lists) are lists of triggers that can only execute at a specific time, such as during the end of a different move (like a hit in a combo). 
+A TriggerKey gives a frame range during a move in which the triggers in its TriggerGroup can be triggered. 
+TriggerGroups also have priorities, this is determined by the Trigger's ID; its order in the Triggers list.
+```lua
+local new_trigs, new_trig_ids = data:add_triggers(18, 599, {10}, 112)
+    for id, trig in pairs(new_trigs_by_id) do
+        edit_obj(trig, {focus_need=1, focus_consume=5000, category_flags=1048476, function_id=3, })
+    end
+    local new_trigs2, new_trig_ids2 = data:add_triggers(663, 599, {30, 45}, 96)
+	--Edit new triggers to new inputs:
+    for id, trig in pairs(new_trigs_by_id2) do
+        edit_obj(trig, {focus_need=1, focus_consume=5000, category_flags=1048476, function_id=3})
+        edit_obj(trig.norm, {ok_key_flags=0, dc_exc_flags=(inputs.MP + inputs.MK + inputs.BACK), ok_key_cond_flags=16512})
+    end
+end
+```
+
 #### Adding a TriggerKey:
 ```lua
 if not ATK_5LP.TriggerKey.list._items[3] then --This will not append if there are already more than the default 3 keys
@@ -117,59 +164,66 @@ if not ATK_5LP.fab.Keys[6]._items[3] then --ATK_5LP.fab.Keys[6] is the same list
 end
 ```
 
-#### Editing damage data:
-```lua
--- A special 'isvec2' ValueType that can be reused to save isvec2 fields:
-local vec2_FloorDest = ValueType.new(sdk.find_type_definition("nAction.isvec2"))
 
-...
-
---ATK_5LP
-vec2_FloorDest:call(".ctor", 50, 80) --Assign [50, 80] to the isvec2
-
-for attack_idx, dmg_tbl in pairs(ATK_5LP.dmg) do
-    --Only going through dmg params for standing and crouching:
-	for i, param_idx in ipairs(hit_types.s_c_only) do
-		edit_obj(dmg_tbl.param[param_idx], {DmgType=11, MoveType=15,  JuggleLimit=15, JuggleAdd=1, FloorDest=vec2_FloorDest})
-		
-		--or you can save fields one at a time:
-		dmg_tbl.param[tbl_idx].DmgType = 11
-		dmg_tbl.param[tbl_idx].MoveType = 15
-		dmg_tbl.param[tbl_idx].JuggleLimit = 15
-		dmg_tbl.param[tbl_idx].JuggleAdd = 1
-		write_valuetype(dmg_tbl.param[tbl_idx], "FloorDest", vec2_FloorDest) --This is required when assigning oddball ValueTypes like isvec2 to fields
-	end
-end
-
-```
 #### Editing a single BCM.TRIGGER object:
 ```lua
 edit_obj(ATK_5LP.trigger[1], {category_flags=1048476, function_id=3})
 ```
 
+
 #### Adding a new action
 
-Search MovesetMod.lua for more information about these functions, as they are a part of the `data` class defined there
-```
-if not moves_by_id[905] then
-    --Clone action ID #608 to a new action with ID #905:
-    RYU_ACTION.NEW_5HP = data:clone_action(608, 905)
-    
-    --Clone all triggers for Action #615 and add them to Action #608, then optionally add to TriggerGroup 0 with an optional target TriggerGroup ID of 118:
-    local new_trigs_by_id, new_trig_ids = data:clone_triggers(615, 939, {0}, 118)
-    
-    --Clone a VFX from RYU_ACTION.DRIVE_RUSH_CANCEL to ContainerID #530 as new ElementID #30, then add it to RYU_ACTION.NEW_5HP as a clone of RYU_ACTION.DRIVE_RUSH_CANCEL's 1st VfxKey:
-    local new_vfx = data:clone_vfx(RYU_ACTION.DRIVE_RUSH_CANCEL.vfx[2], 530, 30, RYU_ACTION.NEW_5HP, RYU_ACTION.DRIVE_RUSH_CANCEL.VfxKey[0])
-    
-    --Load an EFX file from anywhere and assign it as the effect that will be used for the new VFX:
-    new_vfx:setResources(0, fn.create_resource("via.effect.EffectResource", "product/vfx/character/fgm/esf016/effecteditor/efd_10_esf016_1612_36.efx"))
+Search MMDK.lua for more information about these functions, as they are a part of the `data` class defined there
+```lua
+local ATK_D_KICK_L = data:clone_action(ryu_moves_by_id[1025], 939)
+if ATK_D_KICK_L then
+	local move = ATK_D_KICK_L
+	--100604 is Ryu's original bankID, so his original MotionKeys will work without edit:
+	data:add_dynamic_motionbank("Product/Animation/esf/esf001/v00/motionlist/SpecialSkill/esf001v00_SpecialSkill_04.motlist", 100604) 
+	
+	local new_hit_dt_tbl, new_attack_key = data:clone_dmg(ryu_moves_by_id[1025].dmg[181], 1337, move, nil, #move.AttackCollisionKey-1)
+	--edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=1000, DmgType=11, MoveTime=24, MoveType=13, HitStopOwner=20, HitStopTarget=20, MoveDest=to_isvec2(200, 70), JuggleLimit=10, HitStun=20, SndPower=4, HitmarkStrength=3})
+	
+	--Create a new HitRect16 and add it to the new AttackCollisionKey
+	local new_hit_rect = data:add_rect_to_col_key(new_attack_key, "BoxList", 451, 0)
+	edit_obj(new_hit_rect, {OffsetX=80, OffsetY=121, SizeX=54, SizeY=23})
+	
+	--The old action had a bunch of extra STRIKE AttackCollisionKeys, so set them to all use the new hitbox rect ID
+	for i, atk_key in ipairs(move.AttackCollisionKey) do
+		if atk_key.AttackDataListIndex ~= -1 then
+			atk_key.AttackDataListIndex = 1337
+			atk_key.BoxList[0] = sdk.create_int32(451)
+		end
+	end
+	
+	--Create custom hurtbox for the kicking leg:
+	local new_hurt_rect = data:add_rect_to_col_key(move.DamageCollisionKey[2], "LegList", 777, 0)
+	edit_obj(new_hurt_rect, {OffsetX=77, OffsetY=127, SizeX=48, SizeY=27})
+	
+	--Clone all triggers for Action #615 and add them to Action #939, then optionally add to TriggerGroup 0 with an optional target TriggerGroup ID of 118:
+	local new_trigs_by_id, new_trig_ids = data:clone_triggers(615, 939, {0}, 118)
+	
+	for id, trig in pairs(new_trigs_by_id) do
+		--Add a new Command as Command #29 (was free), then change the 0th element and give it button IDs back, forward with conditions 2,2, set some fields and give it to the new created trigger(s) with 'new_trig_ids':
+		local new_cmds = data:add_command(29, 0, {inputs.BACK, inputs.FORWARD}, {2, 2}, {11, 11}, {total_frame=-1}, new_trig_ids)
+		trig.norm.ok_key_flags = inputs.LK --Change the button input to LK
+		copy_fields(trig.norm, trig.sprt) --For modern controls
+	end
+	
+	--Copy effects from an existing Ken action 
+	clone_list_items(moves_by_id[922].SEKey.list, move.SEKey.list)
+	clone_list_items(moves_by_id[922].VoiceKey.list, move.VoiceKey.list)
+	clone_list_items(moves_by_id[922].VfxKey.list, move.VfxKey.list)
+	
+	move.VoiceKey.list[0].SoundID = 10115 --SEYUH!
 end
 ```
 
-## Tips
+## Scripting Tips
+- After cloning an action, you can usually copy+paste the code block to create it and edit it a little to create a new action. You can clone things created from the new action to the newer one.
+- Use [EMV Engine](https://github.com/alphazolam/EMV-Engine) with the Moveset Research window to see what's available to edit. The contents shown under `[Lua Data]` are Lua tables exactly as you can access them from the `data` parameter.
+- Search for function descriptions in MMDK.lua and functions.lua if you are confused about how to use them
 
-- Use EMV Engine with the Moveset Research window to see what's available to edit. The contents shown under `[Lua Data]` are Lua tables exactly as you can access them from the `data` parameter.
-- The Moveset Research window can be used to view moves and their keys frame-by-frame and in slow motion
 
 ## Credits
 Thanks to Killbox for testing and praydog for creating REFramework
