@@ -5,6 +5,15 @@ local mod_version = 1.0
 local mod_author = "alphaZomega"
 
 
+local tbls = require("MMDK\\tables") 
+
+--Check tables.lua to see what's inside these:
+local hit_types = tbls.hit_types
+local characters = tbls.characters
+local cat_flags = tbls.cat_flags
+local inputs = tbls.inputs
+
+
 local fn = require("MMDK\\functions") 
 
 --Check functions.lua for descriptions of most of these:
@@ -12,34 +21,38 @@ local append_key = fn.append_key
 local append_to_array = fn.append_to_array
 local append_to_list = fn.append_to_list
 local append_trigger_key = fn.append_trigger_key
+local can_index = fn.can_index
 local clear_list = fn.clear_list
 local clone = fn.clone
 local clone_array = fn.clone_array
 local clone_list_items = fn.clone_list_items
-local clone_list_items = fn.clone_list_items
+local copy_array = fn.copy_array
 local copy_fields = fn.copy_fields
 local create_poslist = fn.create_poslist
 local create_resource = fn.create_resource
 local edit_hit_dt_tbl = fn.edit_hit_dt_tbl
 local edit_obj = fn.edit_obj
 local edit_objs = fn.edit_objs
+local extend_list = fn.extend_list
 local find_index = fn.find_index
 local find_key = fn.find_key
 local getC = fn.getC
 local get_enum = fn.get_enum
-local get_enumerator = fn.get_enumerator
 local get_unique_name = fn.get_unique_name
-local inputs = fn.inputs
+local insert_array = fn.insert_array
+local insert_list = fn.insert_list
 local lua_get_array = fn.lua_get_array
 local lua_get_dict = fn.lua_get_dict
+local lua_get_enumerable = fn.lua_get_enumerable
 local merge_tables = fn.merge_tables
 local read_sfix = fn.read_sfix
 local to_isvec2 = fn.to_isvec2
 local to_sfix = fn.to_sfix
 local write_valuetype = fn.write_valuetype
 
+
 --Table of indexes into the param of a HIT_DT_TBL, labelled by their purpose
-local hit_types = {
+hit_types = {
 	s_c_only = {0, 1}, -- Stand+Crouch
 	s_c_counter_only = {8, 9}, -- counter hit Stand+Crouch
 	s_c_punish_only = {12, 13}, -- punish Stand+Crouch
@@ -70,6 +83,11 @@ local hit_types = {
 	},
 }
 
+local function imgui_options()
+	local changed, wc
+	--Mod options for this mod in the main MMDK menu will be displayed from this function
+end
+
 --This function runs on match start:
 local function apply_moveset_changes(data)
 	print(os.clock() .. " Running MMDK function for " .. data.name .. "\n	" .. mod_name .. " v" .. mod_version .. ((mod_author~="" and " by " .. mod_author) or ""))	
@@ -79,7 +97,7 @@ local function apply_moveset_changes(data)
 	local moves_by_name = data.moves_dict.By_Name
 	
 	--Fetch a basic copy of Ryu's move dict
-	local ryu = data:get_simple_fighter_data("Ryu")
+	local ryu = PlayerData:get_simple_fighter_data("Ryu")
 	local ryu_moves_by_id = ryu.moves_dict.By_ID
 	
 	
@@ -92,9 +110,11 @@ local function apply_moveset_changes(data)
 		local new_hit_dt_tbl, new_attack_key = data:clone_dmg(ryu_moves_by_id[1025].dmg[181], 1337, move, nil, #move.AttackCollisionKey-1)
 		--edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=1000, DmgType=11, MoveTime=24, MoveType=13, HitStopOwner=20, HitStopTarget=20, MoveDest=to_isvec2(200, 70), JuggleLimit=10, HitStun=20, SndPower=4, HitmarkStrength=3})
 		
+		--Create a new HitRect16 and add it to the new AttackCollisionKey
 		local new_hit_rect = data:add_rect_to_col_key(new_attack_key, "BoxList", 451, 0)
 		edit_obj(new_hit_rect, {OffsetX=80, OffsetY=121, SizeX=54, SizeY=23})
 		
+		--The old action had a bunch of extra STRIKE AttackCollisionKeys, so set them to all use the new hitbox rect ID
 		for i, atk_key in ipairs(move.AttackCollisionKey) do
 			if atk_key.AttackDataListIndex ~= -1 then
 				atk_key.AttackDataListIndex = 1337
@@ -107,9 +127,9 @@ local function apply_moveset_changes(data)
 		edit_obj(new_hurt_rect, {OffsetX=77, OffsetY=127, SizeX=48, SizeY=27})
 		
 		--Clone all triggers for Action #615 and add them to Action #939, then optionally add to TriggerGroup 0 with an optional target TriggerGroup ID of 118:
-		local new_trigs_by_id, new_trig_ids = data:clone_triggers(615, 939, {0}, 118)
+		local new_triggers, new_trig_ids = data:clone_triggers(615, 939, {0}, 118)
 		
-		for id, trig in pairs(new_trigs_by_id) do
+		for i, trig in ipairs(new_triggers) do
 			--Add a new Command as Command #29 (was free), then change the 0th element and give it button IDs back, forward with conditions 2,2, set some fields and give it to the new created trigger(s) with 'new_trig_ids':
 			local new_cmds = data:add_command(29, 0, {inputs.BACK, inputs.FORWARD}, {2, 2}, {11, 11}, {total_frame=-1}, new_trig_ids)
 			trig.norm.ok_key_flags = inputs.LK --Change the button input to LK
@@ -120,6 +140,7 @@ local function apply_moveset_changes(data)
 		clone_list_items(moves_by_id[922].SEKey.list, move.SEKey.list)
 		clone_list_items(moves_by_id[922].VoiceKey.list, move.VoiceKey.list)
 		clone_list_items(moves_by_id[922].VfxKey.list, move.VfxKey.list)
+		
 		move.VoiceKey.list[0].SoundID = 10115 --SEYUH!
 	end
 	
@@ -138,8 +159,8 @@ local function apply_moveset_changes(data)
 			end
 		end
 	
-		local new_trigs_by_id, new_trig_ids = data:clone_triggers(939, 940, {0}, 118)
-		for id, trig in pairs(new_trigs_by_id) do
+		local new_triggers, new_trig_ids = data:clone_triggers(939, 940, {0}, 118)
+		for i, trig in ipairs(new_triggers) do
 			trig.norm.ok_key_flags = inputs.MK
 			copy_fields(trig.norm, trig.sprt)
 		end
@@ -166,8 +187,8 @@ local function apply_moveset_changes(data)
 			end
 		end
 	
-		local new_trigs_by_id, new_trig_ids = data:clone_triggers(939, 941, {0}, 118)
-		for id, trig in pairs(new_trigs_by_id) do
+		local new_triggers, new_trig_ids = data:clone_triggers(939, 941, {0}, 118)
+		for i, trig in ipairs(new_triggers) do
 			trig.norm.ok_key_flags = inputs.HK
 			copy_fields(trig.norm, trig.sprt)
 		end
@@ -194,8 +215,8 @@ local function apply_moveset_changes(data)
 			end
 		end
 	
-		local new_trigs_by_id, new_trig_ids = data:clone_triggers(939, 942, {0}, 136)
-		for id, trig in pairs(new_trigs_by_id) do
+		local new_triggers, new_trig_ids = data:clone_triggers(939, 942, {0}, 136)
+		for i, trig in ipairs(new_triggers) do
 			edit_obj(trig.norm, {ok_key_flags=(inputs.HK + inputs.LK + inputs.MK), ok_key_cond_flags=82016, attribute=4})
 			edit_obj(trig, {focus_need=1, focus_consume=20000, category_flags=536887298})
 			copy_fields(trig.norm, trig.sprt)

@@ -1,6 +1,6 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6 -- Shared Functions
 -- By alphaZomega
--- September 6, 2023
+-- September 19, 2023
 
 local enums = {}
 
@@ -28,7 +28,7 @@ local function recurse_def_settings(tbl, defaults_tbl)
 			else
 				tbl[key] = value
 			end
-		elseif type(value) == "table" then
+		elseif type(value) == "table" and value[1] == nil then --no indexed tables
 			tbl[key] = recurse_def_settings(tbl[key], value)
 		end
 	end
@@ -46,19 +46,31 @@ local function get_unique_name(start_name, used_names_list)
 	return nm
 end
 
+--Display a tooltip over the last imgui element
+local function tooltip(text)
+	if imgui.is_item_hovered() then
+		imgui.set_tooltip(text)
+	end
+end
+
+--Test if a lua variable can be indexed
+local function can_index(lua_object)
+	local mt = getmetatable(lua_object)
+	return (not mt and type(lua_object) == "table") or (mt and (not not mt.__index))
+end
+
 --Gets a SystemArray, List or WrappedArrayContainer:
-local function lua_get_array(sys_array, allow_empty)
-	if not sys_array then return (allow_empty and {}) end
-	sys_array = sys_array.mItems or sys_array._items or sys_array
+local function lua_get_array(src_obj, allow_empty)
+	if not src_obj then return (allow_empty and {}) end
+	src_obj = src_obj.mItems or src_obj._items or src_obj
 	local system_array
-	local is_wrap = (sys_array:get_type_definition():get_name():sub(1,12) == "WrappedArray")
-	if is_wrap or sys_array.get_Count then
+	if src_obj.get_Count then
 		system_array = {}
-		for i=1, sys_array:call("get_Count") do
-			system_array[i] = sys_array[i-1]
+		for i=1, src_obj:call("get_Count") do
+			system_array[i] = src_obj:get_Item(i-1)
 		end
 	end
-	system_array = system_array or sys_array.get_elements and sys_array:get_elements() 
+	system_array = system_array or src_obj.get_elements and src_obj:get_elements() 
 	return (allow_empty and system_array) or (system_array and system_array[1] and system_array)
 end
 
@@ -98,7 +110,7 @@ local function get_true_array_sz(system_array)
 	return #system_array
 end
 
-local clone
+local clone --Defined below
 
 --Makes a duplicate of an array at size 'new_array_sz' of type 'td_name'
 local function clone_array(re_array, new_array_sz, td_name, do_copy_only)
@@ -131,9 +143,9 @@ local function clear_list(list)
 end
 
 --Adds elements from array_b to the end of array_a
-local function extend_array(array_a, array_b)
+local function extend_array(array_a, array_b, new_sz)
 	local size_a = #array_a
-	local new_arr = copy_array(array_a, size_a + #array_b)
+	local new_arr = copy_array(array_a, new_sz or (size_a + #array_b))
 	for i, item in pairs(array_b) do
 		new_arr[size_a+i] = item
 	end
@@ -147,7 +159,7 @@ local function extend_list(list_a, list_b)
 end
 
 --Adds one new blank item to a SystemArray; can be passed the array or a string typename if the array doesnt yet exist
-local function append_to_array(re_array, new_item)
+local function append_to_array(re_array, new_item, fields)
 	
 	if type(re_array) == "string" then 
 		re_array =  sdk.create_managed_array(re_array, 0):add_ref()
@@ -165,6 +177,10 @@ local function append_to_array(re_array, new_item)
 		end
 	end
 	
+	if fields then
+		edit_obj(new_item, fields)
+	end
+	
 	return new_array, sz
 end
 
@@ -174,21 +190,65 @@ local function append_to_list(list, new_item)
 	return list._size, new_item
 end
 
---Find the index containing a value (or value as a field) in a table
+--Inserts an element or a table/System.Array of elements ('array_or_elem_b') into a System.Array 'array_a' at position 'insert_idx'
+local function insert_array(array_a, array_or_elem_b, insert_idx)
+	local insert_elems = (type(array_or_elem_b)=="table" or tostring(type(array_or_elem_b)):find("Array")) and merge_tables({}, array_or_elem_b) or {array_or_elem_b}
+	if insert_idx then 
+		local insert_sz = get_table_size(insert_elems)
+		local new_arr = sdk.create_managed_array(array_a:get_type_definition():get_full_name():gsub("%[%]", ""), insert_sz + #array_a):add_ref()
+		local ctr = 0
+		for i=0, insert_idx-1 do
+			new_arr[ctr] = array_a[i]; ctr=ctr+1
+		end
+		for i, insert_elem in pairs(insert_elems) do
+			new_arr[ctr] = insert_elem; ctr=ctr+1
+		end
+		for i=insert_idx, #array_a-1 do
+			new_arr[ctr] = array_a[i]; ctr=ctr+1
+		end
+		return new_arr
+	end
+	return extend_array(array_a, insert_elems)
+end
+
+--Inserts an element or a table/System.Array/Generic.List of elements ('list_b') into a Generic.List 'list_a' at position 'insert_idx'
+local function insert_list(list_a, list_b, insert_idx)
+	list_b = can_index(list_b) and list_b._items or list_b
+	list_a._items = insert_array(list_a._items, list_b, insert_idx)
+	list_a._size = get_true_array_sz(list_a._items)
+end
+
+--Find the index of a value (or key/value) in a list table
 local function find_index(tbl, value, key)
 	if key ~= nil then 
 		for i, item in ipairs(tbl) do
-			if item[key] == value then
-				return i
-			end
+			if item[key] == value then return i end
 		end
 	else
 		for i, item in ipairs(tbl) do
-			if item == value then
-				return i
-			end
+			if item == value then return i end
 		end
 	end
+end
+
+--Check if a table has an element that is a given value or has a given key/value pair, and get the key for that element
+local function find_key(tbl, value, key)
+	if key ~= nil then
+		for k, subtbl in pairs(tbl) do
+			if subtbl and subtbl[key] == value then return k end
+		end
+	else
+		for k, v in pairs(tbl) do
+			if v == value then return k end
+		end
+	end
+end
+
+--Turn a list of keys into a dictionary
+local function set(list)
+	local set = {}
+	for i, v in ipairs(list) do set[v] = true end
+	return set
 end
 
 --Combines elements of table B into table A
@@ -207,23 +267,6 @@ local function extend_table(table_a, table_b, unique_only)
 		end
 	end
 	return table_a
-end
-
---Check if a table of objects has an object with a given key/value pair, and get the key for that object
-local function find_key(tbl, value, key)
-	if key then
-		for k, subtbl in pairs(tbl) do
-			if subtbl and subtbl[key] == value then
-				return k
-			end
-		end
-	else
-		for k, v in pairs(tbl) do
-			if v == value then
-				return k
-			end
-		end
-	end
 end
 
 --Converts a float to a via.sfix
@@ -300,7 +343,7 @@ local function getC(gameobj, component_name)
 end
 
 --Gets a table from a System.Collections.Generic.IEnumerable
-local function get_enumerable(m_obj, o_tbl)
+local function lua_get_enumerable(m_obj)
 	if pcall(sdk.call_object_func, m_obj, ".ctor", 0) then
 		local elements = {}
 		local fields = m_obj:get_type_definition():get_fields()
@@ -316,6 +359,135 @@ local function get_enumerable(m_obj, o_tbl)
 	end
 end
 
+--Gets a format string for 'string.format' that will give all numeric keys the number of leading zeroes necessary to be alphabetically sorted (when converted to strings by json.dump_file)
+local function get_fmt_string(tbl)
+	local zeroes_ct = 0
+	for key, value in pairs(tbl) do
+		local len = tonumber(key) and tostring(tonumber(key)):len()
+		if len and len > zeroes_ct then zeroes_ct = len end
+	end
+	return "%0"..zeroes_ct.."d"
+end
+
+--Converts a REManagedObject or a Lua table with REManagedObjects into a pure Lua table for json.dump_file
+local function convert_to_json_tbl(tbl_or_object, max_layers, skip_arrays, skip_collections, skip_method_objs)
+	
+	max_layers = max_layers or 15
+	local xyzw = {"x", "y", "z", "w"}
+	local found_objs = {}
+	local fms = {}
+	
+	local function get_fields_and_methods(typedef)
+		local name = typedef:get_full_name()
+		if fms[name] then return fms[name][1], fms[name][2] end
+		local fields, methods = typedef:get_fields(), typedef:get_methods()
+		local parent_type = typedef:get_parent_type()
+		while parent_type and parent_type:get_full_name() ~= "System.Object" and parent_type:get_full_name() ~= "System.ValueType" do
+			for i, field in ipairs(parent_type:get_fields()) do
+				table.insert(fields, field)
+			end
+			for i, method in ipairs(parent_type:get_methods()) do
+				table.insert(methods, method)
+			end
+			parent_type = parent_type:get_parent_type()
+		end
+		fms[name] = {fields, methods}
+		return fields, methods
+	end
+	
+	local function get_non_null_value(value)
+		if value ~= nil and json.dump_string(value) ~= "null" then return value end
+	end
+	
+	local function recurse(obj, layer_no)
+		if layer_no < max_layers and not found_objs[obj] then
+			found_objs[obj] = true
+			local new_tbl = {}
+			if type(obj) == "table" then
+				local fmt_string = get_fmt_string(obj)
+				for name, field in pairs(obj) do
+					local num = tonumber(name) 
+					local jname = (num and string.format(fmt_string, num)) or name
+					new_tbl[jname] = get_non_null_value(((type(field)=="table" or type(field)=="userdata") and recurse(field, layer_no + 1)) or field)
+				end
+			elseif not obj.get_type_definition and obj.x then --Vector3f etc
+				for i, name in ipairs(xyzw) do
+					new_tbl[name] = obj[name]
+					if new_tbl[name] == nil then break end
+				end
+			else
+				local td = obj:get_type_definition()
+				local td_name = td:get_full_name()
+				local parent_vt = td:is_value_type()
+				if td:is_a("System.Array") then
+					if not skip_arrays then
+						local elem_td, is_obj
+						local fmt_string = get_fmt_string(obj)
+						for i, elem in pairs(obj) do
+							local element = obj:get_Item(i)
+							if element == nil then break end
+							elem_td = elem_td or (elem and elem:get_type_definition())
+							is_obj = is_obj or elem_td and (type(element) == "userdata" and (elem_td:is_value_type() or sdk.is_managed_object(element)) and not parent_vt)
+							element = (is_obj and element.add_ref and element:add_ref()) or element
+							new_tbl[string.format(fmt_string, i)] = get_non_null_value((is_obj and recurse(element, layer_no + 1)) or element)
+						end
+					end
+				elseif td_name:find("via%.[Ss]fix") then
+					return read_sfix(obj)
+				elseif td:get_field("x") then --ValueTypes with xyzw
+					local xtype = td:get_field("x"):get_type()
+					for i, name in ipairs(xyzw) do
+						new_tbl[name] = obj[name]
+						if new_tbl[name] == nil then break end
+						if xtype:is_a("via.sfix") then new_tbl[name] = new_tbl[name]:ToFloat() end
+					end
+				elseif td:is_value_type() and obj["ToString()"] and pcall(obj["ToString()"], obj) then
+					return obj:call("ToString()")
+				elseif obj.mValue then
+					return obj.mValue
+				elseif obj.v then
+					return obj.v
+				elseif td_name:find("Collections") or td_name:find("WrappedArray") then
+					if skip_collections then return end
+					if td_name:find("Dict") then
+						return get_non_null_value(recurse(lua_get_dict(obj), layer_no + 1))
+					elseif td_name:find("List") or td_name:find("WrappedArray") then
+						return get_non_null_value(recurse(lua_get_array(obj, true), layer_no + 1))
+					elseif td:get_method("GetEnumerator") then
+						return get_non_null_value(recurse(lua_get_enumerable(obj:GetEnumerator()), layer_no + 1))
+					end
+				else
+					local fields, methods = get_fields_and_methods(td)
+					for i, field in ipairs(fields) do
+						local name = field:get_name()
+						if not field:is_static() and name:sub(1,2) ~= "<>" and name ~= "_object" then
+							local try, fdata = pcall(field.get_data, field, obj)
+							local should_recurse = try and type(fdata) == "userdata" and (field:get_type():is_value_type() or sdk.is_managed_object(fdata))
+							new_tbl[field:get_name()] = try and get_non_null_value(((should_recurse and recurse(fdata, layer_no + 1)) or fdata))
+						end
+					end
+					for i, method in ipairs(methods) do
+						if not method:is_static() and method:get_num_params() == 0 and method:get_name():find("[Gg]et") == 1 and not method:get_return_type():is_a("via.Component") then
+							local try, mdata = pcall(method.call, method, obj)
+							if try and mdata ~= nil then
+								if not skip_method_objs and sdk.is_managed_object(mdata) and (obj[method:get_name():gsub("[Gg]et", "set")] or obj[method:get_name():gsub("[Gg]et", "Set")]) then
+									new_tbl[method:get_name():gsub("[Gg]et", "")] = get_non_null_value(recurse(mdata:add_ref(), layer_no + 1) or mdata)
+								else
+									new_tbl[method:get_name():gsub("[Gg]et", "")] = get_non_null_value(mdata) 
+								end
+							end
+						end
+					end
+				end
+			end
+			return get_non_null_value(new_tbl)
+		end
+	end
+	
+	local is_recursable = (type(tbl_or_object)=="table" or type(tbl_or_object)=="userdata")
+	return get_non_null_value(is_recursable and recurse(tbl_or_object, 0) or tbl_or_object)
+end
+
 --Create a resource
 local function create_resource(resource_type, resource_path)
 	local new_resource = resource_path and sdk.create_resource(resource_type, resource_path)
@@ -328,17 +500,25 @@ end
 local function edit_obj(obj, fields)
 	local td = obj:get_type_definition()
     for name, value in pairs(fields) do
+		local field = td:get_field(name)
 		if value == "nil" then value = nil end
 		if obj["set"..name] ~= nil then --Methods
 			obj:call("set"..name, value) 
         elseif type(value) == "userdata" and value.type and tostring(value.type):find("RETypeDef") then --valuetypes
 			write_valuetype(obj, name, value) 
-        elseif type(value) == "table" then--All other fields
-			if tostring(obj[name]):find("REMana") then
-				obj[name] = edit_obj(obj[name], value)
+		elseif field then --All other fields
+			if type(value) == "table" then
+				local str_name = tostring(obj[name])
+				if str_name:find("REMana") then --or str_name:find("ValueType") then
+					obj[name] = edit_obj(obj[name], value)
+				end
+			elseif type(value) == "string" and field:get_type():is_value_type() and field:get_type():get_method(".ctor(System.String)") then
+				local new_val = ValueType.new(field:get_type())
+				new_val:call(".ctor(System.String)", value)
+				write_valuetype(obj, name, new_val)
+			else
+				obj[name] = value
 			end
-		elseif td:get_field(name) then
-			obj[name] = value
         end
     end
 	return obj
@@ -351,7 +531,7 @@ local function edit_objs(objs, fields)
 	end
 end
 
---Copy fields from one object to another without cloning, optionally overriding with fields from 'override_fields':
+--Copy TDB fields from one object to another without cloning, optionally only copying with fields from 'selected_fields':
 local function copy_fields(src_obj, target_obj, selected_fields)
 	for i, field in ipairs(target_obj:get_type_definition():get_fields()) do
 		local name = field:get_name()
@@ -370,14 +550,14 @@ local function copy_fields_to_objs(src_obj, target_objs, selected_fields)
 end
 
 -- Make a duplicate of a managed object
-clone = function(m_obj, fields)
+clone = function(m_obj, fields, do_clone_props)
 
-	local new_obj = m_obj:MemberwiseClone():add_ref() -- I love memory leaks
+	local new_obj = m_obj:MemberwiseClone():add_ref()
 	local td = new_obj:get_type_definition()
 	
 	for i, field in ipairs(new_obj:get_type_definition():get_fields()) do
 		local data =  not field:is_static() and new_obj[field:get_name()]
-		if data and sdk.is_managed_object(data) then
+		if type(data) == "userdata" and sdk.is_managed_object(data) then
 			if data:get_type_definition():is_a("System.Array") then
 				new_obj[field:get_name()] = clone_array(data)
 			elseif not data:get_type_definition():get_full_name():match("<(.+)>") then
@@ -385,16 +565,18 @@ clone = function(m_obj, fields)
 			end
 		end
 	end
-	--[[for i, method in ipairs(td:get_methods()) do
-		local name = method:get_name()
-		local set_method = (name:find("[Gg]et") == 1) and td:get_method(name:gsub("get", "set"):gsub("Get", "Set"))
-		if set_method and set_method:get_num_params() == 1 and not set_method:is_static() and not method:get_return_type():is_a("System.Array") and not method:get_return_type():get_full_name():match("<(.+)>") then
-			local data = method:call(new_obj)
-			if data and sdk.is_managed_object(data) and not data:get_type_definition():is_a("System.Array") and not data:get_type_definition():get_full_name():match("<(.+)>") then
-				set_method:call(new_obj, clone(data))
+	if do_clone_props then
+		for i, method in ipairs(td:get_methods()) do
+			local name = method:get_name()
+			local set_method = not method:is_static() and (method:get_num_params() == 0) and (name:find("[Gg]et") == 1) and td:get_method(name:gsub("get", "set"):gsub("Get", "Set"))
+			if set_method and set_method:get_num_params() == 1 and not method:get_return_type():is_a("System.Array") and not method:get_return_type():get_full_name():match("<(.+)>") then
+				local data = method:call(new_obj)
+				if data and sdk.is_managed_object(data) then
+					set_method:call(new_obj, clone(data))
+				end
 			end
 		end
-	end]]
+	end
 	if fields then
 		edit_obj(new_obj, fields)
 	end
@@ -459,107 +641,17 @@ local function create_poslist(positions_by_frame)
 	return new_poslist
 end
 
---Converts a REManagedObject or a Lua table with REManagedObjects into a pure Lua table for json.dump_file
-local function convert_to_json_tbl(tbl_or_object, max_layers, no_arrays)
-	
-	max_layers = max_layers or 15
-	local xyzw = {"x", "y", "z", "w"}
-	local found_objs = {}
-	local fms = {}
-	
-	local function get_fields_and_methods(typedef)
-		local name = typedef:get_full_name()
-		if fms[name] then return fms[name][1], fms[name][2] end
-		local fields, methods = typedef:get_fields(), typedef:get_methods()
-		local parent_type = typedef:get_parent_type()
-		while parent_type and parent_type:get_full_name() ~= "System.Object" do
-			for i, field in ipairs(parent_type:get_fields()) do
-				table.insert(fields, field)
-			end
-			for i, method in ipairs(parent_type:get_methods()) do
-				table.insert(methods, method)
-			end
-			parent_type = parent_type:get_parent_type()
-		end
-		fms[name] = {fields, methods}
-		return fields, methods
+--Edit one of a BCM.COMMAND's BCM.INPUTs, using a fields table for 'normal' and an optional fields table for regular BCM.INPUT fields
+--Charge and Rotate not yet supported
+local function edit_command_input(bcm_command, input_idx, norm_fields, input_fields)
+	local input = bcm_command.inputs[input_idx]
+	local normal, charge, rotate = input.normal, input.charge, input.rotate
+	if input_fields then edit_obj(input, input_fields) end
+	if norm_fields then 
+		edit_obj(normal, norm_fields) 
+		write_valuetype(input, "normal", normal)
 	end
-	
-	local function get_non_null_value(value)
-		if value ~= nil and json.dump_string(value) ~= "null" then return value end
-	end
-	
-	local function recurse(obj, layer_no)
-		if layer_no < max_layers then
-			if not found_objs[obj] then
-				found_objs[obj] = true
-				local new_tbl = {}
-				if type(obj) == "table" then
-					if not obj.fab then
-						new_tbl = merge_tables(new_tbl, obj)
-						for name, field in pairs(new_tbl) do
-							new_tbl[name] = get_non_null_value(((type(field)=="table" or type(field)=="userdata") and recurse(field, layer_no + 1)) or field)
-						end
-					end
-				elseif not obj.get_type_definition and obj.x then --Vector3f etc
-					for i, name in ipairs(xyzw) do
-						new_tbl[name] = obj[name]
-						if new_tbl[name] == nil then break end
-					end
-				else
-					local td = obj:get_type_definition()
-					local parent_vt = td:is_value_type()
-					if td:is_a("System.Array") then
-						if not no_arrays then
-							local elem_td, is_obj
-							local fmt_string = "%0"..tostring(#obj):len().."d"
-							for i, elem in pairs(obj) do
-								local element = obj:get_Item(i)
-								if element == nil then break end
-								elem_td = elem_td or (elem and elem:get_type_definition())
-								is_obj = is_obj or elem_td and (type(element) == "userdata" and (elem_td:is_value_type() or sdk.is_managed_object(element)) and not parent_vt)
-								element = (is_obj and element.add_ref and element:add_ref()) or element
-								new_tbl[string.format(fmt_string, i)] = get_non_null_value((is_obj and recurse(element, layer_no + 1)) or element)
-							end
-						end
-					elseif td:get_full_name():find("via%.[Ss]fix") then
-						return read_sfix(obj)
-					elseif td:get_field("x") then --ValueTypes with xyzw
-						local xtype = td:get_field("x"):get_type()
-						for i, name in ipairs(xyzw) do
-							new_tbl[name] = obj[name]
-							if new_tbl[name] == nil then break end
-							if xtype:is_a("via.sfix") then new_tbl[name] = new_tbl[name]:ToFloat() end
-						end
-					elseif obj.mValue then
-						return obj.mValue
-					elseif obj.v then
-						return obj.v
-					elseif not td:get_full_name():find("Collections") then
-						local fields, methods = get_fields_and_methods(td)
-						for i, field in ipairs(fields) do
-							local name = field:get_name()
-							if not field:is_static() and name:sub(1,2) ~= "<>" and name ~= "_object" then
-								local try, fdata = pcall(field.get_data, field, obj)
-								local should_recurse = try and not parent_vt and type(fdata) == "userdata" and (field:get_type():is_value_type() or sdk.is_managed_object(fdata))
-								new_tbl[field:get_name()] = try and get_non_null_value(((should_recurse and recurse(fdata, layer_no + 1)) or fdata))
-							end
-						end
-						for i, method in ipairs(methods) do
-							if not method:is_static() and method:get_num_params() == 0 and method:get_name():find("[Gg]et") == 1 then
-								local try, mdata = pcall(method.call, method, obj)
-								new_tbl[method:get_name():gsub("[Gg]et", "")] = try and get_non_null_value(mdata) --mdata and sdk.is_managed_object(mdata) and not parent_vt and recurse(mdata, layer_no + 1) or mdata)
-							end
-						end
-					end
-				end
-				return get_non_null_value(new_tbl)
-			end
-		end
-	end
-	
-	local is_recursable = (type(tbl_or_object)=="table" or type(tbl_or_object)=="userdata")
-	return get_non_null_value(is_recursable and recurse(tbl_or_object, 0) or tbl_or_object)
+	bcm_command.inputs[input_idx] = input
 end
 
 
@@ -593,51 +685,7 @@ local function edit_worldkey(action, keyindex, append, fields)
     edit_obj(list[keyindex], fields)
 end
 
---Table of indexes into the param of a HIT_DT_TBL, labelled by their purpose
-local hit_types = {
-	s_c_only = {0, 1}, -- Stand+Crouch
-	s_c_counter_only = {8, 9}, -- counter hit Stand+Crouch
-	s_c_punish_only = {12, 13}, -- punish Stand+Crouch
-	groundhit_only = {0, 1, 8, 9, 12, 13}, -- ALL ground hit + CH + PC
-	airhit_only = {2, 10, 14}, -- all air hit + CH + PC
-	all_counter = {8, 9, 10, 11}, -- Stand+Crouch+Air+Otg
-	all_punish = {12, 13, 14, 15}, -- Stand+Crouch+Air+Otg
-	allblock = {16, 17, 18, 19},
-	allhit = {0, 1, 2, 8, 9, 10, 11, 12, 13, 14, 15}, -- all_air + allground
-	hit = {
-		stand = 0,
-		crouch = 1,
-		air = 2,
-		otg = 3,
-		unk = 4,
-		counter_stand = 8,
-		counter_crouch = 9,
-		counter_air = 10,
-		counter_otg = 11,
-		punish_stand = 12,
-		punish_crouch = 13,
-		punish_air = 14,
-		punish_otg = 15,
-		block_stand = 16,
-		block_crouch = 17,
-		block_air = 18,
-		block_otg = 19
-	},
-}
-
-local inputs = {
-	NEUTRAL = 0,
-	UP = 1,
-	DOWN = 2,
-	BACK = 4, 
-	FORWARD = 8,
-	LP = 16,
-	MP = 32,
-	HP = 64,
-	LK = 128,
-	MK = 256,
-	HK = 512,
-}
+local tables = require("MMDK\\tables")
 
 fn = {
 	append_key = append_key,
@@ -648,6 +696,7 @@ fn = {
 	as_sfix2 = as_sfix2,
 	as_sfix3 = as_sfix3,
 	as_sfix4 = as_sfix4,
+	can_index = can_index,
 	clear_list = clear_list,
 	clone = clone,
 	clone_array = clone_array,
@@ -655,16 +704,16 @@ fn = {
 	convert_to_json_tbl = convert_to_json_tbl,
 	copy_array = copy_array,
 	copy_fields = copy_fields,
+	copy_fields_to_objs = copy_fields_to_objs,
 	create_poslist = create_poslist,
 	create_resource = create_resource,
+	edit_command_input = edit_command_input,
 	edit_hit_dt_tbl = edit_hit_dt_tbl,
 	edit_hitdata = edit_hitdata,
 	edit_key = edit_obj, --alias
 	edit_obj = edit_obj, 
 	edit_objs = edit_objs,
 	edit_steerkey = edit_steerkey,
-	edit_tgroup = edit_tgroup,
-	edit_tgrp_dict = edit_tgrp_dict,
 	edit_triggerkey = edit_triggerkey,
 	edit_worldkey = edit_worldkey,
 	extend_array = extend_array,
@@ -674,18 +723,22 @@ fn = {
 	find_key = find_key,
 	getC = getC,
 	get_enum = get_enum,
-	get_enumerable = get_enumerable,
+	get_fmt_string = get_fmt_string,
 	get_table_size = get_table_size,
 	get_unique_name = get_unique_name,
-	hit_types = hit_types,
-	inputs = inputs,
+	hit_types = tables.hit_types, --backup
+	inputs = tables.inputs, --backup
+	insert_array = insert_array,
+	insert_list = insert_list,
 	lua_get_array = lua_get_array, 
 	lua_get_dict = lua_get_dict,
+	lua_get_enumerable = lua_get_enumerable,
 	merge_tables = merge_tables,
 	read_sfix = read_sfix,
 	recurse_def_settings = recurse_def_settings,
 	to_isvec2 = to_isvec2,
 	to_sfix = to_sfix,
+	tooltip = tooltip,
 	write_valuetype = write_valuetype,
 }
 
