@@ -54,7 +54,7 @@ local default_options = {
 	no_parry = true,
 	no_perfect_parry = false,
 }
-local options = fn.recurse_def_settings(json.load_file("MMDK\\Hide Effects.json") or {}, default_options)
+local options = fn.recurse_def_settings(json.load_file("MMDK\\No Parry.json") or {}, default_options)
 
 local function imgui_options()
 	local changed, wc
