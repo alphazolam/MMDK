@@ -166,8 +166,9 @@ local function append_to_array(re_array, new_item, fields)
 	end
 	local sz = 0
 	local td_name = re_array:get_type_definition():get_full_name():gsub("%[%]", "")
-	local new_array = sdk.create_managed_array(td_name, re_array:get_size()+1):add_ref()
-	for i, item in pairs(new_array) do 
+	local new_array = sdk.create_managed_array(td_name, re_array:get_Count()+1):add_ref()
+	
+	for i=0, new_array:get_Count() - 1 do 
 		if re_array[i] ~= nil then
 			new_array[i] = re_array[i] 
 		else 
@@ -626,7 +627,7 @@ local function create_poslist(positions_by_frame)
 	local last_pos, sorted_frames_ctr, num_interp_frames, interp_slice = 0, 0, 0, 0
 	local next_frame = sorted_frames[1]
 	
-	for i, sfix in pairs(new_poslist) do
+	for i=0, new_poslist:get_Count() - 1 do
 		if positions_by_frame[i] then
 			last_pos = positions_by_frame[i]
 			sorted_frames_ctr = sorted_frames_ctr + 1

@@ -1,10 +1,12 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6
 -- By alphaZomega
--- September 19, 2023
-local version = "1.0.3"
+-- January 26, 2024
+local version = "1.0.4"
 
 player_data = {}
 tmp_fns = {}
+engines = {}
+persons = {}
 
 local ran_once = false
 local can_setup = false
@@ -27,17 +29,15 @@ local scene = sdk.call_native_func(sdk.get_native_singleton("via.SceneManager"),
 local speed_sfix = sdk.find_type_definition("via.sfix"):get_field("Zero"):get_data(nil)
 local minfo = sdk.create_instance("via.motion.MotionInfo"):add_ref()
 
+
 local mot_fns = {}
 local cached_names = {}
 local common_move_dict = {}
-engines = {}
 local last_ri = {}
 local moveset_functions = {}
 local spawned_projectiles = {}
 local tooltips = {}
-persons = {}
 local chara_list = {}
-
 
 local fn = require("MMDK\\functions")
 
@@ -85,6 +85,7 @@ end
 
 --Cache all person.FABs
 tmp_fns.add_chars = function()
+	tmp_fns.add_chars = nil
 	add_person(0)
 	for chara_id, chara_name in pairs(characters) do 
 		add_person(chara_id)
@@ -175,8 +176,14 @@ PlayerData = {
 	--Cache of PlayerData instances for unspawned characters:
 	simple_fighter_data = {},
 	
+	--Cache of json files for moves_dicts
+	cached_moves_dicts = {},
+	
 	--Accessor for 'persons'
 	persons = persons,
+	
+	--MMDK version as number with no decimals
+	version = tonumber(({version:gsub("%.", "")})[1]),
 	
 	--Create a new instance of this Lua class:
 	new = function(self, player_index, do_make_dict, data)
@@ -507,26 +514,11 @@ PlayerData = {
 		end
 	end,
 	
-	--Dumps a json file of this data's moves_dict. 'moves_dict' and 'path' are optional
-	dump_moves_dict_json = function(self, path, moves_dict)
-		local json_data = {}
-		local bad_fnames = {guest=1, owner=1, box=1, dmg=1, tgroups=1, branches=1, projectiles=1, trigger=1, branch_parents=1, vfx=1}
-		for mname, move_tbl in pairs(moves_dict or self.moves_dict.By_Name) do
-			json_data[mname] = {name=move_tbl.name, id=move_tbl.id}
-			for fname, field in pairs(move_tbl) do
-				if type(field) ~= "table" or not bad_fnames[fname] then
-					json_data[mname][fname] = convert_to_json_tbl(field, nil, false, (fname=="fab"))
-				end
-			end
-		end
-		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " moves_dict.json", json_data)
-	end,
-	
 	--Dumps a json file of this PlayerData's hit_datas. 'hit_datas' and 'path' are optional
 	dump_hit_dt_json = function(self, path, hit_datas)
 		hit_datas = hit_datas or self.hit_datas
 		hit_datas = (type(hit_datas)=="table" and hit_datas) or lua_get_dict(hit_datas)
-		local hit_json = convert_to_json_tbl(hit_datas)
+		local hit_json = convert_to_json_tbl(hit_datas, nil, nil, nil, true)
 		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " HIT_DT.json", hit_json)
 	end,
 	
@@ -572,6 +564,46 @@ PlayerData = {
 			end
 		end
 		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " rects.json", rect_json)
+	end,
+	
+	--Dumps a json file of this data's moves_dict. 'moves_dict' and 'path' are optional
+	dump_moves_dict_json = function(self, path, moves_dict)
+		local json_data = {}
+		local bad_fnames = {guest=1, owner=1, box=1, dmg=1, tgroups=1, branches=1, projectiles=1, trigger=1, branch_parents=1, vfx=1}
+		for mname, move_tbl in pairs(moves_dict or self.moves_dict.By_Name) do
+			json_data[mname] = {name=move_tbl.name, id=move_tbl.id}
+			for fname, field in pairs(move_tbl) do
+				if type(field) ~= "table" or not bad_fnames[fname] then
+					json_data[mname][fname] = convert_to_json_tbl(field, nil, false, (fname=="fab"))
+				end
+			end
+		end
+		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " moves_dict.json", json_data)
+		return json_data
+	end,
+	
+	--Retrieves an unmodified moves dict from a json file or from cache, and creates it if its not there (or creates all missing moves dicts):
+	get_moves_dict_json = function(self, chara_name, path, collect_all)
+		chara_name = chara_name or self.name
+		path = path or "MMDK\\PlayerData\\" .. chara_name .. "\\".. chara_name .." moves_dict.json"
+		if self.cached_moves_dicts[chara_name] then return self.cached_moves_dicts[chara_name] end
+		local f = io.open("MMDK\\PlayerData\\" .. chara_name .. "\\".. chara_name .." moves_dict.json", "r")
+		if f == nil then
+			if collect_all then
+				re.msg("Moves Dict not found! Dumping action data for all characters, this may take a minute...")
+				for ch_id, ch_name in pairs(characters) do
+					self:get_moves_dict_json(ch_name, nil, false)
+				end
+			else
+				local tmp_data = self:get_simple_fighter_data(chara_name)
+				self.cached_moves_dicts[chara_name] = tmp_data:dump_moves_dict_json(path)
+			end
+		else
+			io.close(f)
+		end
+		self.cached_moves_dicts[chara_name] = self.cached_moves_dicts[chara_name] or (collect_all ~= false and json.load_file(path))
+		
+		return self.cached_moves_dicts[chara_name]
 	end,
 	
 	--Clone a FAB.ACTION 'old_id_or_obj' into a new available HIT_DT_TBL with 'new_id'. Returns a MMDK action object
@@ -774,7 +806,8 @@ PlayerData = {
 		return self:clone_triggers(old_id_or_trigs or {sdk.create_instance("BCM.TRIGGER"):add_ref()}, new_id, tgroup_idxs, max_priority, true)
 	end,
 	
-	--Clone a HIT_DT_TBL with 'old_hit_id_or_dt' into a new available HIT_DT_TBL with 'new_hit_id'. Use action_obj to add it to a MMDK action object
+	--Clone a HIT_DT_TBL as 'old_hit_id_or_dt' into a new available HIT_DT_TBL with ID 'new_hit_id'. Use 'action_obj' to add it to a MMDK action object.
+	--Use 'src_key' to provied an existing key as the basis for the returned key,  and 'target_key_index' to assign it to a specific index in the key list
 	clone_dmg = function(self, old_hit_id_or_dt, new_hit_id, action_obj, src_key, target_key_index) 
 		
 		local old_hit_dt_tbl = ((type(old_hit_id_or_dt)=="userdata") and old_hit_id_or_dt) or self.hit_datas[old_hit_id_or_dt]
@@ -874,12 +907,13 @@ PlayerData = {
 						for j, hit_dt in pairs(param_tbl) do
 							local hdt_obj = sdk.create_instance("nBattle.HIT_DT"):add_ref()
 							sdata.hit_datas[tonumber(id)][p_name][tonumber(j)] = hdt_obj
-							for name, field_value in pairs(hit_dt) do
+							for i, field in ipairs(hdt_obj:get_type_definition():get_fields()) do
+								local field_value = hit_dt[name]
 								if type(field_value) == "table" then
 									isvec2:call(".ctor(System.Int16, System.Int16)", field_value.x, field_value.y)
-									write_valuetype(hdt_obj, name, isvec2)
+									write_valuetype(hdt_obj, field:get_name(), isvec2)
 								else
-									hdt_obj[name] = field_value
+									hdt_obj[field:get_name()] = field_value
 								end
 							end
 						end
@@ -1088,12 +1122,16 @@ local function collect_banks(ri)
 					local name = motionbank:get_MotionList(); name = name and name:ToString():match("^.+%[.+/(.+)%.motlist%]")
 					if name then
 						ri.mixed_banks[bank_id] = ri.mixed_banks[bank_id] or {name=name}
+						local unique_banks = {}
 						for k=0, ri.motion:getMotionCount(bank_id) - 1 do
 							ri.motion:call("getMotionInfoByIndex(System.UInt32, System.UInt32, via.motion.MotionInfo)", bank_id, k, minfo)
+							
 							table.insert(ri.all_mots, {bank=bank_id, id=minfo:get_MotionID(), name=minfo:get_MotionName():gsub("esf%d%d%d_", ""):gsub("_En", ""):gsub("FCE_", ""), 
 								num_frames=minfo:get_MotionEndFrame(), key=bank_id.." "..minfo:get_MotionID()})
 							ri.all_mots.dict[ri.all_mots[#ri.all_mots].name] = ri.all_mots[#ri.all_mots]
-							ri.mixed_banks[bank_id][minfo:get_MotionID()] = ri.all_mots[#ri.all_mots].name
+							local u_name = get_unique_name(ri.all_mots[#ri.all_mots].name, unique_banks)
+							ri.mixed_banks[bank_id][minfo:get_MotionID()] = u_name
+							unique_banks[u_name] = true
 						end
 					end
 				end
@@ -1151,15 +1189,15 @@ re.on_frame(function()
 				return nil
 			end
 			
-			local ri = data.research_info or {time_last_clicked=os.clock(), data=data, other_data=other_data}
-			last_ri = ri
-			data.research_info = ri
-			
 			if not other_data or not next(other_data.moves_dict.By_ID) then
 				imgui.end_window()
 				set_player_data(other_p_idx)
 				return nil
 			end
+			
+			local ri = data.research_info or {time_last_clicked=os.clock(), data=data, other_data=other_data}
+			last_ri = ri
+			data.research_info = ri
 			
 			changed, mmsettings.research_p2 = imgui.checkbox("P2", mmsettings.research_p2); set_wc()  
 			tooltip("View P2\n	Hotkey:    " .. hk.get_button_string("Switch P1/P2"))
@@ -1416,7 +1454,14 @@ re.on_frame(function()
 					
 					imgui.same_line()
 					pressed_pause = pressed_pause or imgui.button(ri.motion:get_PlayState() == 1 and "Play" or "Pause")
-				
+					
+					if ri.do_facial_anims then
+						local changed, face_blend_rate = imgui.slider_float("Animation Rate", ri.layers[1]:get_BlendRate(), 0, 1.0)
+						if changed then 
+							ri.layers[1]:set_BlendRate(face_blend_rate)
+						end
+					end
+					
 					local set = imgui.button("Set")
 					imgui.same_line()
 					imgui.push_id(123)
@@ -1447,6 +1492,9 @@ re.on_frame(function()
 						end
 					end
 					
+					changed, ri.anim_filter_txt = imgui.input_text("Filter", ri.anim_filter_txt)
+					local filter = (ri.anim_filter_txt ~= "") and ri.anim_filter_txt:lower()
+					
 					local mnode, cbank_id, cmot_id, cmot_name = ri.layers[1]:get_HighestWeightMotionNode() or ri.layers[1]:getMotionNode(0)
 					if mnode then
 						cbank_id, cmot_id, cmot_name = mnode:get_MotionBankID(), mnode:get_MotionID(), mnode:get_MotionName()
@@ -1471,6 +1519,8 @@ re.on_frame(function()
 					imgui.begin_rect(); imgui.begin_rect()
 					imgui.begin_child_window(nil, false, 0)
 					
+					
+					
 					for i, bank_id in pairs_mth(ri.sorted_banks or {}) do
 						local bank_tbl = ri.mixed_banks[bank_id]
 						if not bank_tbl then return end
@@ -1479,7 +1529,7 @@ re.on_frame(function()
 							imgui.begin_rect()
 							local ctr, chara_ctr = 0, 0
 							for motion_id, mot_name in pairs_mth(bank_tbl) do
-								if type(motion_id) == "number" then
+								if type(motion_id) == "number" and (not filter or mot_name:lower():find(filter)) then
 									ctr = ctr + 1; chara_ctr = chara_ctr + mot_name:len()
 									if ctr % 5 ~= 1 and chara_ctr < 70 then imgui.same_line() else ctr, chara_ctr = 1, 0 end
 									local is_playing = (cbank_id==bank_id and cmot_id==motion_id) 
@@ -1647,7 +1697,7 @@ re.on_frame(function()
 						end
 						imgui.spacing()
 						
-						if imgui.tree_node("Action data") then
+						if imgui.tree_node("Action Data") then
 							imgui.begin_rect()
 							EMV.read_imgui_element(move)
 							imgui.end_rect(2)
@@ -1848,6 +1898,20 @@ re.on_draw_ui(function()
 			was_changed = true
 		end
 		
+		imgui.same_line()
+		if imgui.button("Refresh Mods") then
+			mmsettings.fighter_options = recurse_def_settings(mmsettings.fighter_options, default_mmsettings.fighter_options)
+			for char_name, mod_list in pairs(default_mmsettings.fighter_options) do
+				local new_order = {}
+				for mod_name, mod_settings in pairs(mod_list) do
+					table.insert(new_order, mod_name)
+				end
+				table.sort(new_order)
+				mmsettings.fighter_options[char_name].ordered = new_order
+			end
+			was_changed = true
+		end
+		
 		changed, mmsettings.enabled = imgui.checkbox("Autorun", mmsettings.enabled); set_wc()
 		tooltip("Enable/Disable automatic modification of fighter movesets")
 		
@@ -1857,7 +1921,7 @@ re.on_draw_ui(function()
 		changed, mmsettings.p2_hud = imgui.checkbox("Modify P2 HUD", mmsettings.p2_hud); set_wc() 
 		tooltip("Changes P2 HUD to blue when modded")
 		
-		if imgui.tree_node("Enabled mods") then
+		if imgui.tree_node("Mods") then
 			imgui.begin_rect()
 			for i, chara_name in ipairs(chara_list) do
 				changed, mmsettings.fighter_options[chara_name].enabled = imgui.checkbox(chara_name, mmsettings.fighter_options[chara_name].enabled); set_wc()
