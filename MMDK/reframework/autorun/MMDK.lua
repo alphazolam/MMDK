@@ -1,7 +1,7 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6
 -- By alphaZomega
--- January 26, 2024
-local version = "1.0.4"
+-- March 1, 2024
+local version = "1.0.5"
 
 player_data = {}
 tmp_fns = {}
@@ -1576,7 +1576,7 @@ re.on_frame(function()
 			if imgui.tree_node("Sound and Voice") then
 				do_stop = imgui.button("Stop All")
 				
-				for i, name in ipairs({"sound", "voice"}) do
+				for i, name in ipairs({"sound", "voice"}) do 
 					if imgui.tree_node("Play " .. name .. "s by ID") then
 						imgui.begin_rect()
 						for i, req in ipairs(lua_get_dict(data[name.."_dict"], true, function(a, b) return a.UniqueID < b.UniqueID end)) do
@@ -1607,6 +1607,14 @@ re.on_frame(function()
 					this_frame = this_frame or current_frame
 					
 					if imgui.tree_node_str_id(keyname or name or "cmove", name or move.name) then
+						
+						if imgui.tree_node("Action Data") then
+							imgui.begin_rect()
+							EMV.read_imgui_element(move)
+							imgui.end_rect(2)
+							imgui.spacing()
+							imgui.tree_pop()
+						end
 						
 						local active_boxes, active_tgroups, active_vfx, active_branches
 						if imgui.tree_node_str_id("ac", "Active Keys:  Frame " .. math.floor(this_frame)) then
@@ -1691,15 +1699,6 @@ re.on_frame(function()
 							
 							EMV.read_imgui_element(active_keys, nil, nil, "ack")
 							
-							imgui.end_rect(2)
-							imgui.spacing()
-							imgui.tree_pop()
-						end
-						imgui.spacing()
-						
-						if imgui.tree_node("Action Data") then
-							imgui.begin_rect()
-							EMV.read_imgui_element(move)
 							imgui.end_rect(2)
 							imgui.spacing()
 							imgui.tree_pop()

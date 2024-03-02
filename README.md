@@ -100,7 +100,7 @@ Functions.lua is included with MMDK and is shared among all its scripts by Lua's
 
 ## Fighter Lua Examples
 
-Check out 'Ken Donkey Kick.lua' and 'Throw Angles.lua' for some working examples of MDMK scripts. Since these are Lua scripts, you have full access to what [REFramework provides](https://cursey.github.io/reframework-book/api/sdk.html) inside each mod and can add things like loading options from json files or creating hooks and callbacks to support your changes.
+Check out 'Ken Donkey Kick.lua' and ['SF6 Balance Tweaks.lua'](https://www.nexusmods.com/streetfighter6/mods/1485) for some working examples of MDMK scripts. Since these are Lua scripts, you have full access to what [REFramework provides](https://cursey.github.io/reframework-book/api/sdk.html) inside each mod and can add things like loading options from json files or creating hooks and callbacks to support your changes.
 
 There are also mods to disable parry/perfect parry, Drive Impact and Drive Rush.
 

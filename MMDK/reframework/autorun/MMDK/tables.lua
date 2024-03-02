@@ -21,6 +21,7 @@ local characters = {
 	[16] = "Juri", 
 	[17] = "Marisa", 
 	[18] = "Guile", 
+	[19] = "Ed",
 	[20] = "E Honda", 
 	[21] = "Jamie", 
 }
