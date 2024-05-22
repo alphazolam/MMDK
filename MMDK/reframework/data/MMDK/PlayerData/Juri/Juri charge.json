@@ -1,0 +1,34 @@
+{
+    "06": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 0,
+        "resource": {
+            "charge_id": 6,
+            "group_bit": 1,
+            "keep_frame": 0,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 40,
+            "ok_key_cond_check_flags": 32,
+            "ok_key_flags": 112
+        },
+        "start_index": -1
+    },
+    "08": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 0,
+        "resource": {
+            "charge_id": 8,
+            "group_bit": 1,
+            "keep_frame": 0,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 40,
+            "ok_key_cond_check_flags": 32,
+            "ok_key_flags": 432
+        },
+        "start_index": -1
+    }
+}

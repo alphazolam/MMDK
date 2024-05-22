@@ -1,0 +1,210 @@
+{
+    "00": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 10,
+        "resource": {
+            "charge_id": 0,
+            "group_bit": 1,
+            "keep_frame": 10,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "02": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 10,
+        "resource": {
+            "charge_id": 2,
+            "group_bit": 1,
+            "keep_frame": 10,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "03": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 10,
+        "resource": {
+            "charge_id": 3,
+            "group_bit": 1,
+            "keep_frame": 10,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 28,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "04": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 10,
+        "resource": {
+            "charge_id": 4,
+            "group_bit": 1,
+            "keep_frame": 10,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 28,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "05": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 12,
+        "resource": {
+            "charge_id": 5,
+            "group_bit": 2,
+            "keep_frame": 12,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 2
+        },
+        "start_index": -1
+    },
+    "06": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 15,
+        "resource": {
+            "charge_id": 6,
+            "group_bit": 2,
+            "keep_frame": 15,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 2
+        },
+        "start_index": -1
+    },
+    "07": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 13,
+        "resource": {
+            "charge_id": 7,
+            "group_bit": 1,
+            "keep_frame": 13,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "08": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 20,
+        "resource": {
+            "charge_id": 8,
+            "group_bit": 4,
+            "keep_frame": 20,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "09": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 28,
+        "resource": {
+            "charge_id": 9,
+            "group_bit": 8,
+            "keep_frame": 28,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "12": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 11,
+        "resource": {
+            "charge_id": 12,
+            "group_bit": 3,
+            "keep_frame": 11,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "14": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 8,
+        "resource": {
+            "charge_id": 14,
+            "group_bit": 4,
+            "keep_frame": 8,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "15": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 12,
+        "resource": {
+            "charge_id": 15,
+            "group_bit": 4,
+            "keep_frame": 12,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 2
+        },
+        "start_index": -1
+    },
+    "16": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 28,
+        "resource": {
+            "charge_id": 16,
+            "group_bit": 8,
+            "keep_frame": 28,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 45,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 2
+        },
+        "start_index": -1
+    }
+}

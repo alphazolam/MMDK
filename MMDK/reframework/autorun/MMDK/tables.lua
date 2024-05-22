@@ -1,6 +1,6 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6 -- Shared Tables
 -- By alphaZomega
--- September 19, 2023
+-- May 22, 2024
 
 local characters = { 
 	[1] = "Ryu", 
@@ -24,6 +24,7 @@ local characters = {
 	[19] = "Ed",
 	[20] = "E Honda", 
 	[21] = "Jamie", 
+	[22] = "Akuma", 
 }
 
 --Table of indexes into the param of a HIT_DT_TBL, labelled by their purpose
@@ -133,12 +134,75 @@ local inputflags = {
     unk22 = 4194304,
 }
 
+local key_types = {
+    [0] = "BranchKey",
+    [1] = "StatusKey",
+    [2] = "SwitchKey",
+    [3] = "ExtSwitchKey",
+    [4] = "VisualSwitchKey",
+    [5] = "SteerKey",
+    [6] = "TriggerKey",
+    [7] = "AutoTriggerKey",
+    [8] = "EventKey",
+    [9] = "WorldKey",
+    [10] = "AttackCollisionKey",
+    [11] = "OtherCollisionKey",
+    [12] = "_UnknownKey12",
+    [13] = "DamageCollisionKey",
+    [14] = "PushCollisionKey",
+    [15] = "MotionKey",
+    [16] = "SimpleMotionKey",
+    [17] = "ExtMotionKey",
+    [18] = "MotionCameraKey",
+    [19] = "FacialKey",
+    [20] = "FacialAutoKey",
+    [21] = "MergeKey",
+    [22] = "SEKey",
+    [23] = "ShellSEKey",
+    [24] = "_UnknownKey24",
+    [25] = "VoiceKey",
+    [26] = "_UnknownKey26",
+    [27] = "SoundStateKey",
+    [28] = "BGMKey",
+    [29] = "VfxKey",
+    [30] = "VFXKey",
+    [31] = "PlaceKey",
+    [32] = "ShotKey",
+    [33] = "_UnknownKey33",
+    [34] = "ModelPartsKey",
+    [35] = "PropsKey",
+    [36] = "CameraKey",
+    [37] = "SystemCameraKey",
+    [38] = "UniqueCollisionKey",
+    [39] = "BonePlaceKey",
+    [40] = "GimmickCollisionKey",
+    [41] = "GimmickCollisionKey2",
+    [42] = "WindKey",
+    [43] = "TimelineKey",
+    [44] = "BlendShapeKey",
+    [45] = "NormalShapeKey",
+    [46] = "FacialMergeKey",
+    [47] = "LockKey",
+    [48] = "BGPlaceKey",
+    [49] = "BGPlaceKey",
+    [50] = "DynamicTriggerKey",
+    [51] = "DriveSteerKey",
+    [52] = "DriveSteerKey2",
+    [53] = "_UnknownKey53",
+    [54] = "_UnknownKey54",
+}
 
+local key_types_by_index = {}
+for i, list_name in pairs(key_types) do
+	key_types_by_index[list_name] = i
+end
 
 tbls = {
 	cat_flags = cat_flags,
 	characters = characters,
 	hit_types = hit_types,
+	key_types = key_types,
+	key_types_by_index = key_types_by_index,
 	--inputflags = inputflags,
 	inputs = inputs,
 }

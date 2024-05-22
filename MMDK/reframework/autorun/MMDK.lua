@@ -1,7 +1,7 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6
 -- By alphaZomega
--- March 1, 2024
-local version = "1.0.5"
+-- March 10, 2024
+local version = "1.0.5a"
 
 player_data = {}
 tmp_fns = {}
@@ -264,8 +264,9 @@ PlayerData = {
 		end
 		
 		data.charge = {}
-		for i, charge in pairs(lua_get_dict(gCommand.mpBCMResource[player_index-1].pCharge)) do
-			data.charge[i] = charge
+		--for i, charge in pairs(lua_get_dict(gCommand.mpBCMResource[player_index-1].pCharge)) do
+		for id, charge in pairs(lua_get_dict(gCommand.StorageData.UserEngines[data.player_index-1].m_charge_infos)) do
+			data.charge[id] = charge
 		end
 		
 		if do_make_dict then
@@ -315,6 +316,17 @@ PlayerData = {
 			end
 		end
 		
+		if self.player_index then --if its a player and not a simple_fighter_data
+			if move.fab.Projectile.DataIndex > -1 then
+				move.pdata = self.projectile_datas[move.fab.Projectile.DataIndex]
+				move.vfx = move.vfx or move.pdata and self.vfx_by_ctr_id[move.pdata.VfxID] and {
+					core = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.Core.Data.ElementID],
+					aura = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.Aura.Data.ElementID],
+					fade = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.FadeAway.Data.ElementID],
+				}
+			end
+		end
+		
 		for j, keys_list in pairs(lua_get_array(fab_action.Keys)) do
 			if keys_list._items[0] then
 				local keytype_name = keys_list._items[0]:get_type_definition():get_name()
@@ -329,7 +341,6 @@ PlayerData = {
 							move.box.hit = move.box.hit or {}
 							move.box.hit[k] = move.box.hit[k] or {}
 							for b, box_id in pairs(key.BoxList) do
-								aff = {self.rects, tostring(key.CollisionType), box_id.mValue, key}
 								move.box.hit[k][box_id.mValue] = self.rects[key.CollisionType or key.Kind][box_id.mValue] --person.Rect:Get(key.CollisionType, box_id.mValue) or 
 							end
 						elseif key.CollisionType == 3 then --PROXIMITY
@@ -432,17 +443,6 @@ PlayerData = {
 					move[keytype_name].list = keys_list
 					move[keytype_name].keys_index = j-1
 				end
-			end
-		end
-		
-		if self.player_index then
-			if move.fab.Projectile.DataIndex > -1 then
-				move.pdata = self.projectile_datas[move.fab.Projectile.DataIndex]
-				move.vfx = move.vfx or move.pdata and self.vfx_by_ctr_id[move.pdata.VfxID] and {
-					core = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.Core.Data.ElementID],
-					aura = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.Aura.Data.ElementID],
-					fade = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.FadeAway.Data.ElementID],
-				}
 			end
 		end
 		
@@ -566,6 +566,17 @@ PlayerData = {
 		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " rects.json", rect_json)
 	end,
 	
+	--Dumps a json file of this PlayerData's charges. 'charges' and 'path' are optional
+	dump_charge_json = function(self, path, charges)
+		charges = charges or self.charge
+		local charge_json = {}
+		for charge_id, charge in pairs(charges) do
+			charge_id = string.format("%02d", charge_id)
+			charge_json[charge_id] = convert_to_json_tbl(charge)
+		end
+		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " charge.json", charge_json)
+	end,
+	
 	--Dumps a json file of this data's moves_dict. 'moves_dict' and 'path' are optional
 	dump_moves_dict_json = function(self, path, moves_dict)
 		local json_data = {}
@@ -582,7 +593,7 @@ PlayerData = {
 		return json_data
 	end,
 	
-	--Retrieves an unmodified moves dict from a json file or from cache, and creates it if its not there (or creates all missing moves dicts):
+	--Returns an unmodified moves dict from a json file or from cache, and creates it if its not there (or creates all missing moves dicts)
 	get_moves_dict_json = function(self, chara_name, path, collect_all)
 		chara_name = chara_name or self.name
 		path = path or "MMDK\\PlayerData\\" .. chara_name .. "\\".. chara_name .." moves_dict.json"
@@ -606,7 +617,7 @@ PlayerData = {
 		return self.cached_moves_dicts[chara_name]
 	end,
 	
-	--Clone a FAB.ACTION 'old_id_or_obj' into a new available HIT_DT_TBL with 'new_id'. Returns a MMDK action object
+	--Clone a MMDK move / ActionID 'old_id_or_obj' into a new move with the ActionID 'new_id'. Returns the new move Lua object
 	clone_action = function(self, old_id_or_obj, new_id)
 		
 		local act_dict = self.person.FAB.StyleDict[0].ActionList
@@ -631,7 +642,7 @@ PlayerData = {
 		return self:collect_fab_action(new_action)
 	end,
 	
-	-- Add a new motlist to a character using a new MotionType, making new animations accessible:
+	-- Add a new motlist using the path 'motlist_path' to a character using type 'new_motiontype', making new animations accessible. Returns the new DynamicMotionBank
 	add_dynamic_motionbank = function(self, motlist_path, new_motiontype, via_motion)
 		if sdk.find_type_definition("via.io.file"):get_method("exists"):call(nil, "natives/stm/"..motlist_path..".653") then
 			local motion = via_motion or getC(self.gameobj, "via.motion.Motion")
@@ -658,7 +669,7 @@ PlayerData = {
 		end
 	end,
 	
-	-- Add a new unique HitRect16 to a fighter and to a given AttackCollisionKey / DamageCollisionKey
+	-- Add a new unique HitRect16 to a fighter and to a given AttackCollisionKey / DamageCollisionKey. Returns the modified AttackCollisionKey
 	add_rect_to_col_key = function(self, col_key, boxlist_name, new_rect_id, boxlist_idx, rect_to_add)
 		
 		local box_type = (boxlist_name=="BoxList" and col_key.CollisionType) or (boxlist_name=="ThrowList" and 7) or 8
@@ -678,7 +689,7 @@ PlayerData = {
 		return rect_to_add
 	end,
 	
-	--Add a Trigger (by its index in the Triggers list) to a TriggerGroup, or create the TriggerGroup if it's not there
+	--Add a Trigger (by its index in the Triggers list) to a TriggerGroup, or create the TriggerGroup if it's not there. Returns the trigger group at 'tgroup_idx'
 	add_to_triggergroup = function(self, tgroup_idx, trigger_idx)
 		
 		local tgroup = gCommand:GetTriggerGroup(self.player_index-1, tgroup_idx) or ValueType.new(sdk.find_type_definition("BCM.TRIGGER_GROUP"))
@@ -696,6 +707,7 @@ PlayerData = {
 	--Takes CommandList index 'new_cmdlist_id' and adds a new command at index 'new_cmd_idx' of it. Optionally takes 'fields' table to apply afterwards, and 'new_trigger_ids' to apply itself to all trigger IDs in the table
 	--Creates an array of 16 inputs and optionally sets fields on them using three optional array-tables as arguments: 
 	--'input_list' sets the 'ok_key_flags' for inputs; 'cond_list' sets the 'ok_key_cond_check_flags' for inputs; 'maxframe_list' sets the 'frame_num' for inputs. Use 'fn.edit_command_input' to edit other fields
+	--Returns the command list at 'new_cmdlist_id'
 	add_command = function(self, new_cmdlist_id, new_cmd_idx, input_list, cond_list, maxframe_list, fields, new_trigger_ids)
 		
 		local cmds_lists = gCommand.mpBCMResource[self.player_index-1].pCommand
@@ -732,7 +744,7 @@ PlayerData = {
 		return cmds_list
 	end,
 	
-	--Add a new BCM.CHARGE to this player
+	--Add a new BCM.CHARGE to this player. Returns the new charge
 	add_charge = function(self, new_charge_id, fields)
 		local charge_dict = gCommand.mpBCMResource[self.player_index-1].pCharge
 		local new_charge = sdk.create_instance("BCM.CHARGE"):add_ref()
@@ -743,9 +755,31 @@ PlayerData = {
 		return new_charge
 	end,
 	
+	--Add a new CharacterAsset.ProjectileData to this player at 'new_p_id', optionally cloning from 'src_or_src_id' and optionally applying 'fields'. Returns the new pdata
+	add_pdata = function(self, new_p_id, src_or_src_id, fields)
+		local source = src_or_src_id and (type(src_or_src_id)=="UserData" and src_or_src_id) or self.projectile_datas[src_or_src_id]
+		local cloned_pdata = source and clone(source)
+		local new_pdata = cloned_pdata or sdk.create_instance("CharacterAsset.ProjectileData"):add_ref()
+		self.projectile_datas[new_p_id] = new_pdata
+		if fields then
+			edit_obj(new_pdata, fields)
+		end
+		return new_pdata
+	end,
+	
+	--Add a new CharacterAsset.HitRect16 to this player at boxlist 'new_rect_type' with ID 'new_p_id', optionally cloning from 'src_or_src_id' and optionally applying 'fields'
+	add_rect = function(self, new_rect_type, new_rect_id, src_rect, fields)
+		local new_rect = src_rect and clone(src_rect) or sdk.create_instance("CharacterAsset.HitRect16"):add_ref()
+		self.person.Rect.RectList[new_rect_type][new_rect_id] = new_rect
+		if fields then
+			edit_obj(new_rect, fields)
+		end
+		return new_rect
+	end,
+	
 	-- Clone triggers using 'old_id_or_trigs' ActionID (or a table of BCM.TRIGGERs) into new triggers for ActionID 'action_id'. Use table 'tgroup_idxs' to add it to a list of TriggerGroups (by number TriggerGroup ID)
 	-- The new trigger will be given a free Trigger ID as close as possible to 'max_priority' without exceeding it (Important! An ID of the wrong number will make the trigger have low priority / not work)
-	-- All old triggers using 'action_id' will be deleted unless 'no_overwrite' is true
+	-- All old triggers using 'action_id' will be deleted unless 'no_overwrite' is true. Returns 2 Lua array-tables, 1st one of the new Triggers at that ActionID and 2nd one of its matching new TriggerIDs 
 	clone_triggers = function(self, old_id_or_trigs, action_id, tgroup_idxs, max_priority, no_overwrite)
 		
 		max_priority = max_priority or 167
@@ -808,6 +842,7 @@ PlayerData = {
 	
 	--Clone a HIT_DT_TBL as 'old_hit_id_or_dt' into a new available HIT_DT_TBL with ID 'new_hit_id'. Use 'action_obj' to add it to a MMDK action object.
 	--Use 'src_key' to provied an existing key as the basis for the returned key,  and 'target_key_index' to assign it to a specific index in the key list
+	--Returns 2 objects: the new HIT_DT_TBL and the new AttackCollisionKey it was added to
 	clone_dmg = function(self, old_hit_id_or_dt, new_hit_id, action_obj, src_key, target_key_index) 
 		
 		local old_hit_dt_tbl = ((type(old_hit_id_or_dt)=="userdata") and old_hit_id_or_dt) or self.hit_datas[old_hit_id_or_dt]
@@ -837,6 +872,7 @@ PlayerData = {
 	end,
 	
 	--Clone a EPVStandardData.Element into a new one at on container 'target_container_id' and ID 'new_id'. Use action_obj to add it to a MMDK action object and then 'key_to_clone' to clone a VfxKey for it
+	--Returns the new EPVStandardData.Element and optionally the cloned key it was added to
 	clone_vfx = function(self, src_element, target_container_id, new_id, action_obj, key_to_clone)
 		
 		key_to_clone = key_to_clone or action_obj.VfxKey.list._items[0]
@@ -876,6 +912,106 @@ PlayerData = {
 		end
 		
 		return new_vfx, clone_key
+	end,
+	
+	--Loads a MMDK json table and applies it to the current character
+	autoload_json = function(self, mmdk_tbl)
+		
+		local output = {moves = {}, trigger_lists = {},}
+		for i, new_move in ipairs(fn.convert_tbl_to_numeric_keys(mmdk_tbl)) do
+			
+			local action = self.moves_dict.By_ID[new_move.id]
+			if not action then
+				local clone_action = (new_move.clone_src and PlayerData:get_simple_fighter_data(new_move.clone_src) or self).moves_dict.By_ID[new_move.clone_id]
+				action = self:clone_action(clone_action, new_move.id) --add action
+			end
+			output.moves[new_move.id] = action
+			
+			if new_move.dynamic_motionbank then
+				self:add_dynamic_motionbank(new_move.dynamic_motionbank.path, new_move.dynamic_motionbank.bank_id) 
+			end
+			
+			if new_move.rects then
+				for i, jrect in ipairs(new_move.rects) do 
+					local rects_dict = self.person.Rect.RectList[jrect.box_type]
+					local re_rect = rects_dict[jrect.id] or sdk.create_instance("CharacterAsset.HitRect16"):add_ref()
+					rects_dict[jrect.id] = re_rect
+					if jrect.fields then
+						edit_obj(re_rect, jrect.fields)
+					end
+				end
+			end
+
+			if new_move.hit_dts then
+				for i, jhit_dt in ipairs(new_move.hit_dts) do 
+					local hit_dt_tbl = self.hit_datas[jhit_dt.id], nil
+					if not hit_dt_tbl then
+						local clone_hdt = (jhit_dt.clone_src and PlayerData:get_simple_fighter_data(jhit_dt.clone_src) or self).hit_datas[jhit_dt.clone_id]
+						hit_dt_tbl = self:clone_dmg(clone_hdt, jhit_dt.id)
+					end
+					if jhit_dt.fields then
+						for param_type, fields in pairs(jhit_dt.fields) do
+							fn.edit_hit_dt_tbl(hit_dt_tbl, tables.hit_types[param_type], fields)
+						end
+					end
+				end
+			end
+			
+			if new_move.commands then
+				for i, jcmd in ipairs(new_move.commands) do 
+					local new_cmds = self:add_command(jcmd.id, jcmd.index, jcmd.inputs_list, jcmd.cond_list, jcmd.maxframe_list, jcmd.fields, output.trigger_lists[jcmd.triggers_to_add_to])
+				end
+			end
+			
+			if new_move.charges then
+				for i, jcharge in ipairs(new_move.charges) do 
+					--add or edit charges
+				end
+			end
+			
+			if new_move.triggers then
+				for i, jtrigger in ipairs(new_move.triggers) do 
+					local new_triggers, new_trig_ids = self:clone_triggers(jtrigger.clone_id, jtrigger.id, jtrigger.trigger_groups, jtrigger.target_trigger_group_id)
+					output.trigger_lists[new_move.id] = new_trig_ids
+					for t, trig in ipairs(new_triggers) do
+						if jtrigger.fields then
+							print("Fields")
+							testing = true
+							edit_obj(trig, jtrigger.fields)
+							testing = false
+						end
+						if jtrigger.copy_over_modern then
+							fn.copy_fields(trig.norm, trig.sprt)
+						end
+						if jtrigger.commands_id and self.commands[jtrigger.commands_id][jtrigger.command_idx] then
+							trig.norm.command_ptr = self.commands[jtrigger.commands_id][jtrigger.command_idx]
+							aas = {trig.norm, trig.norm.command_ptr, trig.norm:MemberwiseClone():add_ref()}
+							--print(asd + 123)
+						end
+					end
+				end
+			end
+			
+			
+			for name, jkey_list_tbl in pairs(new_move.key_list) do
+				for i, jkey_tbl in ipairs(jkey_list_tbl) do
+					local list = action.fab.Keys[ tables.key_types_by_index[name] ]
+					local resolved_idx = jkey_tbl.replace_index or jkey_tbl.insert_index
+					local our_key = jkey_tbl.clone_index and clone(list[jkey_tbl.clone_index]) or list[resolved_idx]
+					if jkey_tbl.replace_index and jkey_tbl.replace_index < list._items:get_Count() then
+						list[jkey_tbl.replace_index] = our_key
+					else
+						fn.insert_list(list, our_key, resolved_idx)
+					end
+					if jkey_tbl.fields then
+						edit_obj(list[resolved_idx], jkey_tbl.fields)
+					end
+				end
+			end
+			
+		end
+		
+		return output
 	end,
 	
 	--Takes a fighter name or ID and returns a simple/fake version of this class with a moves_dict for that fighter
@@ -1057,6 +1193,7 @@ local function check_make_playerdata()
 		print(os.clock() .. " Getting MMDK player data...")
 		can_setup = false
 		local did_set = false
+		local all_chars = mmsettings.fighter_options["All Characters"]
 		
 		for i=1, 2 do
 			if mmsettings.fighter_options[characters[gPlayer.mPlayerType[i-1].mValue] ].enabled then 
@@ -1068,11 +1205,9 @@ local function check_make_playerdata()
 			local chara_name = characters[gPlayer.mPlayerType[i-1].mValue]
 			if mmsettings.fighter_options[chara_name].enabled then 
 				--Run functions to change moveset:
-				local copy = merge_tables({}, moveset_functions[chara_name])
-				copy = mmsettings.fighter_options["All Characters"].enabled and extend_table(copy, moveset_functions["All Characters"]) or copy
-				for c, character_tbl in ipairs(copy) do
+				merged_modlist = extend_table(merge_tables({}, all_chars.enabled and moveset_functions["All Characters"] or {}), moveset_functions[chara_name])
+				for c, character_tbl in ipairs(merged_modlist) do
 					if mmsettings.fighter_options[character_tbl.chara_name][character_tbl.filename].enabled then
-						--print(os.clock() .. " Autorunning moveset function from '" .. character_tbl.name .. ".lua' for " .. chara_name)
 						character_tbl.lua.apply_moveset_changes(player_data[i]) 
 						did_set = true
 					end
@@ -1402,6 +1537,12 @@ re.on_frame(function()
 					data:dump_commands_json()
 				end
 				tooltip(tooltip_msg .. " commands.json")
+				
+				imgui.same_line()
+				if imgui.button("Dump Charges") then
+					data:dump_charge_json()
+				end
+				tooltip(tooltip_msg .. " charge.json")
 				
 				if EMV then
 					EMV.read_imgui_element(data)
@@ -1950,12 +2091,14 @@ re.on_draw_ui(function()
 								end
 								imgui.end_popup()
 							end
-							imgui.pop_id()
-							if mm_tbl.enabled and character_tbl.lua.imgui_options then 
+							if changed then imgui.set_next_item_open(true) end
+							if mm_tbl.enabled and character_tbl.lua.imgui_options and not imgui.same_line() and imgui.tree_node("") then 
 								imgui.indent()
 								character_tbl.lua.imgui_options()
 								imgui.unindent()
+								imgui.tree_pop()
 							end
+							imgui.pop_id()
 						end
 					end
 					imgui.end_rect(2)

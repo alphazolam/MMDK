@@ -62,7 +62,7 @@ end
 --Gets a SystemArray, List or WrappedArrayContainer:
 local function lua_get_array(src_obj, allow_empty)
 	if not src_obj then return (allow_empty and {}) end
-	src_obj = src_obj.mItems or src_obj._items or src_obj
+	src_obj = src_obj._items or src_obj.mItems or src_obj
 	local system_array
 	if src_obj.get_Count then
 		system_array = {}
@@ -213,9 +213,9 @@ local function insert_array(array_a, array_or_elem_b, insert_idx)
 end
 
 --Inserts an element or a table/System.Array/Generic.List of elements ('list_b') into a Generic.List 'list_a' at position 'insert_idx'
-local function insert_list(list_a, list_b, insert_idx)
-	list_b = can_index(list_b) and list_b._items or list_b
-	list_a._items = insert_array(list_a._items, list_b, insert_idx)
+local function insert_list(list_a, list_or_item_b, insert_idx)
+	list_or_item_b = can_index(list_or_item_b) and list_or_item_b._items or list_or_item_b
+	list_a._items = insert_array(list_a._items, list_or_item_b, insert_idx)
 	list_a._size = get_true_array_sz(list_a._items)
 end
 
@@ -370,6 +370,18 @@ local function get_fmt_string(tbl)
 	return "%0"..zeroes_ct.."d"
 end
 
+--Loads a json file from a path and converts all its string number keys into actual numbers in a new table, then returns that table
+local function convert_tbl_to_numeric_keys(json_tbl)
+	local function recurse(tbl)
+		local t = {}
+		for k, v in pairs(tbl) do
+			t[tonumber(k) or k] = ((type(v) == "table") and recurse(v)) or v
+		end
+		return t
+	end
+	return recurse(json_tbl)
+end
+
 --Converts a REManagedObject or a Lua table with REManagedObjects into a pure Lua table for json.dump_file
 local function convert_to_json_tbl(tbl_or_object, max_layers, skip_arrays, skip_collections, skip_method_objs)
 	
@@ -503,24 +515,41 @@ local function edit_obj(obj, fields)
     for name, value in pairs(fields) do
 		local field = td:get_field(name)
 		if value == "nil" then value = nil end
-		if obj["set"..name] ~= nil then --Methods
+		if tonumber(name) and obj.get_Item then --arrays
+			name = tonumber(name)
+			local arr = obj._items or obj
+			if name >= arr:get_Count() then
+				if obj._size then 
+					obj._items, obj._size = append_to_array(arr, value)
+				else
+					append_to_array(arr, value)
+				end
+			else
+				arr[name] = value
+			end
+		elseif obj["set"..name] ~= nil then --Methods
 			obj:call("set"..name, value) 
         elseif type(value) == "userdata" and value.type and tostring(value.type):find("RETypeDef") then --valuetypes
 			write_valuetype(obj, name, value) 
-		elseif field then --All other fields
-			if type(value) == "table" then
-				local str_name = tostring(obj[name])
-				if str_name:find("REMana") then --or str_name:find("ValueType") then
-					obj[name] = edit_obj(obj[name], value)
+		elseif type(value) == "table" then --All other fields
+			if obj[name] and can_index(obj[name]) and obj[name].add_ref then
+				obj[name] = edit_obj(obj[name], value)
+			end
+		elseif field then
+			local field_type = field:get_type()
+			if type(value) == "string" and field_type:is_value_type() and not field_type:is_a("System.String") then 
+				local new_val = ValueType.new(field_type)
+				if field_type:get_method(".ctor(System.String)") then
+					new_val:call(".ctor(System.String)", value)
+					write_valuetype(obj, name, new_val)
+				elseif field_type:is_a("nAction.isvec2") then
+					new_val.x, new_val.y = tonumber(value:match("(.+),")),  tonumber(value:match(",(.+)"))
+					write_valuetype(obj, name, new_val)
 				end
-			elseif type(value) == "string" and field:get_type():is_value_type() and field:get_type():get_method(".ctor(System.String)") then
-				local new_val = ValueType.new(field:get_type())
-				new_val:call(".ctor(System.String)", value)
-				write_valuetype(obj, name, new_val)
 			else
 				obj[name] = value
 			end
-        end
+		end
     end
 	return obj
 end
@@ -662,6 +691,53 @@ local function edit_hitdata(dmg_table, param_type, fields)
 	edit_obj(dmg_table.param[param_type], fields)
 end
 
+local function edit_hitdatas(dmg_table, param_types, fields)
+	for i, param_type in ipairs(param_types) do
+		edit_obj(dmg_table.param[param_type], fields)
+	end
+end
+
+local function edit_common_dt_tbl(hit_dt_tbl, common_types, fields)
+	for i, param_type in pairs(common_types) do
+		edit_obj(hit_dt_tbl.common[common_type], fields)
+	end
+end
+
+local function edit_speed(action, value)
+    for _, keyTypes in ipairs(action.fab.Keys) do
+        for _, key in ipairs(keyTypes._items) do
+            if key.MotionStartFrame ~= 0 then
+                key.MotionStartFrame = key.MotionStartFrame / value
+            end
+            if key._StartFrame ~= 0 then
+                key._StartFrame = key._StartFrame / value
+            end
+            if key.StartFrame ~= 0 then
+                key.StartFrame = key.StartFrame / value
+            end
+            --all end frames
+            key._EndFrame = key._EndFrame / value
+            key.EndFrame = key.EndFrame / value
+			--MotionFrameEnd
+			key.MotionEndFrame = key.MotionEndFrame / value
+        end
+    end
+    
+    -- Update action frame and total framecount outside the loop
+    action.fab.ActionFrame.MarginFrame = action.fab.ActionFrame.MarginFrame / value
+    action.fab.Frame = action.fab.Frame / value
+end
+
+
+
+local function edit_branchkey(action, keyindex, append, fields)
+    local list = action.fab.Keys[0]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.BranchKey"):add_ref())
+	end
+    edit_obj(list[keyindex], fields)
+end
+
 local function edit_triggerkey(action, keyindex, append, fields)
     local list = action.fab.Keys[6]
 	if append == 1 then
@@ -686,7 +762,119 @@ local function edit_worldkey(action, keyindex, append, fields)
     edit_obj(list[keyindex], fields)
 end
 
+local function edit_hitbox(action, keyindex, append, fields)
+    local list = action.fab.Keys[10]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.AttackCollisionKey"):add_ref())
+	end
+	list[keyindex].BoxList = sdk.create_managed_array("System.Int32", 0)
+    edit_obj(list[keyindex], fields)
+end
+
+local function edit_hurtbox(action, keyindex, append, fields)
+    local list = action.fab.Keys[13]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.DamageCollisionKey"):add_ref())
+	end
+	list[keyindex].HeadList = sdk.create_managed_array("System.Int32", 0)
+	list[keyindex].ThrowList = sdk.create_managed_array("System.Int32", 0)
+	list[keyindex].LegList = sdk.create_managed_array("System.Int32", 0)
+	list[keyindex].BodyList = sdk.create_managed_array("System.Int32", 0)
+	
+    edit_obj(list[keyindex], fields)
+end
+
+local function edit_motionkey(action, keyindex, append, fields)
+    local list = action.fab.Keys[15]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.MotionKey"):add_ref())
+	end
+    edit_obj(list[keyindex], fields)
+end
+
+local function edit_sfx(action, keyindex, append, fields)
+    local list = action.fab.Keys[22]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.SEKey"):add_ref())
+	end
+    edit_obj(list[keyindex], fields)
+end
+
+local function edit_voicekey(action, keyindex, append, fields)
+    local list = action.fab.Keys[25]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.VoiceKey"):add_ref())
+	end
+    edit_obj(list[keyindex], fields)
+end
+
+local function edit_vfxkey(action, keyindex, append, fields)
+    local list = action.fab.Keys[30]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("app.battle.VfxKey"):add_ref())
+	end
+    edit_obj(list[keyindex], fields)
+end
+
+local function edit_placekey(action, keyindex, append, fields)
+    local list = action.fab.Keys[31]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.PlaceKey"):add_ref())
+	end
+    edit_obj(list[keyindex], fields)
+end
+
+local function edit_shotkey(action, keyindex, append, fields)
+    local list = action.fab.Keys[32]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.ShotKey"):add_ref())
+	end
+    edit_obj(list[keyindex], fields)
+end
+
+local function edit_uniquebox(action, keyindex, append, fields)
+    local list = action.fab.Keys[39]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.UniqueCollisionKey"):add_ref())
+	end
+	edit_obj(list[keyindex], fields)
+end
+
+local function edit_uniquebox(action, keyindex, append, fields, dataindex, box, datafields)
+    local list = action.fab.Keys[39]
+    if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.UniqueCollisionKey"):add_ref())
+    end
+    edit_obj(list[keyindex], fields)
+    local datalist = list[keyindex].Datas
+	if not datalist[dataindex] then
+		list[keyindex].Datas = append_to_array("CharacterAsset.UniqueCollisionKey.Data")
+    end
+	if not datalist[dataindex].BoxList[0] then
+		datalist[dataindex].BoxList[0] = sdk.create_int32(box)
+	end
+    edit_obj(datalist[dataindex], datafields)
+end
+
+local function edit_uniqueboxdata(action, keyindex, append, dataindex, datafields)
+local list = action.fab.Keys[39]
+local datalist = action.fab.Keys[39][keyindex].Datas
+	if append == 1 then
+		append_to_array("CharacterAsset.UniqueCollisionKey.Data")
+	end
+	edit_obj(list[keyindex].Datas[dataindex], datafields)
+end
+
+local function edit_lockkey(action, keyindex, append, fields)
+    local list = action.fab.Keys[48]
+	if append == 1 then
+        append_to_list(list, sdk.create_instance("CharacterAsset.LockKey"):add_ref())
+	end
+    edit_obj(list[keyindex], fields)
+end
+
 local tables = require("MMDK\\tables")
+
 
 fn = {
 	append_key = append_key,
@@ -711,12 +899,28 @@ fn = {
 	edit_command_input = edit_command_input,
 	edit_hit_dt_tbl = edit_hit_dt_tbl,
 	edit_hitdata = edit_hitdata,
+	edit_hitdatas = edit_hitdatas,
+	edit_hitdatas = edit_hitdatas,
+	edit_common_dt_tbl = edit_common_dt_tbl,
 	edit_key = edit_obj, --alias
 	edit_obj = edit_obj, 
 	edit_objs = edit_objs,
 	edit_steerkey = edit_steerkey,
 	edit_triggerkey = edit_triggerkey,
 	edit_worldkey = edit_worldkey,
+	edit_motionkey = edit_motionkey,
+	edit_placekey = edit_placekey,
+	edit_hurtbox = edit_hurtbox,
+	edit_branchkey = edit_branchkey,
+	edit_voicekey = edit_voicekey,
+	edit_shotkey = edit_shotkey,
+	edit_vfxkey = edit_vfxkey,
+	edit_uniquebox = edit_uniquebox,
+	edit_uniqueboxdata = edit_uniqueboxdata,
+	edit_lockkey = edit_lockkey,
+	edit_hitbox = edit_hitbox,
+	edit_sfx = edit_sfx,
+	edit_speed = edit_speed,
 	extend_array = extend_array,
 	extend_list = extend_list,
 	extend_table = extend_table,
@@ -741,6 +945,7 @@ fn = {
 	to_sfix = to_sfix,
 	tooltip = tooltip,
 	write_valuetype = write_valuetype,
+	convert_tbl_to_numeric_keys = convert_tbl_to_numeric_keys,
 }
 
 return fn

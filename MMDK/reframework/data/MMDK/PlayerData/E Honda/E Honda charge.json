@@ -1,0 +1,66 @@
+{
+    "00": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 10,
+        "resource": {
+            "charge_id": 0,
+            "group_bit": 1,
+            "keep_frame": 10,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 40,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "02": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 12,
+        "resource": {
+            "charge_id": 2,
+            "group_bit": 2,
+            "keep_frame": 12,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 40,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 2
+        },
+        "start_index": -1
+    },
+    "06": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 28,
+        "resource": {
+            "charge_id": 6,
+            "group_bit": 4,
+            "keep_frame": 28,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 40,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    },
+    "10": {
+        "charge_frame": 0,
+        "complete": 0,
+        "keep_frame": 8,
+        "resource": {
+            "charge_id": 10,
+            "group_bit": 8,
+            "keep_frame": 8,
+            "ng_key_cond_check_flags": 0,
+            "ng_key_flags": 0,
+            "ok_frame": 40,
+            "ok_key_cond_check_flags": 1,
+            "ok_key_flags": 4
+        },
+        "start_index": -1
+    }
+}
