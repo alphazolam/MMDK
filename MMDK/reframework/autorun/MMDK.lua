@@ -1,7 +1,7 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6
 -- By alphaZomega
--- March 10, 2024
-local version = "1.0.5a"
+-- May 22, 2024
+local version = "1.0.6"
 
 player_data = {}
 tmp_fns = {}
@@ -279,10 +279,18 @@ PlayerData = {
 	--Populate the moves_dict in full:
 	collect_moves_dict = function(self)
 		self.moves_dict = {By_Name = {}, By_ID = {}, By_Index = {}}
-		local act_list = lua_get_dict(self.person.FAB.StyleDict[0].ActionList, true, function(a, b) return a.ActionID < b.ActionID end)
-		for i=0, #act_list do
-			self:collect_fab_action(act_list[i])
-		end
+		--local act_list = lua_get_dict(self.person.FAB.StyleDict[0].ActionList, true, function(a, b) return a.ActionID < b.ActionID end)
+		--for i=0, #act_list do
+		--	self:collect_fab_action(act_list[i])
+		--end
+		for i=0, self.person.FAB.StyleDict:call("get_Count()") - 1 do
+			local act_list = lua_get_dict(self.person.FAB.StyleDict[i].ActionList, true, function(a, b) return a.ActionID < b.ActionID end)
+			for j=0, #act_list do
+				if act_list[j] ~= nil then
+					self:collect_fab_action(act_list[j])["_PL_StyleID"] = i;
+				end
+			end
+ 		end
 		if mmsettings.do_common_dict then
 			local act_list = lua_get_dict(gResource.Data[6].FAB.StyleDict[0].ActionList, true, function(a, b) return a.ActionID < b.ActionID end)
 			for i=0, #act_list do
@@ -1503,7 +1511,11 @@ re.on_frame(function()
 				if imgui.button("Dump Moves Dict") then
 					tmp_fns.dumper = function()
 						tmp_fns.dumper = nil
-						data:dump_moves_dict_json()
+ 						data:dump_moves_dict_json()
+						-- dump common moves separately
+						-- need to fix this to work even when 'collect common moves unchcked'
+						-- dont want common moves in the char-specific json at all
+						data:dump_moves_dict_json("common_moves.json", common_move_dict)
 					end
 				end
 				tooltip(tooltip_msg .. " moves_dict.json")
@@ -1520,16 +1532,45 @@ re.on_frame(function()
 				end
 				tooltip(tooltip_msg .. " triggers.json")
 				
-				--imgui.same_line()
+				imgui.same_line()
+				if imgui.button("Dump Atemis") then
+					-- hack: only dumps P1
+					local atemi = lua_get_dict(gResource.Data[0].Atemi)
+					local atemiJson = convert_to_json_tbl(atemi, nil, nil, nil, true)
+					json.dump_file("MMDK\\PlayerData\\" .. data.name .. "\\" .. data.name .. " atemi.json", atemiJson)
+
+					-- dump common as well
+					local commonAtemi = lua_get_dict(gResource.Data[6].Atemi)
+					local commonAtemiJson = convert_to_json_tbl(commonAtemi, nil, nil, nil, true)
+					json.dump_file("MMDK\\PlayerData\\common_atemi.json", commonAtemiJson)
+				end
+				--[[
+				imgui.same_line()
+				if imgui.button("Dump Charge") then
+					local chargeJson = convert_to_json_tbl(data.charge, nil, nil, nil, true)
+					json.dump_file("MMDK\\PlayerData\\" .. data.name .. "\\" .. data.name .. " Charge.json", chargeJson)
+				end]]
+				
+				imgui.same_line()
 				if imgui.button("Dump TriggerGroups") then
 					data:dump_tgroups_json()
 				end
 				tooltip(tooltip_msg .. " tgroups.json")
 				
-				imgui.same_line()
+				--imgui.same_line()
 				if imgui.button("Dump HitRects") then
-					data:dump_rects_json()
-				end
+ 					data:dump_rects_json()
+					local commonRects = {}
+		
+					-- dump common rects as well
+					for i, dict in pairs(gResource.Data[6].Rect.RectList) do
+						commonRects[i] = {}
+						for id, rect in pairs(lua_get_dict(dict)) do
+							commonRects[i][id] = rect
+						end
+					end
+					data:dump_rects_json("common_rects.json", commonRects)
+ 				end
 				tooltip(tooltip_msg .. " rects.json")
 				
 				imgui.same_line()
@@ -1537,7 +1578,22 @@ re.on_frame(function()
 					data:dump_commands_json()
 				end
 				tooltip(tooltip_msg .. " commands.json")
-				
+
+				imgui.same_line()
+				if imgui.button("Dump char info (Style and PlData)") then
+					fabDict = {}
+					-- hack: only dumps P1
+					fabDict["PlData"] = gResource.Data[0].FAB.PlData
+					fabDict["Styles"] = {}
+					for i = 0,gResource.Data[0].FAB:GetStyleNum()-1 do
+						fabDict["Styles"][i] = {}
+						fabDict["Styles"][i]["ParentStyleID"] = gResource.Data[0].FAB:GetParentStyleID(i)
+						fabDict["Styles"][i]["StyleData"] = gResource.Data[0].FAB:GetStyleData(i)
+					end
+					local fabJson = convert_to_json_tbl(fabDict, nil, nil, nil, true)
+					json.dump_file("MMDK\\PlayerData\\" .. data.name .. "\\" .. data.name .. " CharInfo.json", fabJson)
+				end
+
 				imgui.same_line()
 				if imgui.button("Dump Charges") then
 					data:dump_charge_json()
