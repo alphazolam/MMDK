@@ -6,7 +6,7 @@
         "004": "617 ATK_5LK",
         "005": "603 ATK_5MP",
         "006": "618 ATK_5MK",
-        "007": "605 SPA_SP5_END",
+        "007": "606 SPA_SP5_END",
         "009": "621 ATK_5HK",
         "011": "623 ATK_2LP",
         "012": "634 ATK_2LK",
@@ -154,7 +154,6 @@
         "100": "948 SP_01_PsychoFlicker_Loop(4)",
         "105": "480 DPA_STD_START",
         "119": "855 ATK_CTA",
-        "120": "850 ATK_CTA_4",
         "127": "1200 SAA_SA1_START",
         "130": "1210 SAA_2_L",
         "131": "1211 SAA_2",
@@ -360,24 +359,27 @@
         "089": "987 KILLSTEP_F(2)",
         "090": "992 KILLSTEP_B(1)"
     },
-    "057": {
+    "056": {
         "063": "909 SPA_PsychoShoot(3)",
         "064": "911 SPA_PsychoShoot(4)",
         "065": "911 SPA_PsychoShoot(4)",
         "066": "913 SPA_PsychoShoot(5)"
     },
-    "058": {
+    "057": {
         "056": "902 SPA_PsychoShoot",
         "058": "904 SPA_PsychoShoot(1)",
         "061": "906 SPA_PsychoShoot(2)"
     },
-    "059": {
+    "058": {
         "063": "909 SPA_PsychoShoot(3)",
         "064": "911 SPA_PsychoShoot(4)",
         "066": "913 SPA_PsychoShoot(5)"
     },
-    "060": {
+    "059": {
         "062": "906 SPA_PsychoShoot(2)"
+    },
+    "060": {
+        "121": "852 ATK_CTA_4(2)"
     },
     "066": {
         "041": "674 ATK_5LK_TC_1"
@@ -436,7 +438,7 @@
         "004": "617 ATK_5LK",
         "005": "603 ATK_5MP",
         "006": "618 ATK_5MK",
-        "007": "605 SPA_SP5_END",
+        "007": "606 SPA_SP5_END",
         "009": "621 ATK_5HK",
         "011": "623 ATK_2LP",
         "012": "634 ATK_2LK",

@@ -73,7 +73,7 @@
         "072": "955 SPA_CondorDive",
         "073": "962 SPA_CondorDive_Wind",
         "126": "1209 SAA_THUNDERBIRD_AIR",
-        "127": "1210 SAA_THUNDERBIRD_AIR(1)",
+        "127": "1211 SAA_THUNDERBIRD_AIR(2)",
         "146": "958 SPA_CondorDive(1)",
         "154": "967 SPA_CondorDive_Wind(2)"
     },
@@ -86,7 +86,7 @@
         "022": "645 ATK_8HK",
         "031": "660 ATK_82HP",
         "126": "1209 SAA_THUNDERBIRD_AIR",
-        "127": "1210 SAA_THUNDERBIRD_AIR(1)"
+        "127": "1211 SAA_THUNDERBIRD_AIR(2)"
     },
     "003": {
         "050": "900 SPA_CondorWind_START",
@@ -196,7 +196,6 @@
         "086": "997 NGS_MexicanTyphoon(2)",
         "092": "480 DPA_STD_START",
         "110": "855 ATK_CTA",
-        "111": "850 ATK_CTA_4",
         "120": "1200 SAA_BREATHING_START",
         "123": "1206 SAA_THUNDERBIRD",
         "124": "1207 SAA_THUNDERBIRD(1)",
@@ -222,8 +221,6 @@
         "084": "987 NGS_MexicanTyphoon",
         "085": "992 NGS_MexicanTyphoon(1)",
         "086": "997 NGS_MexicanTyphoon(2)",
-        "130": "1216 SAA_RAGINGTYPHOON_START",
-        "131": "1220 SAA_RAGINGTYPHOON_START(1)",
         "162": "1002 NGS_MexicanTyphoon(3)"
     },
     "015": {
@@ -281,16 +278,15 @@
         "149": "930 SPA_CondorSpire_Wind_END(3)",
         "151": "942 SPA_TomahawkBuster_Wind(3)",
         "159": "924 SPA_CondorSpire_EX",
-        "160": "930 SPA_CondorSpire_Wind_END(3)",
-        "171": "1495 DEM_APPEAL_01"
+        "160": "930 SPA_CondorSpire_Wind_END(3)"
     },
     "019": {
         "126": "1209 SAA_THUNDERBIRD_AIR",
-        "127": "1210 SAA_THUNDERBIRD_AIR(1)"
+        "127": "1211 SAA_THUNDERBIRD_AIR(2)"
     },
     "021": {
         "126": "1209 SAA_THUNDERBIRD_AIR",
-        "127": "1210 SAA_THUNDERBIRD_AIR(1)",
+        "127": "1211 SAA_THUNDERBIRD_AIR(2)",
         "146": "958 SPA_CondorDive(1)",
         "154": "967 SPA_CondorDive_Wind(2)"
     },
@@ -374,7 +370,11 @@
     },
     "035": {
         "126": "1209 SAA_THUNDERBIRD_AIR",
-        "127": "1210 SAA_THUNDERBIRD_AIR(1)"
+        "127": "1211 SAA_THUNDERBIRD_AIR(2)"
+    },
+    "036": {
+        "128": "1210 SAA_THUNDERBIRD_AIR(1)",
+        "129": "1212 SAA_THUNDERBIRD_AIR(3)"
     },
     "037": {
         "133": "1216 SAA_RAGINGTYPHOON_START",
@@ -404,9 +404,6 @@
         "038": "618 ATK_2LP_C",
         "040": "626 ATK_2LK_C"
     },
-    "045": {
-        "100": "715 NGS"
-    },
     "050": {
         "148": "959 SPA_CondorDive(2)",
         "156": "969 SPA_CondorDive_Wind(4)"
@@ -415,13 +412,16 @@
         "072": "955 SPA_CondorDive",
         "073": "962 SPA_CondorDive_Wind",
         "126": "1209 SAA_THUNDERBIRD_AIR",
-        "127": "1210 SAA_THUNDERBIRD_AIR(1)",
+        "127": "1211 SAA_THUNDERBIRD_AIR(2)",
         "146": "958 SPA_CondorDive(1)",
         "154": "967 SPA_CondorDive_Wind(2)"
     },
     "054": {
         "126": "1209 SAA_THUNDERBIRD_AIR",
-        "127": "1210 SAA_THUNDERBIRD_AIR(1)"
+        "127": "1211 SAA_THUNDERBIRD_AIR(2)"
+    },
+    "060": {
+        "112": "852 ATK_CTA_4(2)"
     },
     "062": {
         "030": "636 ATK_8MP_TC"
@@ -431,102 +431,6 @@
     },
     "064": {
         "026": "655 ATK_6MP_TC2"
-    },
-    "089": {
-        "123": "1206 SAA_THUNDERBIRD",
-        "130": "1216 SAA_RAGINGTYPHOON_START",
-        "131": "1220 SAA_RAGINGTYPHOON_START(1)"
-    },
-    "093": {
-        "050": "900 SPA_CondorWind_START",
-        "051": "905 SPA_CondorWind_START(1)",
-        "052": "910 SPA_CondorWind_START(2)",
-        "054": "921 SPA_CondorSpire_L",
-        "055": "922 SPA_CondorSpire_MH",
-        "056": "923 SPA_CondorSpire_MH(1)",
-        "063": "934 SPA_TomahawkBuster",
-        "064": "935 SPA_TomahawkBuster(1)",
-        "065": "936 SPA_TomahawkBuster(2)",
-        "069": "941 SPA_TomahawkBuster_Wind(2)",
-        "072": "955 SPA_CondorDive",
-        "086": "997 NGS_MexicanTyphoon(2)",
-        "090": "740 ATK_CTA_RUSH(1)",
-        "120": "1200 SAA_BREATHING_START",
-        "123": "1206 SAA_THUNDERBIRD",
-        "126": "1209 SAA_THUNDERBIRD_AIR",
-        "130": "1216 SAA_RAGINGTYPHOON_START",
-        "131": "1220 SAA_RAGINGTYPHOON_START(1)",
-        "140": "915 SPA_CondorWind_START(3)",
-        "142": "924 SPA_CondorSpire_EX",
-        "144": "937 SPA_TomahawkBuster(3)",
-        "146": "958 SPA_CondorDive(1)"
-    },
-    "094": {
-        "050": "900 SPA_CondorWind_START",
-        "051": "905 SPA_CondorWind_START(1)",
-        "052": "910 SPA_CondorWind_START(2)",
-        "054": "921 SPA_CondorSpire_L",
-        "055": "922 SPA_CondorSpire_MH",
-        "056": "923 SPA_CondorSpire_MH(1)",
-        "063": "934 SPA_TomahawkBuster",
-        "064": "935 SPA_TomahawkBuster(1)",
-        "065": "936 SPA_TomahawkBuster(2)",
-        "069": "941 SPA_TomahawkBuster_Wind(2)",
-        "072": "955 SPA_CondorDive",
-        "086": "997 NGS_MexicanTyphoon(2)",
-        "120": "1200 SAA_BREATHING_START",
-        "123": "1206 SAA_THUNDERBIRD",
-        "126": "1209 SAA_THUNDERBIRD_AIR",
-        "130": "1216 SAA_RAGINGTYPHOON_START",
-        "131": "1220 SAA_RAGINGTYPHOON_START(1)",
-        "140": "915 SPA_CondorWind_START(3)",
-        "142": "924 SPA_CondorSpire_EX",
-        "144": "937 SPA_TomahawkBuster(3)",
-        "146": "958 SPA_CondorDive(1)"
-    },
-    "095": {
-        "003": "600 ATK_5LP",
-        "004": "608 ATK_5LK",
-        "005": "604 ATK_5MP",
-        "006": "612 ATK_5MK",
-        "007": "606 ATK_5HP",
-        "008": "614 ATK_5HK",
-        "010": "616 ATK_2LP",
-        "011": "624 ATK_2LK",
-        "012": "620 ATK_2MP",
-        "013": "628 ATK_2MK",
-        "014": "622 ATK_2HP",
-        "015": "630 ATK_2HK",
-        "024": "653 ATK_6MP",
-        "028": "651 ATK_4MP",
-        "050": "900 SPA_CondorWind_START",
-        "051": "905 SPA_CondorWind_START(1)",
-        "052": "910 SPA_CondorWind_START(2)",
-        "054": "921 SPA_CondorSpire_L",
-        "055": "922 SPA_CondorSpire_MH",
-        "056": "923 SPA_CondorSpire_MH(1)",
-        "058": "927 SPA_CondorSpire_Wind_END",
-        "060": "929 SPA_CondorSpire_Wind_END(2)",
-        "063": "934 SPA_TomahawkBuster",
-        "064": "935 SPA_TomahawkBuster(1)",
-        "065": "936 SPA_TomahawkBuster(2)",
-        "067": "939 SPA_TomahawkBuster_Wind",
-        "069": "941 SPA_TomahawkBuster_Wind(2)",
-        "072": "955 SPA_CondorDive",
-        "086": "997 NGS_MexicanTyphoon(2)",
-        "100": "715 NGS",
-        "110": "855 ATK_CTA",
-        "111": "850 ATK_CTA_4",
-        "120": "1200 SAA_BREATHING_START",
-        "123": "1206 SAA_THUNDERBIRD",
-        "126": "1209 SAA_THUNDERBIRD_AIR",
-        "130": "1216 SAA_RAGINGTYPHOON_START",
-        "131": "1220 SAA_RAGINGTYPHOON_START(1)",
-        "140": "915 SPA_CondorWind_START(3)",
-        "142": "924 SPA_CondorSpire_EX",
-        "144": "937 SPA_TomahawkBuster(3)",
-        "146": "958 SPA_CondorDive(1)",
-        "171": "1495 DEM_APPEAL_01"
     },
     "120": {
         "111": "850 ATK_CTA_4"

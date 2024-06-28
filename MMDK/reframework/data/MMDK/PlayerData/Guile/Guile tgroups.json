@@ -10,7 +10,7 @@
         "008": "618 ATK_5HK",
         "010": "621 ATK_2LP",
         "011": "632 ATK_2LK",
-        "012": "626 ATK_2MP",
+        "012": "626 ATK_2MP(1)",
         "013": "637 ATK_2MK",
         "014": "629 ATK_2HP",
         "015": "641 ATK_2HK",
@@ -22,6 +22,9 @@
         "030": "668 ATK_6HP",
         "031": "674 ATK_6HK",
         "032": "653 ATK_4HK",
+        "052": "1212 SAA_2_SonicBreak_R",
+        "053": "1213 SAA_2_SonicBreak_R(1)",
+        "054": "1214 SAA_2_SonicBreak_R(2)",
         "064": "918 SPA_Sonicblade",
         "065": "919 SPA_Sonicblade(1)",
         "066": "920 SPA_Sonicblade(2)",
@@ -32,15 +35,15 @@
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
         "076": "899 SPA_SONICBOOM(1)",
-        "097": "980 SPA_SOMERSAULT_Start",
-        "098": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "099": "980 SPA_SOMERSAULT_Start",
+        "100": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "107": "480 DPA_STD_START",
-        "116": "700 NGS_6",
-        "128": "754 ATK_CTA",
+        "115": "700 NGS_6",
+        "128": "855 ATK_CTA",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
         "143": "1210 SAA_SolidPuncher",
@@ -49,7 +52,7 @@
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM",
+        "165": "898 SPA_SONICBOOM",
         "172": "1500 DEM_APPEAL_01(1)",
         "178": "1100 _1100",
         "185": "1107 _1107",
@@ -62,7 +65,7 @@
         "020": "649 ATK_8MK",
         "021": "647 ATK_8HP",
         "022": "650 ATK_8HK",
-        "119": "702 NGS_9"
+        "118": "702 NGS_9"
     },
     "002": {
         "017": "645 ATK_8LP",
@@ -71,7 +74,7 @@
         "020": "649 ATK_8MK",
         "021": "647 ATK_8HP",
         "022": "650 ATK_8HK",
-        "119": "702 NGS_9"
+        "118": "702 NGS_9"
     },
     "003": {
         "064": "918 SPA_Sonicblade",
@@ -84,12 +87,12 @@
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
         "076": "899 SPA_SONICBOOM(1)",
-        "097": "980 SPA_SOMERSAULT_Start",
-        "098": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "099": "980 SPA_SOMERSAULT_Start",
+        "100": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
         "143": "1210 SAA_SolidPuncher",
@@ -98,9 +101,12 @@
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM"
+        "165": "898 SPA_SONICBOOM"
     },
     "004": {
+        "052": "1212 SAA_2_SonicBreak_R",
+        "053": "1213 SAA_2_SonicBreak_R(1)",
+        "054": "1214 SAA_2_SonicBreak_R(2)",
         "064": "918 SPA_Sonicblade",
         "065": "919 SPA_Sonicblade(1)",
         "066": "920 SPA_Sonicblade(2)",
@@ -111,12 +117,12 @@
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
         "076": "899 SPA_SONICBOOM(1)",
-        "097": "980 SPA_SOMERSAULT_Start",
-        "098": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "099": "980 SPA_SOMERSAULT_Start",
+        "100": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
         "143": "1210 SAA_SolidPuncher",
@@ -125,10 +131,13 @@
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM"
+        "165": "898 SPA_SONICBOOM"
     },
     "005": {
         "001": "18 BAS_DASH_B",
+        "052": "1212 SAA_2_SonicBreak_R",
+        "053": "1213 SAA_2_SonicBreak_R(1)",
+        "054": "1214 SAA_2_SonicBreak_R(2)",
         "064": "918 SPA_Sonicblade",
         "065": "919 SPA_Sonicblade(1)",
         "066": "920 SPA_Sonicblade(2)",
@@ -139,21 +148,14 @@
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
         "076": "899 SPA_SONICBOOM(1)",
-        "078": "938 SPA_SONICBOOM(16)",
-        "079": "939 SPA_SONICBOOM(17)",
-        "080": "940 SPA_SONICBOOM(18)",
-        "081": "941 SPA_SONICBOOM(19)",
-        "082": "942 SPA_SONICBOOM(20)",
-        "083": "943 SPA_SONICBOOM(21)",
-        "097": "980 SPA_SOMERSAULT_Start",
-        "098": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "099": "980 SPA_SOMERSAULT_Start",
+        "100": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "107": "480 DPA_STD_START",
-        "128": "754 ATK_CTA",
-        "129": "750 ATK_CTA_4",
+        "128": "855 ATK_CTA",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
         "143": "1210 SAA_SolidPuncher",
@@ -161,18 +163,20 @@
         "148": "1241 SAA_CROSSFIRE_SONICSUMMER_HIT(1)",
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
-        "160": "944 SPA_SONICBOOM(22)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM"
+        "165": "898 SPA_SONICBOOM"
     },
     "010": {
         "108": "731 ATK_CTA_DASH(1)",
         "109": "731 ATK_CTA_DASH(1)"
     },
     "011": {
-        "129": "750 ATK_CTA_4"
+        "129": "850 ATK_CTA_4"
     },
     "015": {
+        "052": "1212 SAA_2_SonicBreak_R",
+        "053": "1213 SAA_2_SonicBreak_R(1)",
+        "054": "1214 SAA_2_SonicBreak_R(2)",
         "064": "918 SPA_Sonicblade",
         "065": "919 SPA_Sonicblade(1)",
         "066": "920 SPA_Sonicblade(2)",
@@ -183,15 +187,15 @@
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
         "076": "899 SPA_SONICBOOM(1)",
-        "097": "980 SPA_SOMERSAULT_Start",
-        "098": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "099": "980 SPA_SOMERSAULT_Start",
+        "100": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "107": "480 DPA_STD_START",
-        "116": "700 NGS_6",
-        "128": "754 ATK_CTA",
+        "115": "700 NGS_6",
+        "128": "855 ATK_CTA",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
         "143": "1210 SAA_SolidPuncher",
@@ -200,7 +204,7 @@
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM",
+        "165": "898 SPA_SONICBOOM",
         "172": "1500 DEM_APPEAL_01(1)"
     },
     "017": {
@@ -212,28 +216,27 @@
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM",
-        "172": "1500 DEM_APPEAL_01(1)"
+        "165": "898 SPA_SONICBOOM"
     },
     "019": {
-        "119": "702 NGS_9"
+        "118": "702 NGS_9"
     },
     "024": {
-        "097": "980 SPA_SOMERSAULT_Start",
-        "098": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "099": "980 SPA_SOMERSAULT_Start",
+        "100": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "162": "986 SPA_SOMERSAULT_Start(6)"
     },
     "025": {
-        "097": "980 SPA_SOMERSAULT_Start",
-        "098": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "099": "980 SPA_SOMERSAULT_Start",
+        "100": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "146": "1240 SAA_CROSSFIRE_SONICSUMMER_HIT",
         "148": "1241 SAA_CROSSFIRE_SONICSUMMER_HIT(1)",
         "162": "986 SPA_SOMERSAULT_Start(6)"
@@ -241,11 +244,11 @@
     "027": {
         "107": "480 DPA_STD_START"
     },
-    "030": {
-        "128": "754 ATK_CTA"
-    },
     "032": {
         "050": "730 ATK_CTA_DASH",
+        "052": "1212 SAA_2_SonicBreak_R",
+        "053": "1213 SAA_2_SonicBreak_R(1)",
+        "054": "1214 SAA_2_SonicBreak_R(2)",
         "064": "918 SPA_Sonicblade",
         "065": "919 SPA_Sonicblade(1)",
         "066": "920 SPA_Sonicblade(2)",
@@ -256,14 +259,14 @@
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
         "076": "899 SPA_SONICBOOM(1)",
-        "095": "980 SPA_SOMERSAULT_Start",
-        "096": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "097": "980 SPA_SOMERSAULT_Start",
+        "098": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "111": "730 ATK_CTA_DASH",
-        "128": "754 ATK_CTA",
+        "128": "855 ATK_CTA",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
         "143": "1210 SAA_SolidPuncher",
@@ -272,7 +275,7 @@
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM"
+        "165": "898 SPA_SONICBOOM"
     },
     "033": {
         "140": "1200 SAA_SonicHurricane_P",
@@ -296,11 +299,6 @@
         "044": "623 ATK_2LP_B",
         "046": "634 ATK_2LK_B"
     },
-    "037": {
-        "043": "602 ATK_5LP_C",
-        "045": "624 ATK_2LP_C",
-        "046": "634 ATK_2LK_B"
-    },
     "038": {
         "042": "601 ATK_5LP_B",
         "044": "623 ATK_2LP_B",
@@ -322,24 +320,54 @@
         "039": "654 ATK_4HK(1)"
     },
     "043": {
-        "086": "930 SPA_SONICBOOM(9)",
-        "087": "930 SPA_SONICBOOM(9)",
-        "088": "931 SPA_SONICBOOM(10)",
-        "089": "931 SPA_SONICBOOM(10)",
-        "090": "932 SPA_SONICBOOM(11)",
-        "091": "933 SPA_SONICBOOM(12)",
-        "092": "934 SPA_SONICBOOM(13)",
-        "093": "935 SPA_SONICBOOM(14)",
-        "161": "936 SPA_SONICBOOM(15)",
+        "078": "930 SPA_SONICBOOM(9)",
+        "079": "930 SPA_SONICBOOM(9)",
+        "080": "931 SPA_SONICBOOM(10)",
+        "081": "931 SPA_SONICBOOM(10)",
+        "082": "932 SPA_SONICBOOM(11)",
+        "083": "933 SPA_SONICBOOM(12)",
+        "084": "934 SPA_SONICBOOM(13)",
+        "085": "935 SPA_SONICBOOM(14)",
+        "160": "936 SPA_SONICBOOM(15)",
         "163": "936 SPA_SONICBOOM(15)"
     },
-    "045": null,
-    "046": null,
-    "048": null,
-    "049": null,
-    "051": null,
-    "052": null,
+    "044": {
+        "087": "938 SPA_SONICBOOM(16)",
+        "088": "938 SPA_SONICBOOM(16)",
+        "089": "939 SPA_SONICBOOM(17)",
+        "090": "939 SPA_SONICBOOM(17)",
+        "091": "940 SPA_SONICBOOM(18)",
+        "092": "941 SPA_SONICBOOM(19)",
+        "093": "942 SPA_SONICBOOM(20)",
+        "094": "943 SPA_SONICBOOM(21)",
+        "161": "936 SPA_SONICBOOM(15)",
+        "164": "936 SPA_SONICBOOM(15)"
+    },
+    "045": {
+        "058": "1218 SAA_2_SonicBreak_R_L",
+        "059": "1219 SAA_2_SonicBreak_R_L(1)",
+        "060": "1220 SAA_2_SonicBreak_R_L(2)"
+    },
+    "046": {
+        "055": "1215 SAA_2_SonicBreak_L_R",
+        "056": "1216 SAA_2_SonicBreak_L_R(1)",
+        "057": "1217 SAA_2_SonicBreak_L_R(2)"
+    },
+    "049": {
+        "055": "1215 SAA_2_SonicBreak_L_R",
+        "056": "1216 SAA_2_SonicBreak_L_R(1)",
+        "057": "1217 SAA_2_SonicBreak_L_R(2)"
+    },
+    "051": {
+        "061": "1221 SAA_2_SonicBreak_L_R(3)"
+    },
+    "052": {
+        "062": "1222 SAA_2_SonicBreak_R_L(3)"
+    },
     "053": {
+        "052": "1212 SAA_2_SonicBreak_R",
+        "053": "1213 SAA_2_SonicBreak_R(1)",
+        "054": "1214 SAA_2_SonicBreak_R(2)",
         "064": "918 SPA_Sonicblade",
         "065": "919 SPA_Sonicblade(1)",
         "066": "920 SPA_Sonicblade(2)",
@@ -350,12 +378,12 @@
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
         "076": "899 SPA_SONICBOOM(1)",
-        "097": "980 SPA_SOMERSAULT_Start",
-        "098": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "099": "980 SPA_SOMERSAULT_Start",
+        "100": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
         "143": "1210 SAA_SolidPuncher",
@@ -363,9 +391,9 @@
         "148": "1241 SAA_CROSSFIRE_SONICSUMMER_HIT(1)",
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
-        "161": "936 SPA_SONICBOOM(15)",
+        "160": "936 SPA_SONICBOOM(15)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM"
+        "165": "898 SPA_SONICBOOM"
     },
     "055": {
         "003": "600 ATK_5LP",
@@ -376,7 +404,7 @@
         "008": "618 ATK_5HK",
         "010": "621 ATK_2LP",
         "011": "632 ATK_2LK",
-        "012": "626 ATK_2MP",
+        "012": "626 ATK_2MP(1)",
         "013": "637 ATK_2MK",
         "014": "629 ATK_2HP",
         "015": "641 ATK_2HK",
@@ -388,6 +416,9 @@
         "030": "668 ATK_6HP",
         "031": "674 ATK_6HK",
         "032": "653 ATK_4HK",
+        "052": "1212 SAA_2_SonicBreak_R",
+        "053": "1213 SAA_2_SonicBreak_R(1)",
+        "054": "1214 SAA_2_SonicBreak_R(2)",
         "064": "918 SPA_Sonicblade",
         "065": "919 SPA_Sonicblade(1)",
         "066": "920 SPA_Sonicblade(2)",
@@ -397,14 +428,14 @@
         "073": "903 SPA_SONICBOOM(5)",
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
-        "097": "980 SPA_SOMERSAULT_Start",
-        "098": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
-        "116": "700 NGS_6",
-        "128": "754 ATK_CTA",
+        "099": "980 SPA_SOMERSAULT_Start",
+        "100": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
+        "115": "700 NGS_6",
+        "128": "855 ATK_CTA",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
         "143": "1210 SAA_SolidPuncher",
@@ -421,6 +452,12 @@
         "038": "627 ATK_2MP_TC"
     },
     "060": {
+        "130": "852 ATK_CTA_4(2)"
+    },
+    "061": {
+        "052": "1212 SAA_2_SonicBreak_R",
+        "053": "1213 SAA_2_SonicBreak_R(1)",
+        "054": "1214 SAA_2_SonicBreak_R(2)",
         "064": "918 SPA_Sonicblade",
         "065": "919 SPA_Sonicblade(1)",
         "066": "920 SPA_Sonicblade(2)",
@@ -431,13 +468,13 @@
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
         "076": "899 SPA_SONICBOOM(1)",
-        "095": "980 SPA_SOMERSAULT_Start",
-        "096": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
-        "128": "754 ATK_CTA",
+        "097": "980 SPA_SOMERSAULT_Start",
+        "098": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
+        "128": "855 ATK_CTA",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
         "143": "1210 SAA_SolidPuncher",
@@ -446,14 +483,17 @@
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM"
-    },
-    "061": {
-        "050": "730 ATK_CTA_DASH",
-        "111": "730 ATK_CTA_DASH"
+        "165": "898 SPA_SONICBOOM"
     },
     "062": {
         "050": "730 ATK_CTA_DASH",
+        "111": "730 ATK_CTA_DASH"
+    },
+    "063": {
+        "050": "730 ATK_CTA_DASH",
+        "052": "1212 SAA_2_SonicBreak_R",
+        "053": "1213 SAA_2_SonicBreak_R(1)",
+        "054": "1214 SAA_2_SonicBreak_R(2)",
         "064": "918 SPA_Sonicblade",
         "065": "919 SPA_Sonicblade(1)",
         "066": "920 SPA_Sonicblade(2)",
@@ -464,12 +504,12 @@
         "074": "904 SPA_SONICBOOM(6)",
         "075": "905 SPA_SONICBOOM(7)",
         "076": "899 SPA_SONICBOOM(1)",
-        "095": "980 SPA_SOMERSAULT_Start",
-        "096": "981 SPA_SOMERSAULT_Start(1)",
-        "099": "982 SPA_SOMERSAULT_Start(2)",
-        "100": "983 SPA_SOMERSAULT_Start(3)",
-        "101": "984 SPA_SOMERSAULT_Start(4)",
-        "102": "985 SPA_SOMERSAULT_Start(5)",
+        "097": "980 SPA_SOMERSAULT_Start",
+        "098": "981 SPA_SOMERSAULT_Start(1)",
+        "101": "982 SPA_SOMERSAULT_Start(2)",
+        "102": "983 SPA_SOMERSAULT_Start(3)",
+        "103": "984 SPA_SOMERSAULT_Start(4)",
+        "104": "985 SPA_SOMERSAULT_Start(5)",
         "111": "730 ATK_CTA_DASH",
         "140": "1200 SAA_SonicHurricane_P",
         "141": "1201 SAA_SonicHurricane_K",
@@ -479,10 +519,14 @@
         "158": "921 SPA_Sonicblade(3)",
         "159": "906 SPA_SONICBOOM(8)",
         "162": "986 SPA_SOMERSAULT_Start(6)",
-        "164": "898 SPA_SONICBOOM"
+        "165": "898 SPA_SONICBOOM"
     },
-    "063": {
-        "161": "936 SPA_SONICBOOM(15)",
+    "064": {
+        "160": "936 SPA_SONICBOOM(15)",
         "163": "936 SPA_SONICBOOM(15)"
+    },
+    "065": {
+        "161": "936 SPA_SONICBOOM(15)",
+        "164": "936 SPA_SONICBOOM(15)"
     }
 }

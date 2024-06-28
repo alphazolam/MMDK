@@ -24,20 +24,20 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "095": "480 DPA_STD_START",
-        "099": "715 NGS",
-        "100": "855 ATK_CTA",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "097": "480 DPA_STD_START",
+        "101": "715 NGS",
+        "102": "855 ATK_CTA",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
@@ -72,19 +72,19 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "095": "480 DPA_STD_START",
-        "100": "855 ATK_CTA",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "097": "480 DPA_STD_START",
+        "102": "855 ATK_CTA",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
@@ -96,17 +96,17 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
@@ -120,34 +120,33 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "095": "480 DPA_STD_START",
-        "100": "855 ATK_CTA",
-        "101": "850 ATK_CTA_4",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "107": "1216 CAA_ATTACK",
-        "109": "1220 CAA_ATTACK(1)",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
-        "125": "1089 SPA_ARABIAN_CYCLONE(8)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "097": "480 DPA_STD_START",
+        "102": "855 ATK_CTA",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "111": "1216 CAA_ATTACK",
+        "113": "1220 CAA_ATTACK(1)",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
+        "125": "1089 SPA_ARABIAN_CYCLONE(9)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
         "131": "931 SPA_WHIRLWINDSHOT_END(9)"
     },
     "010": {
-        "096": "740 ATK_CTA_DASH(1)",
-        "097": "740 ATK_CTA_DASH(1)"
+        "098": "740 ATK_CTA_DASH(1)",
+        "099": "740 ATK_CTA_DASH(1)"
     },
     "011": {
-        "101": "850 ATK_CTA_4"
+        "103": "850 ATK_CTA_4"
     },
     "015": {
         "071": "700 ATK_6KK",
@@ -156,20 +155,20 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "095": "480 DPA_STD_START",
-        "099": "715 NGS",
-        "100": "855 ATK_CTA",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "097": "480 DPA_STD_START",
+        "101": "715 NGS",
+        "102": "855 ATK_CTA",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
@@ -178,20 +177,19 @@
         "167": "1497 DEM_APPEAL_01"
     },
     "017": {
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
-        "131": "931 SPA_WHIRLWINDSHOT_END(9)",
-        "167": "1497 DEM_APPEAL_01"
+        "131": "931 SPA_WHIRLWINDSHOT_END(9)"
     },
     "019": {
-        "092": "1000 SPA_ARABIAN_SKYHIGH",
-        "093": "1001 SPA_ARABIAN_SKYHIGH(1)",
-        "094": "1002 SPA_ARABIAN_SKYHIGH(2)",
+        "094": "1000 SPA_ARABIAN_SKYHIGH",
+        "095": "1001 SPA_ARABIAN_SKYHIGH(1)",
+        "096": "1002 SPA_ARABIAN_SKYHIGH(2)",
         "128": "1006 SPA_ARABIAN_SKYHIGH(3)"
     },
     "021": {
@@ -201,7 +199,7 @@
         "071": "700 ATK_6KK"
     },
     "025": {
-        "095": "480 DPA_STD_START"
+        "097": "480 DPA_STD_START"
     },
     "027": {
         "029": "601 ATK_5LP_B",
@@ -218,39 +216,40 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "098": "739 ATK_CTA_DASH",
-        "100": "855 ATK_CTA",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
-        "125": "1089 SPA_ARABIAN_CYCLONE(8)",
+        "080": "1086 SPA_ARABIAN_CYCLONE(8)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "100": "739 ATK_CTA_DASH",
+        "102": "855 ATK_CTA",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
+        "125": "1089 SPA_ARABIAN_CYCLONE(9)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
         "131": "931 SPA_WHIRLWINDSHOT_END(9)"
     },
     "033": {
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)"
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)"
     },
     "034": {
-        "105": "1210 SAA2",
-        "107": "1216 CAA_ATTACK",
-        "109": "1220 CAA_ATTACK(1)"
+        "109": "1210 SAA2",
+        "111": "1216 CAA_ATTACK",
+        "113": "1220 CAA_ATTACK(1)"
     },
     "035": {
-        "107": "1216 CAA_ATTACK",
-        "109": "1220 CAA_ATTACK(1)"
+        "111": "1216 CAA_ATTACK",
+        "113": "1220 CAA_ATTACK(1)"
     },
     "037": {
         "029": "601 ATK_5LP_B",
@@ -268,18 +267,18 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "100": "855 ATK_CTA",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "102": "855 ATK_CTA",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
@@ -287,22 +286,19 @@
     },
     "040": {
         "052": "739 ATK_CTA_DASH",
-        "098": "739 ATK_CTA_DASH"
+        "100": "739 ATK_CTA_DASH"
     },
     "042": {
-        "092": "1000 SPA_ARABIAN_SKYHIGH",
-        "093": "1001 SPA_ARABIAN_SKYHIGH(1)",
-        "094": "1002 SPA_ARABIAN_SKYHIGH(2)",
+        "094": "1000 SPA_ARABIAN_SKYHIGH",
+        "095": "1001 SPA_ARABIAN_SKYHIGH(1)",
+        "096": "1002 SPA_ARABIAN_SKYHIGH(2)",
         "128": "1006 SPA_ARABIAN_SKYHIGH(3)"
     },
     "043": {
-        "092": "1000 SPA_ARABIAN_SKYHIGH",
-        "093": "1001 SPA_ARABIAN_SKYHIGH(1)",
-        "094": "1002 SPA_ARABIAN_SKYHIGH(2)",
+        "094": "1000 SPA_ARABIAN_SKYHIGH",
+        "095": "1001 SPA_ARABIAN_SKYHIGH(1)",
+        "096": "1002 SPA_ARABIAN_SKYHIGH(2)",
         "128": "1006 SPA_ARABIAN_SKYHIGH(3)"
-    },
-    "045": {
-        "099": "715 NGS"
     },
     "047": {
         "069": "995 SPA_BACKUP_G",
@@ -310,51 +306,44 @@
         "071": "700 ATK_6KK",
         "151": "595 BAS_JUMP_F_AIR(2)"
     },
-    "048": {
-        "061": "677 ATK_82HP(1)",
-        "087": "974 SPA_ASSAULT_ROLE",
-        "089": "975 SPA_ASSAULT_NAIL",
-        "090": "976 SPA_WING_STROKE"
-    },
-    "050": {
-        "059": "684 ATK_8HP(6)",
-        "078": "970 SPA_ARABIAN_CYCLONE",
-        "079": "971 SPA_ARABIAN_CYCLONE(1)"
-    },
     "052": {
-        "087": "974 SPA_ASSAULT_ROLE",
-        "090": "976 SPA_WING_STROKE"
+        "088": "974 SPA_ASSAULT_ROLE",
+        "092": "976 SPA_WING_STROKE"
     },
     "053": {
-        "088": "974 SPA_ASSAULT_ROLE",
-        "091": "976 SPA_WING_STROKE"
+        "090": "974 SPA_ASSAULT_ROLE",
+        "093": "976 SPA_WING_STROKE"
     },
     "054": {
-        "072": "701 ATK_6KK_KK"
+        "089": "974 SPA_ASSAULT_ROLE",
+        "093": "976 SPA_WING_STROKE"
     },
     "055": {
+        "072": "701 ATK_6KK_KK"
+    },
+    "056": {
         "055": "682 ATK_8LP(3)",
         "056": "685 ATK_8LK(3)",
         "057": "683 ATK_8MP(3)",
         "058": "686 ATK_8MK(3)",
-        "059": "684 ATK_8HP(6)",
+        "059": "684 ATK_8HP(4)",
         "060": "687 ATK_9HK(3)",
         "061": "677 ATK_82HP(1)",
-        "092": "1000 SPA_ARABIAN_SKYHIGH",
-        "093": "1001 SPA_ARABIAN_SKYHIGH(1)",
-        "094": "1002 SPA_ARABIAN_SKYHIGH(2)",
+        "094": "1000 SPA_ARABIAN_SKYHIGH",
+        "095": "1001 SPA_ARABIAN_SKYHIGH(1)",
+        "096": "1002 SPA_ARABIAN_SKYHIGH(2)",
         "129": "1006 SPA_ARABIAN_SKYHIGH(3)"
     },
-    "056": {
+    "057": {
         "062": "667 ATK_8LP(2)",
         "063": "670 ATK_8LK(2)",
         "064": "668 ATK_8MP(2)",
         "065": "672 ATK_8MK(2)",
-        "066": "671 ATK_8HP(5)",
+        "066": "671 ATK_8HP(3)",
         "067": "673 ATK_9HK(2)",
         "068": "679 ATK_82HP(2)"
     },
-    "057": {
+    "058": {
         "017": "649 ATK_8LP",
         "018": "655 ATK_8LK",
         "019": "651 ATK_8MP",
@@ -364,19 +353,22 @@
         "045": "674 ATK_82HP",
         "122": "728 NGS_AIR"
     },
-    "058": {
+    "059": {
         "055": "682 ATK_8LP(3)",
         "056": "685 ATK_8LK(3)",
         "057": "683 ATK_8MP(3)",
         "058": "686 ATK_8MK(3)",
-        "059": "684 ATK_8HP(6)",
+        "059": "684 ATK_8HP(4)",
         "060": "687 ATK_9HK(3)",
-        "092": "1000 SPA_ARABIAN_SKYHIGH",
-        "093": "1001 SPA_ARABIAN_SKYHIGH(1)",
-        "094": "1002 SPA_ARABIAN_SKYHIGH(2)",
+        "094": "1000 SPA_ARABIAN_SKYHIGH",
+        "095": "1001 SPA_ARABIAN_SKYHIGH(1)",
+        "096": "1002 SPA_ARABIAN_SKYHIGH(2)",
         "128": "1006 SPA_ARABIAN_SKYHIGH(3)"
     },
-    "059": {
+    "060": {
+        "104": "852 ATK_CTA_4(2)"
+    },
+    "061": {
         "017": "649 ATK_8LP",
         "018": "655 ATK_8LK",
         "019": "651 ATK_8MP",
@@ -384,54 +376,30 @@
         "021": "653 ATK_8HP",
         "022": "659 ATK_9HK",
         "045": "674 ATK_82HP",
-        "092": "1000 SPA_ARABIAN_SKYHIGH",
-        "093": "1001 SPA_ARABIAN_SKYHIGH(1)",
-        "094": "1002 SPA_ARABIAN_SKYHIGH(2)",
+        "094": "1000 SPA_ARABIAN_SKYHIGH",
+        "095": "1001 SPA_ARABIAN_SKYHIGH(1)",
+        "096": "1002 SPA_ARABIAN_SKYHIGH(2)",
         "122": "728 NGS_AIR",
         "128": "1006 SPA_ARABIAN_SKYHIGH(3)"
     },
-    "060": {
+    "062": {
         "029": "601 ATK_5LP_B",
         "033": "619 ATK_2LP_B",
         "035": "630 ATK_2LK_B"
     },
-    "061": {
+    "063": {
         "030": "602 ATK_5LP_C",
         "034": "620 ATK_2LP_C",
         "036": "631 ATK_2LK_C"
     },
-    "063": {
+    "065": {
         "031": "610 ATK_5LK(1)"
     },
-    "064": {
+    "066": {
         "032": "611 ATK_5LK(2)"
     },
-    "066": {
-        "039": "620 ATK_2LP_C"
-    },
-    "067": {
-        "071": "700 ATK_6KK"
-    },
-    "068": {
-        "040": "604 ATK_MPHK"
-    },
     "069": {
-        "046": "678 ATK_8HK"
-    },
-    "070": {
-        "072": "701 ATK_6KK_KK"
-    },
-    "072": {
-        "033": "619 ATK_2LP_B"
-    },
-    "073": {
-        "034": "620 ATK_2LP_C"
-    },
-    "074": {
-        "035": "630 ATK_2LK_B"
-    },
-    "075": {
-        "036": "631 ATK_2LK_C"
+        "040": "604 ATK_MPHK"
     },
     "080": {
         "052": "739 ATK_CTA_DASH",
@@ -440,28 +408,28 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "098": "739 ATK_CTA_DASH",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "100": "739 ATK_CTA_DASH",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
         "131": "931 SPA_WHIRLWINDSHOT_END(9)"
     },
     "081": {
-        "100": "855 ATK_CTA"
+        "102": "855 ATK_CTA"
     },
     "084": {
-        "089": "975 SPA_ASSAULT_NAIL"
+        "091": "975 SPA_ASSAULT_NAIL"
     },
     "085": {
         "023": "650 ATK_8LP(1)",
@@ -470,29 +438,24 @@
         "026": "658 ATK_8MK(1)",
         "027": "654 ATK_8HP(1)",
         "028": "660 ATK_9HK(1)",
-        "092": "1000 SPA_ARABIAN_SKYHIGH",
-        "093": "1001 SPA_ARABIAN_SKYHIGH(1)",
-        "094": "1002 SPA_ARABIAN_SKYHIGH(2)",
+        "094": "1000 SPA_ARABIAN_SKYHIGH",
+        "095": "1001 SPA_ARABIAN_SKYHIGH(1)",
+        "096": "1002 SPA_ARABIAN_SKYHIGH(2)",
         "128": "1006 SPA_ARABIAN_SKYHIGH(3)"
-    },
-    "089": {
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)"
     },
     "100": {
         "122": "728 NGS_AIR"
     },
     "101": {
-        "092": "1000 SPA_ARABIAN_SKYHIGH",
-        "093": "1001 SPA_ARABIAN_SKYHIGH(1)",
-        "094": "1002 SPA_ARABIAN_SKYHIGH(2)",
+        "094": "1000 SPA_ARABIAN_SKYHIGH",
+        "095": "1001 SPA_ARABIAN_SKYHIGH(1)",
+        "096": "1002 SPA_ARABIAN_SKYHIGH(2)",
         "128": "1006 SPA_ARABIAN_SKYHIGH(3)"
     },
     "110": {
-        "092": "1000 SPA_ARABIAN_SKYHIGH",
-        "093": "1001 SPA_ARABIAN_SKYHIGH(1)",
-        "094": "1002 SPA_ARABIAN_SKYHIGH(2)",
+        "094": "1000 SPA_ARABIAN_SKYHIGH",
+        "095": "1001 SPA_ARABIAN_SKYHIGH(1)",
+        "096": "1002 SPA_ARABIAN_SKYHIGH(2)",
         "128": "1006 SPA_ARABIAN_SKYHIGH(3)"
     },
     "115": {
@@ -501,29 +464,21 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "107": "1216 CAA_ATTACK",
-        "109": "1220 CAA_ATTACK(1)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "111": "1216 CAA_ATTACK",
+        "113": "1220 CAA_ATTACK(1)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
         "131": "931 SPA_WHIRLWINDSHOT_END(9)"
-    },
-    "120": {
-        "101": "850 ATK_CTA_4"
-    },
-    "121": {
-        "073": "702 ATK_6KK_KK(1)",
-        "074": "703 ATK_6KK_KK(2)",
-        "091": "976 SPA_WING_STROKE"
     },
     "123": {
         "003": "600 ATK_5LP",
@@ -547,26 +502,22 @@
         "077": "921 SPA_WHIRLWINDSHOT_END(6)",
         "078": "970 SPA_ARABIAN_CYCLONE",
         "079": "971 SPA_ARABIAN_CYCLONE(1)",
-        "080": "972 SPA_ARABIAN_CYCLONE(2)",
-        "081": "938 SPA_EAGLE_SPIKE_L",
-        "082": "941 SPA_EAGLE_SPIKE_MH",
-        "083": "944 SPA_EAGLE_SPIKE_MH(1)",
-        "084": "955 SPA_SPINING_MIXER_L_END",
-        "085": "956 SPA_SPINING_MIXER_M_AIR",
-        "086": "957 SPA_SPINING_MIXER_H",
-        "099": "715 NGS",
-        "100": "855 ATK_CTA",
-        "102": "1200 SAA1(1)",
-        "104": "1210 SAA2",
-        "112": "1216 CAA_ATTACK",
-        "115": "1220 CAA_ATTACK(1)",
+        "081": "972 SPA_ARABIAN_CYCLONE(2)",
+        "082": "938 SPA_EAGLE_SPIKE_L",
+        "083": "941 SPA_EAGLE_SPIKE_MH",
+        "084": "944 SPA_EAGLE_SPIKE_MH(1)",
+        "085": "955 SPA_SPINING_MIXER_L_END",
+        "086": "956 SPA_SPINING_MIXER_M_AIR",
+        "087": "957 SPA_SPINING_MIXER_H",
+        "101": "715 NGS",
+        "102": "855 ATK_CTA",
+        "106": "1200 SAA1(1)",
+        "108": "1210 SAA2",
+        "116": "1216 CAA_ATTACK",
+        "119": "1220 CAA_ATTACK(1)",
         "126": "947 SPA_EAGLE_SPIKE_EX",
         "127": "973 SPA_ARABIAN_CYCLONE(3)",
         "130": "958 SPA_SPINING_MIXER_EX_AIR",
         "131": "931 SPA_WHIRLWINDSHOT_END(9)"
-    },
-    "125": {
-        "073": "702 ATK_6KK_KK(1)",
-        "074": "703 ATK_6KK_KK(2)"
     }
 }

@@ -6,7 +6,7 @@
         "005": "613 ATK_5LK",
         "007": "604 ATK_5MP(1)",
         "010": "615 ATK_5MK",
-        "012": "608 ATK_5HP_MAX",
+        "012": "607 ATK_5HP_MAX",
         "014": "617 ATK_5HK_MAX",
         "017": "621 ATK_2LP",
         "018": "633 ATK_2LK",
@@ -34,11 +34,9 @@
         "130": "900 SPA_Gradius_MAX",
         "131": "901 SPA_Gradius_MAX(1)",
         "132": "902 SPA_Gradius_MAX(2)",
-        "146": "905 SPA_Gradius_M",
-        "147": "905 SPA_Gradius_M",
         "149": "480 DPA_STD_START",
-        "155": "717 NGS",
-        "161": "854 ATK_CTA",
+        "155": "715 NGS",
+        "161": "855 ATK_CTA",
         "171": "1200 SAA1_MAX",
         "173": "1208 SAA2_NGS",
         "176": "1213 SAA3_NGS",
@@ -88,7 +86,7 @@
         "131": "901 SPA_Gradius_MAX(1)",
         "132": "902 SPA_Gradius_MAX(2)",
         "149": "480 DPA_STD_START",
-        "161": "854 ATK_CTA",
+        "161": "855 ATK_CTA",
         "171": "1200 SAA1_MAX",
         "173": "1208 SAA2_NGS",
         "176": "1213 SAA3_NGS",
@@ -148,8 +146,7 @@
         "131": "901 SPA_Gradius_MAX(1)",
         "132": "902 SPA_Gradius_MAX(2)",
         "149": "480 DPA_STD_START",
-        "161": "854 ATK_CTA",
-        "163": "850 ATK_CTA_4",
+        "161": "855 ATK_CTA",
         "171": "1200 SAA1_MAX",
         "173": "1208 SAA2_NGS",
         "175": "1213 SAA3_NGS",
@@ -195,11 +192,9 @@
         "130": "900 SPA_Gradius_MAX",
         "131": "901 SPA_Gradius_MAX(1)",
         "132": "902 SPA_Gradius_MAX(2)",
-        "146": "905 SPA_Gradius_M",
-        "147": "905 SPA_Gradius_M",
         "149": "480 DPA_STD_START",
-        "155": "717 NGS",
-        "161": "854 ATK_CTA",
+        "155": "715 NGS",
+        "161": "855 ATK_CTA",
         "171": "1200 SAA1_MAX",
         "173": "1208 SAA2_NGS",
         "176": "1213 SAA3_NGS",
@@ -220,8 +215,7 @@
         "183": "932 SPA_Dimachaerus(3)",
         "186": "939 SPA_Phalanx(3)",
         "187": "946 SPA_Quadriga(3)",
-        "189": "903 SPA_Gradius_MAX(3)",
-        "192": "1497 DEM_APPEAL_01"
+        "189": "903 SPA_Gradius_MAX(3)"
     },
     "018": {
         "119": "945 SPA_Quadriga(2)"
@@ -252,7 +246,7 @@
         "130": "900 SPA_Gradius_MAX",
         "131": "901 SPA_Gradius_MAX(1)",
         "132": "902 SPA_Gradius_MAX(2)",
-        "161": "854 ATK_CTA",
+        "161": "855 ATK_CTA",
         "171": "1200 SAA1_MAX",
         "173": "1208 SAA2_NGS",
         "176": "1213 SAA3_NGS",
@@ -277,22 +271,9 @@
         "051": "623 ATK_2LP_C",
         "053": "635 ATK_2LK_C"
     },
-    "036": {
-        "050": "622 ATK_2LP_B",
-        "052": "634 ATK_2LK_B"
-    },
-    "037": {
-        "051": "623 ATK_2LP_C",
-        "053": "635 ATK_2LK_C"
-    },
     "041": {
         "067": "504 ATK_CTA_RUSH(1)",
         "152": "504 ATK_CTA_RUSH(1)"
-    },
-    "045": {
-        "137": "953 SPA_Scutum_Loop",
-        "138": "953 SPA_Scutum_Loop",
-        "155": "717 NGS"
     },
     "050": {
         "173": "1208 SAA2_NGS",
@@ -311,6 +292,9 @@
     },
     "058": {
         "013": "611 ATK_5HP_B"
+    },
+    "060": {
+        "164": "852 ATK_CTA_4(2)"
     },
     "061": {
         "035": "668 ATK_6MP_HP",
@@ -366,15 +350,12 @@
     "099": {
         "051": "623 ATK_2LP_C"
     },
-    "120": {
-        "163": "850 ATK_CTA_4"
-    },
     "123": {
         "003": "600 ATK_5LP",
         "005": "613 ATK_5LK",
         "007": "604 ATK_5MP(1)",
         "010": "615 ATK_5MK",
-        "012": "608 ATK_5HP_MAX",
+        "012": "607 ATK_5HP_MAX",
         "014": "617 ATK_5HK_MAX",
         "017": "621 ATK_2LP",
         "018": "633 ATK_2LK",
@@ -402,8 +383,8 @@
         "130": "900 SPA_Gradius_MAX",
         "131": "901 SPA_Gradius_MAX(1)",
         "132": "902 SPA_Gradius_MAX(2)",
-        "155": "717 NGS",
-        "161": "854 ATK_CTA",
+        "155": "715 NGS",
+        "161": "855 ATK_CTA",
         "171": "1200 SAA1_MAX",
         "173": "1208 SAA2_NGS",
         "176": "1213 SAA3_NGS",

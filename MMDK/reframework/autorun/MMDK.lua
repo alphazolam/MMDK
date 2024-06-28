@@ -1,7 +1,7 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6
 -- By alphaZomega
--- May 22, 2024
-local version = "1.0.6"
+-- June 28, 2024
+local version = "1.0.7"
 
 player_data = {}
 tmp_fns = {}
