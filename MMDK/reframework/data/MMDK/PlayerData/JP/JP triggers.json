@@ -2,6 +2,7 @@
     "0017": {
         "0": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -147,7 +148,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "command_ptr": {
@@ -523,7 +524,7 @@
             "norm_NG": false,
             "option_flags": 4,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 0,
@@ -535,7 +536,7 @@
             },
             "sprt_NG": false,
             "supr": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 0,
@@ -556,6 +557,7 @@
     "0018": {
         "1": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -701,7 +703,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 3,
                 "command_no": 8,
                 "command_ptr": {
@@ -1077,7 +1079,7 @@
             "norm_NG": false,
             "option_flags": 4,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 3,
                 "command_no": 8,
                 "dc_exc_flags": 0,
@@ -1089,7 +1091,7 @@
             },
             "sprt_NG": false,
             "supr": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 3,
                 "command_no": 8,
                 "dc_exc_flags": 0,
@@ -1110,6 +1112,7 @@
     "0034": {
         "173": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -1301,6 +1304,7 @@
     "0480": {
         "91": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -1462,7 +1466,7 @@
                 "attribute": 2,
                 "command_index": -1,
                 "command_no": -1,
-                "dc_exc_flags": 288,
+                "dc_exc_flags": 64,
                 "dc_inc_flags": 0,
                 "ng_key_flags": 0,
                 "ok_key_cond_flags": 0,
@@ -1492,6 +1496,7 @@
     "0600": {
         "3": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -1683,6 +1688,7 @@
     "0601": {
         "31": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -1874,6 +1880,7 @@
     "0602": {
         "32": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2063,6 +2070,7 @@
         },
         "33": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2254,6 +2262,7 @@
     "0603": {
         "5": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2445,6 +2454,7 @@
     "0604": {
         "7": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2636,6 +2646,7 @@
     "0605": {
         "4": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2827,6 +2838,7 @@
     "0606": {
         "6": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3018,6 +3030,7 @@
     "0607": {
         "8": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3209,6 +3222,7 @@
     "0613": {
         "10": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3400,6 +3414,7 @@
     "0614": {
         "37": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3586,200 +3601,12 @@
             "use_super": true,
             "vital_consume": 0,
             "vital_need": 0
-        },
-        "43": {
-            "AtckType": 1,
-            "_IgnoreStrength": false,
-            "_InheritRush": false,
-            "_IsAir": false,
-            "_IsAppeal": false,
-            "_IsAtemi": false,
-            "_IsAutoPilot": false,
-            "_IsBackward": false,
-            "_IsBodyAtck": false,
-            "_IsChainCombo": false,
-            "_IsCrouch": false,
-            "_IsDImpact": false,
-            "_IsDReversal": false,
-            "_IsDrive": false,
-            "_IsDriveDash": false,
-            "_IsExtra": false,
-            "_IsFB": false,
-            "_IsFly": false,
-            "_IsForward": false,
-            "_IsGCancel": false,
-            "_IsGimmick": false,
-            "_IsGround": true,
-            "_IsHeadButt": false,
-            "_IsHeavy": false,
-            "_IsJump": false,
-            "_IsKick": false,
-            "_IsLight": true,
-            "_IsLinker": false,
-            "_IsLv1": false,
-            "_IsLv2": false,
-            "_IsLv3": false,
-            "_IsLv4": false,
-            "_IsMiddle": false,
-            "_IsNormal": true,
-            "_IsNormalKind": true,
-            "_IsParry": false,
-            "_IsParryDash": false,
-            "_IsProjectile": false,
-            "_IsPunch": true,
-            "_IsReversal": false,
-            "_IsShortRange": false,
-            "_IsShungoku": false,
-            "_IsSpecial": false,
-            "_IsSpecialKind": false,
-            "_IsSpecial_1": false,
-            "_IsSpecial_10": false,
-            "_IsSpecial_11": false,
-            "_IsSpecial_12": false,
-            "_IsSpecial_13": false,
-            "_IsSpecial_14": false,
-            "_IsSpecial_15": false,
-            "_IsSpecial_2": false,
-            "_IsSpecial_3": false,
-            "_IsSpecial_4": false,
-            "_IsSpecial_5": false,
-            "_IsSpecial_6": false,
-            "_IsSpecial_7": false,
-            "_IsSpecial_8": false,
-            "_IsSpecial_9": false,
-            "_IsSuper": false,
-            "_IsSuper1": false,
-            "_IsSuper2": false,
-            "_IsSuper3": false,
-            "_IsSuper35": false,
-            "_IsSuper_1": false,
-            "_IsSuper_2": false,
-            "_IsSuper_3": false,
-            "_IsSuper_4": false,
-            "_IsSuper_5": false,
-            "_IsTarCombo": false,
-            "_IsTheEnd": false,
-            "_IsThrowCommand": false,
-            "_IsThrowKind": false,
-            "_IsThrowNormal": false,
-            "_IsThrowShell": false,
-            "_IsThrowSpecial": false,
-            "_IsUnique": false,
-            "_IsUnique_1": false,
-            "_IsUnique_10": false,
-            "_IsUnique_11": false,
-            "_IsUnique_12": false,
-            "_IsUnique_13": false,
-            "_IsUnique_14": false,
-            "_IsUnique_15": false,
-            "_IsUnique_2": false,
-            "_IsUnique_3": false,
-            "_IsUnique_4": false,
-            "_IsUnique_5": false,
-            "_IsUnique_6": false,
-            "_IsUnique_7": false,
-            "_IsUnique_8": false,
-            "_IsUnique_9": false,
-            "_NotResetComboID": false,
-            "_RegistInput": false,
-            "_UseUniqueParam": false,
-            "_kind_all": 0,
-            "action_dir": 2,
-            "action_id": 614,
-            "action_status_sub": 0,
-            "atck_type_bit": 1,
-            "category_flags": 536872977,
-            "charge_group_bit": {
-                "easy": 0,
-                "normal": 0,
-                "raw": 0,
-                "sporty": 0,
-                "super": 0
-            },
-            "combo_inst": 0,
-            "combo_sp_gain": 100,
-            "command_group_id": -1,
-            "cond_air_jump_count": 0,
-            "cond_atk_limit": 0,
-            "cond_jump_cmd_count": 0,
-            "cond_limit_shot_num": 0,
-            "cond_master_id": -1,
-            "cond_owner_state_flags": 0,
-            "cond_param_id": -1,
-            "cond_param_ope": 0,
-            "cond_param_value": 0,
-            "cond_range": 0,
-            "cond_range_param": 0.0,
-            "cond_vital_ope": 0,
-            "cond_vital_ratio": 0,
-            "easy": {
-                "attribute": 0,
-                "command_index": -1,
-                "command_no": 0,
-                "dc_exc_flags": 0,
-                "dc_inc_flags": 0,
-                "ng_key_flags": 0,
-                "ok_key_cond_flags": 0,
-                "ok_key_flags": 0,
-                "preceding_time": 0
-            },
-            "easy_NG": true,
-            "fightstyle_flags": 65535,
-            "focus_consume": 0,
-            "focus_need": 0,
-            "function_id": 1,
-            "gauge_consume": 0,
-            "gauge_need": 0,
-            "kind_level": 0,
-            "kind_sub": 0,
-            "limit_shot_category": 65535,
-            "norm": {
-                "attribute": 0,
-                "command_index": -1,
-                "command_no": -1,
-                "dc_exc_flags": 2,
-                "dc_inc_flags": 0,
-                "ng_key_flags": 0,
-                "ok_key_cond_flags": 16416,
-                "ok_key_flags": 16,
-                "preceding_time": 4
-            },
-            "norm_NG": false,
-            "option_flags": 0,
-            "sprt": {
-                "attribute": 0,
-                "command_index": -1,
-                "command_no": -1,
-                "dc_exc_flags": 2,
-                "dc_inc_flags": 0,
-                "ng_key_flags": 0,
-                "ok_key_cond_flags": 16416,
-                "ok_key_flags": 16,
-                "preceding_time": 4
-            },
-            "sprt_NG": false,
-            "supr": {
-                "attribute": 0,
-                "command_index": -1,
-                "command_no": 0,
-                "dc_exc_flags": 0,
-                "dc_inc_flags": 0,
-                "ng_key_flags": 0,
-                "ok_key_cond_flags": 0,
-                "ok_key_flags": 0,
-                "preceding_time": 0
-            },
-            "supr_NG": true,
-            "turn_around": 0,
-            "use_sprt": true,
-            "use_super": false,
-            "vital_consume": 0,
-            "vital_need": 0
         }
     },
     "0615": {
         "38": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3969,6 +3796,7 @@
         },
         "42": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4160,6 +3988,7 @@
     "0616": {
         "12": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4351,6 +4180,7 @@
     "0617": {
         "14": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4542,6 +4372,7 @@
     "0618": {
         "11": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4733,6 +4564,7 @@
     "0619": {
         "40": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4924,6 +4756,7 @@
     "0620": {
         "41": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -5115,6 +4948,7 @@
     "0621": {
         "13": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -5306,6 +5140,7 @@
     "0622": {
         "15": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -5497,6 +5332,7 @@
     "0627": {
         "18": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -5688,6 +5524,7 @@
     "0628": {
         "20": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -5879,6 +5716,7 @@
     "0629": {
         "22": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -6070,6 +5908,7 @@
     "0630": {
         "19": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -6261,6 +6100,7 @@
     "0631": {
         "21": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -6452,6 +6292,7 @@
     "0632": {
         "23": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -6643,6 +6484,7 @@
     "0637": {
         "25": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -6834,6 +6676,7 @@
     "0638": {
         "44": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -7025,6 +6868,7 @@
     "0639": {
         "26": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -7216,6 +7060,7 @@
     "0640": {
         "27": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -7407,6 +7252,7 @@
     "0641": {
         "28": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -7598,6 +7444,7 @@
     "0642": {
         "45": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -7789,6 +7636,7 @@
     "0643": {
         "46": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -7980,6 +7828,7 @@
     "0644": {
         "47": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -8171,6 +8020,7 @@
     "0715": {
         "94": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -8362,6 +8212,7 @@
     "0717": {
         "97": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -8553,6 +8404,7 @@
     "0739": {
         "52": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -8698,7 +8550,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 0,
@@ -8711,7 +8563,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 0,
@@ -8742,6 +8594,7 @@
         },
         "92": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -8933,6 +8786,7 @@
     "0740": {
         "89": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -9078,7 +8932,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 10,
+                "attribute": 42,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 288,
@@ -9091,7 +8945,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 64,
@@ -9122,6 +8976,7 @@
         },
         "90": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -9267,7 +9122,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 10,
+                "attribute": 42,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 288,
@@ -9280,7 +9135,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 64,
@@ -9313,6 +9168,7 @@
     "0850": {
         "102": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -9504,6 +9360,7 @@
     "0852": {
         "103": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -9695,6 +9552,7 @@
     "0855": {
         "101": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -9886,6 +9744,7 @@
     "0900": {
         "65": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -10077,6 +9936,7 @@
     "0901": {
         "66": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -10631,6 +10491,7 @@
     "0902": {
         "67": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -10822,6 +10683,7 @@
     "0904": {
         "137": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -11013,6 +10875,7 @@
     "0915": {
         "77": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -11567,6 +11430,7 @@
     "0916": {
         "78": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -11758,6 +11622,7 @@
     "0917": {
         "79": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -11949,6 +11814,7 @@
     "0918": {
         "140": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12140,6 +12006,7 @@
     "0919": {
         "141": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12331,6 +12198,7 @@
     "0920": {
         "142": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12522,6 +12390,7 @@
     "0933": {
         "73": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12713,6 +12582,7 @@
     "0934": {
         "74": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12904,6 +12774,7 @@
     "0940": {
         "75": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -13095,6 +12966,7 @@
     "0956": {
         "57": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -13240,7 +13112,7 @@
             "kind_sub": 0,
             "limit_shot_category": 16,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "command_ptr": {
@@ -13616,7 +13488,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 7,
                 "command_no": 31,
                 "command_ptr": {
@@ -14012,6 +13884,7 @@
     "0957": {
         "58": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -14157,7 +14030,7 @@
             "kind_sub": 0,
             "limit_shot_category": 16,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "dc_exc_flags": 0,
@@ -14170,7 +14043,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 7,
                 "command_no": 31,
                 "dc_exc_flags": 0,
@@ -14203,6 +14076,7 @@
     "0958": {
         "59": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -14348,7 +14222,7 @@
             "kind_sub": 0,
             "limit_shot_category": 16,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "dc_exc_flags": 0,
@@ -14361,7 +14235,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 7,
                 "command_no": 31,
                 "dc_exc_flags": 0,
@@ -14394,6 +14268,7 @@
     "0959": {
         "133": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -14539,7 +14414,7 @@
             "kind_sub": 0,
             "limit_shot_category": 16,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "dc_exc_flags": 0,
@@ -14552,7 +14427,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 7,
                 "command_no": 31,
                 "dc_exc_flags": 0,
@@ -14585,6 +14460,7 @@
     "0960": {
         "134": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -14730,7 +14606,7 @@
             "kind_sub": 0,
             "limit_shot_category": 16,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "dc_exc_flags": 0,
@@ -14743,7 +14619,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 7,
                 "command_no": 31,
                 "dc_exc_flags": 0,
@@ -14776,6 +14652,7 @@
     "0961": {
         "135": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -14921,7 +14798,7 @@
             "kind_sub": 0,
             "limit_shot_category": 16,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "dc_exc_flags": 0,
@@ -14934,7 +14811,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 7,
                 "command_no": 31,
                 "dc_exc_flags": 0,
@@ -14967,6 +14844,7 @@
     "0971": {
         "69": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15158,6 +15036,7 @@
     "0972": {
         "70": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15349,6 +15228,7 @@
     "0973": {
         "71": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15540,6 +15420,7 @@
     "0977": {
         "138": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15731,6 +15612,7 @@
     "0995": {
         "61": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15876,7 +15758,7 @@
             "kind_sub": 0,
             "limit_shot_category": 4,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "dc_exc_flags": 0,
@@ -15920,6 +15802,7 @@
         },
         "62": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16065,7 +15948,7 @@
             "kind_sub": 0,
             "limit_shot_category": 4,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "dc_exc_flags": 0,
@@ -16109,6 +15992,7 @@
         },
         "63": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16254,7 +16138,7 @@
             "kind_sub": 0,
             "limit_shot_category": 4,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "dc_exc_flags": 0,
@@ -16300,6 +16184,7 @@
     "1000": {
         "136": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16445,7 +16330,7 @@
             "kind_sub": 0,
             "limit_shot_category": 4,
             "norm": {
-                "attribute": 0,
+                "attribute": 32,
                 "command_index": 4,
                 "command_no": 9,
                 "dc_exc_flags": 0,
@@ -16491,6 +16376,7 @@
     "1010": {
         "81": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16680,6 +16566,7 @@
         },
         "82": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16869,6 +16756,7 @@
         },
         "83": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17060,6 +16948,7 @@
     "1016": {
         "143": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17251,6 +17140,7 @@
     "1150": {
         "176": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17442,6 +17332,7 @@
     "1157": {
         "183": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17633,6 +17524,7 @@
     "1163": {
         "188": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17824,6 +17716,7 @@
     "1200": {
         "108": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -18739,6 +18632,7 @@
     "1211": {
         "111": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -18928,6 +18822,7 @@
         },
         "113": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -19841,6 +19736,7 @@
         },
         "115": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20027,11 +19923,202 @@
             "use_super": false,
             "vital_consume": 0,
             "vital_need": 0
+        },
+        "116": {
+            "AtckType": 0,
+            "_IgnoreEasy80": false,
+            "_IgnoreStrength": false,
+            "_InheritRush": false,
+            "_IsAir": false,
+            "_IsAppeal": false,
+            "_IsAtemi": false,
+            "_IsAutoPilot": false,
+            "_IsBackward": false,
+            "_IsBodyAtck": false,
+            "_IsChainCombo": false,
+            "_IsCrouch": false,
+            "_IsDImpact": false,
+            "_IsDReversal": false,
+            "_IsDrive": false,
+            "_IsDriveDash": false,
+            "_IsExtra": false,
+            "_IsFB": false,
+            "_IsFly": false,
+            "_IsForward": false,
+            "_IsGCancel": false,
+            "_IsGimmick": false,
+            "_IsGround": true,
+            "_IsHeadButt": false,
+            "_IsHeavy": false,
+            "_IsJump": false,
+            "_IsKick": false,
+            "_IsLight": false,
+            "_IsLinker": false,
+            "_IsLv1": false,
+            "_IsLv2": true,
+            "_IsLv3": false,
+            "_IsLv4": false,
+            "_IsMiddle": false,
+            "_IsNormal": false,
+            "_IsNormalKind": false,
+            "_IsParry": false,
+            "_IsParryDash": false,
+            "_IsProjectile": true,
+            "_IsPunch": false,
+            "_IsReversal": false,
+            "_IsShortRange": false,
+            "_IsShungoku": false,
+            "_IsSpecial": false,
+            "_IsSpecialKind": false,
+            "_IsSpecial_1": false,
+            "_IsSpecial_10": false,
+            "_IsSpecial_11": false,
+            "_IsSpecial_12": false,
+            "_IsSpecial_13": false,
+            "_IsSpecial_14": false,
+            "_IsSpecial_15": false,
+            "_IsSpecial_2": false,
+            "_IsSpecial_3": false,
+            "_IsSpecial_4": false,
+            "_IsSpecial_5": false,
+            "_IsSpecial_6": false,
+            "_IsSpecial_7": false,
+            "_IsSpecial_8": false,
+            "_IsSpecial_9": false,
+            "_IsSuper": true,
+            "_IsSuper1": false,
+            "_IsSuper2": true,
+            "_IsSuper3": false,
+            "_IsSuper35": false,
+            "_IsSuper_1": false,
+            "_IsSuper_2": true,
+            "_IsSuper_3": false,
+            "_IsSuper_4": false,
+            "_IsSuper_5": false,
+            "_IsTarCombo": false,
+            "_IsTheEnd": false,
+            "_IsThrowCommand": false,
+            "_IsThrowKind": false,
+            "_IsThrowNormal": false,
+            "_IsThrowShell": false,
+            "_IsThrowSpecial": false,
+            "_IsUnique": false,
+            "_IsUnique_1": false,
+            "_IsUnique_10": false,
+            "_IsUnique_11": false,
+            "_IsUnique_12": false,
+            "_IsUnique_13": false,
+            "_IsUnique_14": false,
+            "_IsUnique_15": false,
+            "_IsUnique_2": false,
+            "_IsUnique_3": false,
+            "_IsUnique_4": false,
+            "_IsUnique_5": false,
+            "_IsUnique_6": false,
+            "_IsUnique_7": false,
+            "_IsUnique_8": false,
+            "_IsUnique_9": false,
+            "_NotResetComboID": false,
+            "_RegistInput": false,
+            "_UseUniqueParam": false,
+            "_kind_all": 512,
+            "action_dir": 2,
+            "action_id": 1211,
+            "action_status_sub": 0,
+            "atck_type_bit": 0,
+            "category_flags": 2684387584,
+            "charge_group_bit": {
+                "easy": 0,
+                "normal": 0,
+                "raw": 0,
+                "sporty": 0,
+                "super": 0
+            },
+            "combo_inst": 25,
+            "combo_sp_gain": 0,
+            "command_group_id": -1,
+            "cond_air_jump_count": 0,
+            "cond_atk_limit": 0,
+            "cond_jump_cmd_count": 0,
+            "cond_limit_shot_num": 1,
+            "cond_master_id": -1,
+            "cond_owner_state_flags": 0,
+            "cond_param_id": -1,
+            "cond_param_ope": 0,
+            "cond_param_value": 0,
+            "cond_range": 0,
+            "cond_range_param": 0.0,
+            "cond_vital_ope": 0,
+            "cond_vital_ratio": 0,
+            "easy": {
+                "attribute": 0,
+                "command_index": -1,
+                "command_no": 0,
+                "dc_exc_flags": 0,
+                "dc_inc_flags": 0,
+                "ng_key_flags": 0,
+                "ok_key_cond_flags": 0,
+                "ok_key_flags": 0,
+                "preceding_time": 0
+            },
+            "easy_NG": true,
+            "fightstyle_flags": 65535,
+            "focus_consume": 0,
+            "focus_need": 0,
+            "function_id": 3,
+            "gauge_consume": 20000,
+            "gauge_need": 20000,
+            "kind_level": 2,
+            "kind_sub": 0,
+            "limit_shot_category": 128,
+            "norm": {
+                "attribute": 0,
+                "command_index": -1,
+                "command_no": 0,
+                "dc_exc_flags": 0,
+                "dc_inc_flags": 0,
+                "ng_key_flags": 0,
+                "ok_key_cond_flags": 0,
+                "ok_key_flags": 0,
+                "preceding_time": 0
+            },
+            "norm_NG": true,
+            "option_flags": 0,
+            "sprt": {
+                "attribute": 0,
+                "command_index": -1,
+                "command_no": 0,
+                "dc_exc_flags": 0,
+                "dc_inc_flags": 0,
+                "ng_key_flags": 0,
+                "ok_key_cond_flags": 0,
+                "ok_key_flags": 0,
+                "preceding_time": 0
+            },
+            "sprt_NG": true,
+            "supr": {
+                "attribute": 0,
+                "command_index": -1,
+                "command_no": 0,
+                "dc_exc_flags": 0,
+                "dc_inc_flags": 0,
+                "ng_key_flags": 0,
+                "ok_key_cond_flags": 0,
+                "ok_key_flags": 0,
+                "preceding_time": 0
+            },
+            "supr_NG": true,
+            "turn_around": 0,
+            "use_sprt": false,
+            "use_super": false,
+            "vital_consume": 0,
+            "vital_need": 0
         }
     },
     "1235": {
         "118": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20221,6 +20308,7 @@
         },
         "120": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20412,6 +20500,7 @@
     "1239": {
         "123": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20601,6 +20690,7 @@
         },
         "125": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20792,6 +20882,7 @@
     "1497": {
         "161": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20957,7 +21048,7 @@
                 "dc_inc_flags": 0,
                 "ng_key_flags": 0,
                 "ok_key_cond_flags": 16544,
-                "ok_key_flags": 432,
+                "ok_key_flags": 1008,
                 "preceding_time": 4
             },
             "sprt_NG": false,

@@ -2,6 +2,7 @@
     "0017": {
         "0": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -147,7 +148,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "command_ptr": {
@@ -523,7 +524,7 @@
             "norm_NG": false,
             "option_flags": 4,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 0,
@@ -535,7 +536,7 @@
             },
             "sprt_NG": false,
             "supr": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 0,
@@ -556,6 +557,7 @@
     "0018": {
         "1": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -701,7 +703,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 3,
                 "command_no": 8,
                 "command_ptr": {
@@ -1077,7 +1079,7 @@
             "norm_NG": false,
             "option_flags": 4,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 3,
                 "command_no": 8,
                 "dc_exc_flags": 0,
@@ -1089,7 +1091,7 @@
             },
             "sprt_NG": false,
             "supr": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 3,
                 "command_no": 8,
                 "dc_exc_flags": 0,
@@ -1110,6 +1112,7 @@
     "0034": {
         "196": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -1301,6 +1304,7 @@
     "0480": {
         "119": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -1462,7 +1466,7 @@
                 "attribute": 2,
                 "command_index": -1,
                 "command_no": -1,
-                "dc_exc_flags": 288,
+                "dc_exc_flags": 64,
                 "dc_inc_flags": 0,
                 "ng_key_flags": 0,
                 "ok_key_cond_flags": 0,
@@ -1492,6 +1496,7 @@
     "0500": {
         "120": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -1637,7 +1642,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 10,
+                "attribute": 42,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 288,
@@ -1650,7 +1655,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 64,
@@ -1681,6 +1686,7 @@
         },
         "121": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -1826,7 +1832,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 10,
+                "attribute": 42,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 288,
@@ -1839,7 +1845,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 64,
@@ -1872,6 +1878,7 @@
     "0501": {
         "054": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2017,7 +2024,7 @@
             "kind_sub": 0,
             "limit_shot_category": 65535,
             "norm": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 0,
@@ -2030,7 +2037,7 @@
             "norm_NG": false,
             "option_flags": 0,
             "sprt": {
-                "attribute": 2,
+                "attribute": 34,
                 "command_index": 2,
                 "command_no": 7,
                 "dc_exc_flags": 0,
@@ -2061,6 +2068,7 @@
         },
         "123": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2252,6 +2260,7 @@
     "0600": {
         "3": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2443,6 +2452,7 @@
     "0602": {
         "41": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2634,6 +2644,7 @@
     "0603": {
         "42": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -2825,6 +2836,7 @@
     "0605": {
         "5": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3016,6 +3028,7 @@
     "0606": {
         "30": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3207,6 +3220,7 @@
     "0609": {
         "7": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3398,6 +3412,7 @@
     "0610": {
         "34": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3589,6 +3604,7 @@
     "0614": {
         "4": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3780,6 +3796,7 @@
     "0618": {
         "6": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -3971,6 +3988,7 @@
     "0620": {
         "8": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4162,6 +4180,7 @@
     "0623": {
         "10": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4353,6 +4372,7 @@
     "0625": {
         "43": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4542,6 +4562,7 @@
         },
         "49": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4733,6 +4754,7 @@
     "0626": {
         "44": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -4924,6 +4946,7 @@
     "0628": {
         "12": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -5115,6 +5138,7 @@
     "0631": {
         "14": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -5306,6 +5330,7 @@
     "0632": {
         "37": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -5497,6 +5522,7 @@
     "0635": {
         "11": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -5688,6 +5714,7 @@
     "0637": {
         "45": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -5879,6 +5906,7 @@
     "0638": {
         "46": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -6070,6 +6098,7 @@
     "0640": {
         "13": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -6261,6 +6290,7 @@
     "0643": {
         "15": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -6452,6 +6482,7 @@
     "0650": {
         "18": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -6643,6 +6674,7 @@
     "0651": {
         "20": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -6834,6 +6866,7 @@
     "0652": {
         "22": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -7025,6 +7058,7 @@
     "0653": {
         "19": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -7216,6 +7250,7 @@
     "0654": {
         "21": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -7407,6 +7442,7 @@
     "0655": {
         "23": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": true,
@@ -7598,6 +7634,7 @@
     "0658": {
         "27": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -7789,6 +7826,7 @@
     "0659": {
         "28": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -7980,6 +8018,7 @@
     "0661": {
         "39": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -8171,6 +8210,7 @@
     "0665": {
         "32": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -8362,6 +8402,7 @@
     "0715": {
         "128": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -8553,6 +8594,7 @@
     "0850": {
         "140": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -8744,6 +8786,7 @@
     "0852": {
         "141": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -8935,6 +8978,7 @@
     "0855": {
         "139": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -9126,6 +9170,7 @@
     "0900": {
         "62": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -9286,10 +9331,10 @@
                                     "is_release": false,
                                     "reserved": 0
                                 },
-                                "frame_num": 12,
+                                "frame_num": 9,
                                 "normal": {
-                                    "ignore_key_cond_check_flags": 0,
-                                    "ignore_key_flags": 0,
+                                    "ignore_key_cond_check_flags": 1,
+                                    "ignore_key_flags": 1073741828,
                                     "ng_key_cond_check_flags": 0,
                                     "ng_key_flags": 0,
                                     "ok_key_cond_check_flags": 2,
@@ -9308,10 +9353,10 @@
                                     "is_release": false,
                                     "reserved": 0
                                 },
-                                "frame_num": 12,
+                                "frame_num": 9,
                                 "normal": {
-                                    "ignore_key_cond_check_flags": 0,
-                                    "ignore_key_flags": 0,
+                                    "ignore_key_cond_check_flags": 4,
+                                    "ignore_key_flags": 1073741824,
                                     "ng_key_cond_check_flags": 0,
                                     "ng_key_flags": 0,
                                     "ok_key_cond_check_flags": 2,
@@ -9330,7 +9375,7 @@
                                     "is_release": false,
                                     "reserved": 0
                                 },
-                                "frame_num": 12,
+                                "frame_num": 9,
                                 "normal": {
                                     "ignore_key_cond_check_flags": 0,
                                     "ignore_key_flags": 0,
@@ -9633,7 +9678,7 @@
                                 "type": 0
                             }
                         },
-                        "max_frame": 45,
+                        "max_frame": 36,
                         "total_frame": -1
                     },
                     "1": {
@@ -9647,13 +9692,13 @@
                                     "is_release": false,
                                     "reserved": 0
                                 },
-                                "frame_num": 12,
+                                "frame_num": 6,
                                 "normal": {
-                                    "ignore_key_cond_check_flags": 0,
-                                    "ignore_key_flags": 0,
+                                    "ignore_key_cond_check_flags": 1,
+                                    "ignore_key_flags": 1073741828,
                                     "ng_key_cond_check_flags": 0,
                                     "ng_key_flags": 0,
-                                    "ok_key_cond_check_flags": 1,
+                                    "ok_key_cond_check_flags": 2,
                                     "ok_key_flags": 8,
                                     "reserved": 0
                                 },
@@ -9669,10 +9714,10 @@
                                     "is_release": false,
                                     "reserved": 0
                                 },
-                                "frame_num": 12,
+                                "frame_num": 9,
                                 "normal": {
-                                    "ignore_key_cond_check_flags": 0,
-                                    "ignore_key_flags": 0,
+                                    "ignore_key_cond_check_flags": 4,
+                                    "ignore_key_flags": 1073741824,
                                     "ng_key_cond_check_flags": 0,
                                     "ng_key_flags": 0,
                                     "ok_key_cond_check_flags": 2,
@@ -9691,7 +9736,7 @@
                                     "is_release": false,
                                     "reserved": 0
                                 },
-                                "frame_num": 12,
+                                "frame_num": 9,
                                 "normal": {
                                     "ignore_key_cond_check_flags": 0,
                                     "ignore_key_flags": 0,
@@ -9994,7 +10039,7 @@
                                 "type": 0
                             }
                         },
-                        "max_frame": 45,
+                        "max_frame": 33,
                         "total_frame": -1
                     },
                     "2": {
@@ -10008,10 +10053,10 @@
                                     "is_release": false,
                                     "reserved": 0
                                 },
-                                "frame_num": 12,
+                                "frame_num": 9,
                                 "normal": {
-                                    "ignore_key_cond_check_flags": 0,
-                                    "ignore_key_flags": 0,
+                                    "ignore_key_cond_check_flags": 1,
+                                    "ignore_key_flags": 1073741828,
                                     "ng_key_cond_check_flags": 0,
                                     "ng_key_flags": 0,
                                     "ok_key_cond_check_flags": 2,
@@ -10030,10 +10075,10 @@
                                     "is_release": false,
                                     "reserved": 0
                                 },
-                                "frame_num": 12,
+                                "frame_num": 9,
                                 "normal": {
-                                    "ignore_key_cond_check_flags": 0,
-                                    "ignore_key_flags": 0,
+                                    "ignore_key_cond_check_flags": 4,
+                                    "ignore_key_flags": 1073741824,
                                     "ng_key_cond_check_flags": 0,
                                     "ng_key_flags": 0,
                                     "ok_key_cond_check_flags": 2,
@@ -10052,7 +10097,7 @@
                                     "is_release": false,
                                     "reserved": 0
                                 },
-                                "frame_num": 12,
+                                "frame_num": 9,
                                 "normal": {
                                     "ignore_key_cond_check_flags": 0,
                                     "ignore_key_flags": 0,
@@ -10355,7 +10400,7 @@
                                 "type": 0
                             }
                         },
-                        "max_frame": 45,
+                        "max_frame": 36,
                         "total_frame": -1
                     }
                 },
@@ -10386,7 +10431,7 @@
                 "command_no": -1,
                 "dc_exc_flags": 0,
                 "dc_inc_flags": 0,
-                "ng_key_flags": 0,
+                "ng_key_flags": 4,
                 "ok_key_cond_flags": 16416,
                 "ok_key_flags": 8192,
                 "preceding_time": 4
@@ -10402,6 +10447,7 @@
     "0901": {
         "67": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -10593,6 +10639,7 @@
     "0902": {
         "72": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -10784,6 +10831,7 @@
     "0907": {
         "172": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -10975,6 +11023,7 @@
     "0913": {
         "63": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -11150,7 +11199,7 @@
                 "command_no": -1,
                 "dc_exc_flags": 0,
                 "dc_inc_flags": 0,
-                "ng_key_flags": 0,
+                "ng_key_flags": 4,
                 "ok_key_cond_flags": 16416,
                 "ok_key_flags": 8192,
                 "preceding_time": 4
@@ -11166,6 +11215,7 @@
     "0914": {
         "68": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -11357,6 +11407,7 @@
     "0915": {
         "73": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -11548,6 +11599,7 @@
     "0920": {
         "173": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -11739,6 +11791,7 @@
     "0926": {
         "64": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -11914,7 +11967,7 @@
                 "command_no": -1,
                 "dc_exc_flags": 0,
                 "dc_inc_flags": 0,
-                "ng_key_flags": 0,
+                "ng_key_flags": 4,
                 "ok_key_cond_flags": 16416,
                 "ok_key_flags": 8192,
                 "preceding_time": 4
@@ -11930,6 +11983,7 @@
     "0927": {
         "69": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12121,6 +12175,7 @@
     "0928": {
         "74": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12312,6 +12367,7 @@
     "0933": {
         "174": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12503,6 +12559,7 @@
     "0939": {
         "65": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12678,7 +12735,7 @@
                 "command_no": -1,
                 "dc_exc_flags": 0,
                 "dc_inc_flags": 0,
-                "ng_key_flags": 0,
+                "ng_key_flags": 4,
                 "ok_key_cond_flags": 16416,
                 "ok_key_flags": 8192,
                 "preceding_time": 4
@@ -12694,6 +12751,7 @@
     "0940": {
         "70": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -12885,6 +12943,7 @@
     "0941": {
         "75": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -13076,6 +13135,7 @@
     "0946": {
         "175": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -13267,6 +13327,7 @@
     "0952": {
         "66": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -13442,7 +13503,7 @@
                 "command_no": -1,
                 "dc_exc_flags": 0,
                 "dc_inc_flags": 0,
-                "ng_key_flags": 0,
+                "ng_key_flags": 4,
                 "ok_key_cond_flags": 16416,
                 "ok_key_flags": 8192,
                 "preceding_time": 4
@@ -13458,6 +13519,7 @@
     "0953": {
         "71": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -13649,6 +13711,7 @@
     "0954": {
         "76": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -13840,6 +13903,7 @@
     "0959": {
         "176": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -14031,6 +14095,7 @@
     "1001": {
         "57": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -14222,6 +14287,7 @@
     "1002": {
         "58": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -14413,6 +14479,7 @@
     "1003": {
         "59": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -14604,6 +14671,7 @@
     "1004": {
         "169": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15158,6 +15226,7 @@
     "1007": {
         "90": {
             "AtckType": 8,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15349,6 +15418,7 @@
     "1008": {
         "91": {
             "AtckType": 16,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15540,6 +15610,7 @@
     "1009": {
         "92": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15731,6 +15802,7 @@
     "1010": {
         "182": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -15922,6 +15994,7 @@
     "1013": {
         "112": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16113,6 +16186,7 @@
     "1014": {
         "113": {
             "AtckType": 32,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16304,6 +16378,7 @@
     "1016": {
         "95": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16495,6 +16570,7 @@
     "1017": {
         "96": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16686,6 +16762,7 @@
     "1018": {
         "97": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -16877,6 +16954,7 @@
     "1019": {
         "98": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17068,6 +17146,7 @@
     "1020": {
         "99": {
             "AtckType": 1,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17259,6 +17338,7 @@
     "1022": {
         "100": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17450,6 +17530,7 @@
     "1023": {
         "101": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17641,6 +17722,7 @@
     "1024": {
         "102": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -17832,6 +17914,7 @@
     "1025": {
         "103": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -18386,6 +18469,7 @@
     "1026": {
         "104": {
             "AtckType": 2,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -18577,6 +18661,7 @@
     "1028": {
         "105": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -18768,6 +18853,7 @@
     "1029": {
         "106": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -18959,6 +19045,7 @@
     "1030": {
         "107": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -19150,6 +19237,7 @@
     "1031": {
         "108": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -19341,6 +19429,7 @@
     "1032": {
         "109": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -19532,6 +19621,7 @@
     "1034": {
         "184": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -19723,6 +19813,7 @@
     "1035": {
         "185": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -19914,6 +20005,7 @@
     "1036": {
         "186": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20105,6 +20197,7 @@
     "1037": {
         "187": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20296,6 +20389,7 @@
     "1038": {
         "188": {
             "AtckType": 4,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20487,6 +20581,7 @@
     "1158": {
         "198": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20678,6 +20773,7 @@
     "1162": {
         "202": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -20869,6 +20965,7 @@
     "1171": {
         "206": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -21060,6 +21157,7 @@
     "1200": {
         "148": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -21975,6 +22073,7 @@
     "1210": {
         "152": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -22890,6 +22989,7 @@
     "1215": {
         "155": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -23079,6 +23179,7 @@
         },
         "158": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -23270,6 +23371,7 @@
     "1223": {
         "156": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -23459,6 +23561,7 @@
         },
         "159": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -23650,6 +23753,7 @@
     "1232": {
         "161": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -23841,6 +23945,7 @@
     "1234": {
         "162": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -24032,6 +24137,7 @@
     "1497": {
         "192": {
             "AtckType": 0,
+            "_IgnoreEasy80": false,
             "_IgnoreStrength": false,
             "_InheritRush": false,
             "_IsAir": false,
@@ -24197,7 +24303,7 @@
                 "dc_inc_flags": 0,
                 "ng_key_flags": 0,
                 "ok_key_cond_flags": 16544,
-                "ok_key_flags": 432,
+                "ok_key_flags": 1008,
                 "preceding_time": 4
             },
             "sprt_NG": false,

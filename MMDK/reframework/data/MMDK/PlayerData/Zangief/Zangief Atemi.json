@@ -1,5 +1,5 @@
 {
-    "6": {
+    "06": {
         "ConvertRatio": 100,
         "DamageRatio": 50,
         "DamageVoice": -1,
@@ -38,7 +38,7 @@
         "_IsTarAuto": false,
         "_IsTarShellAuto": false
     },
-    "8": {
+    "08": {
         "ConvertRatio": 0,
         "DamageRatio": 0,
         "DamageVoice": -1,

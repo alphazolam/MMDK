@@ -108,7 +108,7 @@ local function apply_moveset_changes(data)
 		data:add_dynamic_motionbank("Product/Animation/esf/esf001/v00/motionlist/SpecialSkill/esf001v00_SpecialSkill_04.motlist", 100604) 
 		
 		local new_hit_dt_tbl, new_attack_key = data:clone_dmg(ryu_moves_by_id[1025].dmg[181], 1337, move, nil, #move.AttackCollisionKey-1)
-		--edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=1000, DmgType=11, MoveTime=24, MoveType=13, HitStopOwner=20, HitStopTarget=20, MoveDest=to_isvec2(200, 70), JuggleLimit=10, HitStun=20, SndPower=4, HitmarkStrength=3})
+		edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=1000, DmgType=11, MoveTime=24, MoveType=13, HitStopOwner=20, HitStopTarget=20, MoveDest=to_isvec2(200, 70), JuggleLimit=10, HitStun=20, SndPower=4, HitmarkStrength=3})
 		
 		--Create a new HitRect16 and add it to the new AttackCollisionKey
 		local new_hit_rect = data:add_rect_to_col_key(new_attack_key, "BoxList", 451, 0)
@@ -149,7 +149,7 @@ local function apply_moveset_changes(data)
 		
 		local move = ATK_D_KICK_M
 		local new_hit_dt_tbl, new_attack_key = data:clone_dmg(ryu_moves_by_id[1027].dmg[182], 1338, move, nil, #move.AttackCollisionKey-1)
-		--edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=1100, MoveDest=to_isvec2(200, 70)})
+		edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=1100, MoveDest=to_isvec2(200, 70)})
 		local new_hit_rect = data:add_rect_to_col_key(new_attack_key, "BoxList", 451, 0)
 		edit_obj(new_hit_rect, {OffsetX=80, OffsetY=121, SizeX=54, SizeY=23})
 		for i, atk_key in ipairs(move.AttackCollisionKey) do
@@ -177,7 +177,7 @@ local function apply_moveset_changes(data)
 		
 		local move = ATK_D_KICK_H
 		local new_hit_dt_tbl, new_attack_key = data:clone_dmg(ryu_moves_by_id[1029].dmg[183], 1339, move, nil, #move.AttackCollisionKey-1)
-		--edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=1300, MoveDest=to_isvec2(235, 60)})
+		edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=1300, MoveDest=to_isvec2(235, 60)})
 		local new_hit_rect = data:add_rect_to_col_key(new_attack_key, "BoxList", 451, 0)
 		edit_obj(new_hit_rect, {OffsetX=80, OffsetY=121, SizeX=54, SizeY=23})
 		for i, atk_key in ipairs(move.AttackCollisionKey) do
@@ -204,7 +204,7 @@ local function apply_moveset_changes(data)
 		
 		local move = ATK_D_KICK_EX
 		local new_hit_dt_tbl, new_attack_key = data:clone_dmg(ryu_moves_by_id[1031].dmg[184], 1340, move, nil, #move.AttackCollisionKey-1)
-		--edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=800, MoveDest=to_isvec2(500, 45), WallDest=to_isvec2(-325, 115), WallTime=31, WallStop=10, MoveTime=19, DmgPower=3, Attr0=5, CurveOwnID=2, CurveTgtID=3, DmgKind=2})
+		edit_hit_dt_tbl(new_hit_dt_tbl, hit_types.allhit, {DmgValue=800, MoveDest=to_isvec2(500, 45), WallDest=to_isvec2(-325, 115), WallTime=31, WallStop=10, MoveTime=19, DmgPower=3, Attr0=5, CurveOwnID=2, CurveTgtID=3, DmgKind=2})
 		
 		local new_hit_rect = data:add_rect_to_col_key(new_attack_key, "BoxList", 451, 0)
 		edit_obj(new_hit_rect, {OffsetX=80, OffsetY=121, SizeX=54, SizeY=23})
@@ -227,6 +227,13 @@ local function apply_moveset_changes(data)
 		clone_list_items(moves_by_id[938].VfxKey.list, move.VfxKey.list)
 		move.VoiceKey.list[0].SoundID = 10336 --AND SHUT UP!
 	end
+	
+	--[[
+	local new_vfx, clone_key = data:clone_vfx(OLD_MOVE.vfx[2], 31, 8, move)
+	move.VfxKey[2].ContainerID = 31
+	move.VfxKey[2].ID = 8
+	new_vfx:set_Scale (Vector3f.new(3,3,3))
+	]]
 	
 	return true
 end

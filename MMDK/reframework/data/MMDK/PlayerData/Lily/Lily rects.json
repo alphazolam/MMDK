@@ -1190,8 +1190,8 @@
             "SizeY": 19
         },
         "058": {
-            "OffsetX": 74,
-            "OffsetY": 74,
+            "OffsetX": 79,
+            "OffsetY": 76,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
                 "OffsetXRate": {
@@ -1215,11 +1215,11 @@
                     "Leg": 0.0
                 }
             },
-            "SizeX": 42,
-            "SizeY": 38
+            "SizeX": 47,
+            "SizeY": 40
         },
         "059": {
-            "OffsetX": 58,
+            "OffsetX": 64,
             "OffsetY": 44,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
@@ -1244,11 +1244,11 @@
                     "Leg": 0.0
                 }
             },
-            "SizeX": 32,
+            "SizeX": 38,
             "SizeY": 21
         },
         "060": {
-            "OffsetX": 65,
+            "OffsetX": 70,
             "OffsetY": 74,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
@@ -1273,11 +1273,11 @@
                     "Leg": 0.0
                 }
             },
-            "SizeX": 39,
+            "SizeX": 44,
             "SizeY": 24
         },
         "061": {
-            "OffsetX": 69,
+            "OffsetX": 74,
             "OffsetY": 120,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
@@ -1302,7 +1302,7 @@
                     "Leg": 0.0
                 }
             },
-            "SizeX": 43,
+            "SizeX": 48,
             "SizeY": 20
         },
         "063": {
@@ -3313,7 +3313,7 @@
             "SizeY": 35
         },
         "042": {
-            "OffsetX": 97,
+            "OffsetX": 102,
             "OffsetY": 87,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
@@ -3338,11 +3338,11 @@
                     "Leg": 0.0
                 }
             },
-            "SizeX": 92,
+            "SizeX": 97,
             "SizeY": 35
         },
         "043": {
-            "OffsetX": 75,
+            "OffsetX": 80,
             "OffsetY": 87,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
@@ -3367,7 +3367,7 @@
                     "Leg": 0.0
                 }
             },
-            "SizeX": 79,
+            "SizeX": 84,
             "SizeY": 35
         },
         "046": {
@@ -7643,96 +7643,9 @@
             "SizeX": 51,
             "SizeY": 70
         },
-        "006": {
-            "OffsetX": 264,
-            "OffsetY": 11,
-            "PhyCoeffRateDesc": {
-                "CoeffType": 0,
-                "OffsetXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "OffsetYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                }
-            },
-            "SizeX": 26,
-            "SizeY": 11
-        },
         "007": {
             "OffsetX": 43,
             "OffsetY": 104,
-            "PhyCoeffRateDesc": {
-                "CoeffType": 0,
-                "OffsetXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "OffsetYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                }
-            },
-            "SizeX": 20,
-            "SizeY": 18
-        },
-        "008": {
-            "OffsetX": -231,
-            "OffsetY": 17,
-            "PhyCoeffRateDesc": {
-                "CoeffType": 0,
-                "OffsetXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "OffsetYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                }
-            },
-            "SizeX": 20,
-            "SizeY": 18
-        },
-        "009": {
-            "OffsetX": 68,
-            "OffsetY": 188,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
                 "OffsetXRate": {
@@ -7816,68 +7729,9 @@
             },
             "SizeX": 26,
             "SizeY": 11
-        },
-        "021": {
-            "OffsetX": 98,
-            "OffsetY": 101,
-            "PhyCoeffRateDesc": {
-                "CoeffType": 0,
-                "OffsetXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "OffsetYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                }
-            },
-            "SizeX": 66,
-            "SizeY": 101
         }
     },
-    "10": {
-        "001": {
-            "OffsetX": 60,
-            "OffsetY": 65,
-            "PhyCoeffRateDesc": {
-                "CoeffType": 0,
-                "OffsetXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "OffsetYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                }
-            },
-            "SizeX": 50,
-            "SizeY": 65
-        }
-    },
+    "10": null,
     "11": null,
     "12": null,
     "13": null

@@ -266,15 +266,6 @@
     "025": {
         "101": "480 DPA_STD_START"
     },
-    "028": {
-        "125": "1200 SAA_GOHADO",
-        "129": "1213 BAS_STD_Loop(2)",
-        "135": "1220 SAA_SHINRA_START",
-        "139": "1231 CAA2_SYUNGOKUSATU_START",
-        "144": "1225 SAA_SHINRA_START(2)",
-        "147": "1247 SAA_GOHADO(2)",
-        "148": "1243 SAA_KONGO_KOKURETSUZAN"
-    },
     "030": {
         "046": "739 ATK_CTA_DASH",
         "049": "900 SPA_GOHADO_Full",
@@ -311,10 +302,6 @@
         "157": "964 SPA_SYORYU_H_START(1)",
         "159": "904 SPA_GOHADO_OD"
     },
-    "031": {
-        "160": "947 SPA_ZANKU_Ex",
-        "161": "1031 SPA_TATSUMAKI_AIR_END(1)"
-    },
     "032": {
         "053": "943 SPA_ZANKU_L",
         "054": "944 SPA_ZANKU_M",
@@ -322,6 +309,10 @@
         "056": "949 SPA_ZANKU_BOSS",
         "080": "1030 SPA_TATSUMAKI_AIR_END",
         "127": "1207 SAA_GOZANKU_START",
+        "160": "947 SPA_ZANKU_Ex",
+        "161": "1031 SPA_TATSUMAKI_AIR_END(1)"
+    },
+    "033": {
         "160": "947 SPA_ZANKU_Ex",
         "161": "1031 SPA_TATSUMAKI_AIR_END(1)"
     },
@@ -366,9 +357,6 @@
         "134": "1221 SAA_SHINRA_START(1)",
         "138": "1231 CAA2_SYUNGOKUSATU_START",
         "143": "1226 SAA_SHINRA_START(3)"
-    },
-    "044": {
-        "116": "850 ATK_CTA_4"
     },
     "045": {
         "046": "739 ATK_CTA_DASH",
@@ -442,6 +430,9 @@
     "055": {
         "036": "601 ATK_5LP_B",
         "042": "623 ATK_2LP_B"
+    },
+    "057": {
+        "115": "854 ATK_CTA"
     },
     "058": {
         "049": "900 SPA_GOHADO_Full",

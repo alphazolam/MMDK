@@ -5092,10 +5092,10 @@
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 12,
+                    "frame_num": 9,
                     "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
+                        "ignore_key_cond_check_flags": 1,
+                        "ignore_key_flags": 1073741828,
                         "ng_key_cond_check_flags": 0,
                         "ng_key_flags": 0,
                         "ok_key_cond_check_flags": 2,
@@ -5114,10 +5114,10 @@
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 12,
+                    "frame_num": 9,
                     "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
+                        "ignore_key_cond_check_flags": 4,
+                        "ignore_key_flags": 1073741824,
                         "ng_key_cond_check_flags": 0,
                         "ng_key_flags": 0,
                         "ok_key_cond_check_flags": 2,
@@ -5136,7 +5136,7 @@
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 12,
+                    "frame_num": 9,
                     "normal": {
                         "ignore_key_cond_check_flags": 0,
                         "ignore_key_flags": 0,
@@ -5439,7 +5439,7 @@
                     "type": 0
                 }
             },
-            "max_frame": 45,
+            "max_frame": 36,
             "total_frame": -1
         },
         "1": {
@@ -5453,13 +5453,13 @@
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 12,
+                    "frame_num": 6,
                     "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
+                        "ignore_key_cond_check_flags": 1,
+                        "ignore_key_flags": 1073741828,
                         "ng_key_cond_check_flags": 0,
                         "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 1,
+                        "ok_key_cond_check_flags": 2,
                         "ok_key_flags": 8,
                         "reserved": 0
                     },
@@ -5475,10 +5475,10 @@
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 12,
+                    "frame_num": 9,
                     "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
+                        "ignore_key_cond_check_flags": 4,
+                        "ignore_key_flags": 1073741824,
                         "ng_key_cond_check_flags": 0,
                         "ng_key_flags": 0,
                         "ok_key_cond_check_flags": 2,
@@ -5497,7 +5497,7 @@
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 12,
+                    "frame_num": 9,
                     "normal": {
                         "ignore_key_cond_check_flags": 0,
                         "ignore_key_flags": 0,
@@ -5800,7 +5800,7 @@
                     "type": 0
                 }
             },
-            "max_frame": 45,
+            "max_frame": 33,
             "total_frame": -1
         },
         "2": {
@@ -5814,10 +5814,10 @@
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 12,
+                    "frame_num": 9,
                     "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
+                        "ignore_key_cond_check_flags": 1,
+                        "ignore_key_flags": 1073741828,
                         "ng_key_cond_check_flags": 0,
                         "ng_key_flags": 0,
                         "ok_key_cond_check_flags": 2,
@@ -5836,10 +5836,10 @@
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 12,
+                    "frame_num": 9,
                     "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
+                        "ignore_key_cond_check_flags": 4,
+                        "ignore_key_flags": 1073741824,
                         "ng_key_cond_check_flags": 0,
                         "ng_key_flags": 0,
                         "ok_key_cond_check_flags": 2,
@@ -5858,7 +5858,7 @@
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 12,
+                    "frame_num": 9,
                     "normal": {
                         "ignore_key_cond_check_flags": 0,
                         "ignore_key_flags": 0,
@@ -6161,7 +6161,7 @@
                     "type": 0
                 }
             },
-            "max_frame": 45,
+            "max_frame": 36,
             "total_frame": -1
         }
     },

@@ -3893,7 +3893,7 @@
             "SizeY": 46
         },
         "051": {
-            "OffsetX": 137,
+            "OffsetX": 135,
             "OffsetY": 116,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
@@ -3918,7 +3918,7 @@
                     "Leg": 0.0
                 }
             },
-            "SizeX": 111,
+            "SizeX": 109,
             "SizeY": 30
         },
         "058": {
@@ -4271,6 +4271,35 @@
             },
             "SizeX": 13,
             "SizeY": 96
+        },
+        "035": {
+            "OffsetX": -20,
+            "OffsetY": 69,
+            "PhyCoeffRateDesc": {
+                "CoeffType": 0,
+                "OffsetXRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                },
+                "OffsetYRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                },
+                "SizeXRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                },
+                "SizeYRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                }
+            },
+            "SizeX": 15,
+            "SizeY": 69
         },
         "038": {
             "OffsetX": 0,
@@ -7410,7 +7439,7 @@
             "SizeY": 60
         },
         "215": {
-            "OffsetX": 58,
+            "OffsetX": 57,
             "OffsetY": 116,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
@@ -7435,11 +7464,11 @@
                     "Leg": 0.0
                 }
             },
-            "SizeX": 18,
+            "SizeX": 17,
             "SizeY": 22
         },
         "219": {
-            "OffsetX": 59,
+            "OffsetX": 55,
             "OffsetY": 33,
             "PhyCoeffRateDesc": {
                 "CoeffType": 0,
@@ -7464,7 +7493,7 @@
                     "Leg": 0.0
                 }
             },
-            "SizeX": 19,
+            "SizeX": 15,
             "SizeY": 32
         },
         "221": {

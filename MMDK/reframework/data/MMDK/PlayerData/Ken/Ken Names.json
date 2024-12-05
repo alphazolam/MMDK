@@ -175,6 +175,8 @@
     "0519": "BAS_BACKWARD_START_tired",
     "0520": "BAS_BACKWARD_Loop_tired",
     "0521": "BAS_BACKWARD_END_tired",
+    "0523": "BAS_STD_RECOVERY",
+    "0524": "BAS_CRH_RECOVERY",
     "0600": "ATK_5LP",
     "0601": "ATK_5LP_B",
     "0602": "ATK_5LP_C",

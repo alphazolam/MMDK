@@ -3602,35 +3602,6 @@
             "SizeX": 54,
             "SizeY": 35
         },
-        "036": {
-            "OffsetX": 110,
-            "OffsetY": 90,
-            "PhyCoeffRateDesc": {
-                "CoeffType": 0,
-                "OffsetXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "OffsetYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeXRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                },
-                "SizeYRate": {
-                    "Arm": 0.0,
-                    "Height": 1.0,
-                    "Leg": 0.0
-                }
-            },
-            "SizeX": 64,
-            "SizeY": 30
-        },
         "037": {
             "OffsetX": 93,
             "OffsetY": 130,
@@ -9874,6 +9845,35 @@
             },
             "SizeX": 26,
             "SizeY": 56
+        },
+        "200": {
+            "OffsetX": 6,
+            "OffsetY": 130,
+            "PhyCoeffRateDesc": {
+                "CoeffType": 0,
+                "OffsetXRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                },
+                "OffsetYRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                },
+                "SizeXRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                },
+                "SizeYRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                }
+            },
+            "SizeX": 46,
+            "SizeY": 76
         },
         "206": {
             "OffsetX": 60,

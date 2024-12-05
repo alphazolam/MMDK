@@ -283,7 +283,7 @@
         "069": "1011 SPA_TATSUMAKI_AIR_END",
         "154": "1013 SPA_TATSUMAKI_AIR_END(1)"
     },
-    "020": {
+    "021": {
         "154": "1013 SPA_TATSUMAKI_AIR_END(1)"
     },
     "025": {
@@ -330,9 +330,6 @@
         "158": "936 SPA_SYORYU_START(3)",
         "160": "906 SPA_HADO(3)",
         "161": "1053 SPA_HADO(5)"
-    },
-    "031": {
-        "154": "1013 SPA_TATSUMAKI_AIR_END(1)"
     },
     "032": {
         "069": "1011 SPA_TATSUMAKI_AIR_END",
@@ -447,6 +444,7 @@
         "033": "689 ATK_5HK_2"
     },
     "053": {
+        "062": "1019 SPA_TATSUMAKI_AIR_END(3)",
         "155": "1014 SPA_TATSUMAKI_AIR_END(2)"
     },
     "055": {

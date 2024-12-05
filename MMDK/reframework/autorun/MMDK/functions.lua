@@ -61,7 +61,7 @@ end
 
 --Gets a SystemArray, List or WrappedArrayContainer:
 local function lua_get_array(src_obj, allow_empty)
-	if not src_obj then return (allow_empty and {}) end
+	if not src_obj then return (allow_empty and {} or nil) end
 	src_obj = src_obj._items or src_obj.mItems or src_obj
 	local system_array
 	if src_obj.get_Count then
@@ -387,6 +387,7 @@ local function convert_to_json_tbl(tbl_or_object, max_layers, skip_arrays, skip_
 	
 	max_layers = max_layers or 15
 	local xyzw = {"x", "y", "z", "w"}
+	local XYZW = {"X", "Y", "Z", "W"}
 	local found_objs = {}
 	local fms = {}
 	
@@ -412,8 +413,12 @@ local function convert_to_json_tbl(tbl_or_object, max_layers, skip_arrays, skip_
 		if value ~= nil and json.dump_string(value) ~= "null" then return value end
 	end
 	
+	local function can_index(typedef)
+		
+	end
+	
 	local function recurse(obj, layer_no)
-		if layer_no < max_layers and not found_objs[obj] then
+		if layer_no < max_layers and not found_objs[obj] then -- or tostring(obj):find("ValueType")) then
 			found_objs[obj] = true
 			local new_tbl = {}
 			if type(obj) == "table" then
@@ -434,15 +439,13 @@ local function convert_to_json_tbl(tbl_or_object, max_layers, skip_arrays, skip_
 				local parent_vt = td:is_value_type()
 				if td:is_a("System.Array") then
 					if not skip_arrays then
-						local elem_td, is_obj
+						local elem_td = sdk.find_type_definition(td_name:gsub("%[%]", ""))
 						local fmt_string = get_fmt_string(obj)
-						for i, elem in pairs(obj) do
-							local element = obj:get_Item(i)
-							if element == nil then break end
-							elem_td = elem_td or (elem and elem:get_type_definition())
-							is_obj = is_obj or elem_td and (type(element) == "userdata" and (elem_td:is_value_type() or sdk.is_managed_object(element)) and not parent_vt)
-							element = (is_obj and element.add_ref and element:add_ref()) or element
-							new_tbl[string.format(fmt_string, i)] = get_non_null_value((is_obj and recurse(element, layer_no + 1)) or element)
+						local is_obj = false
+						for i, elem in pairs(lua_get_array(obj, true)) do
+							is_obj = is_obj or (elem_td and type(elem) == "userdata" and (elem_td:is_value_type() or sdk.is_managed_object(elem)))
+							elem = (is_obj and elem.add_ref and elem:add_ref()) or elem
+							new_tbl[string.format(fmt_string, i-1)] = get_non_null_value((is_obj and recurse(elem, layer_no + 1)) or elem)
 						end
 					end
 				elseif td_name:find("via%.[Ss]fix") then
@@ -450,6 +453,13 @@ local function convert_to_json_tbl(tbl_or_object, max_layers, skip_arrays, skip_
 				elseif td:get_field("x") then --ValueTypes with xyzw
 					local xtype = td:get_field("x"):get_type()
 					for i, name in ipairs(xyzw) do
+						new_tbl[name] = obj[name]
+						if new_tbl[name] == nil then break end
+						if xtype:is_a("via.sfix") then new_tbl[name] = new_tbl[name]:ToFloat() end
+					end
+				elseif td:get_field("X") then --ValueTypes with XYZW
+					local xtype = td:get_field("X"):get_type()
+					for i, name in ipairs(XYZW) do
 						new_tbl[name] = obj[name]
 						if new_tbl[name] == nil then break end
 						if xtype:is_a("via.sfix") then new_tbl[name] = new_tbl[name]:ToFloat() end
@@ -471,22 +481,23 @@ local function convert_to_json_tbl(tbl_or_object, max_layers, skip_arrays, skip_
 					end
 				else
 					local fields, methods = get_fields_and_methods(td)
-					for i, field in ipairs(fields) do
+					for i, field in pairs(fields) do
 						local name = field:get_name()
 						if not field:is_static() and name:sub(1,2) ~= "<>" and name ~= "_object" then
 							local try, fdata = pcall(field.get_data, field, obj)
 							local should_recurse = try and type(fdata) == "userdata" and (field:get_type():is_value_type() or sdk.is_managed_object(fdata))
-							new_tbl[field:get_name()] = try and get_non_null_value(((should_recurse and recurse(fdata, layer_no + 1)) or fdata))
+							new_tbl[name] = try and get_non_null_value(((should_recurse and recurse(fdata, layer_no + 1)) or fdata))
 						end
 					end
-					for i, method in ipairs(methods) do
-						if not method:is_static() and method:get_num_params() == 0 and method:get_name():find("[Gg]et") == 1 and not method:get_return_type():is_a("via.Component") then
+					for i, method in pairs(methods) do
+						local name = method:get_name()
+						if not method:is_static() and method:get_num_params() == 0 and name:find("[Gg]et") == 1 and not method:get_return_type():is_a("via.Component") then
 							local try, mdata = pcall(method.call, method, obj)
 							if try and mdata ~= nil then
-								if not skip_method_objs and sdk.is_managed_object(mdata) and (obj[method:get_name():gsub("[Gg]et", "set")] or obj[method:get_name():gsub("[Gg]et", "Set")]) then
-									new_tbl[method:get_name():gsub("[Gg]et", "")] = get_non_null_value(recurse(mdata:add_ref(), layer_no + 1) or mdata)
+								if not skip_method_objs and sdk.is_managed_object(mdata) and (obj[name:gsub("[Gg]et", "set")] or obj[name:gsub("[Gg]et", "Set")]) then
+									new_tbl[name:gsub("[Gg]et", "")] = get_non_null_value(recurse(mdata:add_ref(), layer_no + 1) or mdata)
 								else
-									new_tbl[method:get_name():gsub("[Gg]et", "")] = get_non_null_value(mdata) 
+									new_tbl[name:gsub("[Gg]et", "")] = get_non_null_value(mdata) 
 								end
 							end
 						end

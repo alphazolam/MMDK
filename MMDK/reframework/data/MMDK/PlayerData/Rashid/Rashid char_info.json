@@ -1,0 +1,376 @@
+{
+    "PlData": {
+        "AirDashHeight": 70,
+        "ArmorPoint": 100,
+        "ArmorTimer": 50,
+        "Attribute": 16544,
+        "Entity": 0,
+        "FlySpeed": 10.0,
+        "FootJointHeight": 0.0,
+        "FootTipJointHeight": 0.0,
+        "Gauge": 30000,
+        "MaxShotNum": 5,
+        "MultiJumpCount": 0,
+        "Physique": {
+            "Arm": 89.29591369628906,
+            "Height": 163.92555236816406,
+            "Leg": 103.23423767089844
+        },
+        "Priority0": 18,
+        "RecoverDrvJust": 10000,
+        "RecoverDrvNorm": 10000,
+        "SizeB": 50,
+        "SizeD": 0,
+        "SizeF": 50,
+        "SizeU": 210,
+        "TriangleJumpHeight": 100,
+        "Vitality": 10000,
+        "Weight": 3,
+        "WidthZ": 100,
+        "_IsDebug": false,
+        "_IsGauge": false,
+        "_IsOther": false,
+        "_IsPhysical": false,
+        "_IsWTM": false,
+        "_Weight_prop": 3,
+        "__AutoAirRecovery": false,
+        "__AutoPushBox": false,
+        "__DashCancelJump": false,
+        "__DisableDashGrab": false,
+        "__GuardInDash": false,
+        "__HighJump": false,
+        "__I_am_NonHuman": false,
+        "__I_am_Unmovable": false,
+        "__I_am_a_Boss": false,
+        "__I_am_a_Gimmick": false,
+        "__I_am_an_Ornament": false,
+        "__IgnoreLandscape": false,
+        "__KeepUniqueParam": false,
+        "__LookAtMe": true,
+        "__LowJump": false,
+        "__NoHitWhileDown": true,
+        "__TriangleJump": true
+    },
+    "Styles": {
+        "0": {
+            "ParentStyleID": -1,
+            "StyleData": {
+                "Action": {
+                    "Exit": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "Finish": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "Revoke": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "Start": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "Timeout": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "_Name0": "FinishAction",
+                    "_Name1": "InterruptAction(Timeout)",
+                    "_Name2": "InterruptAction(Revoke)",
+                    "_Name3": "InterruptAction(Start)",
+                    "_Name4": "InterruptAction(End)"
+                },
+                "Basic": {
+                    "DefensiveScale": 100,
+                    "FluctuationSA": 0,
+                    "FocusRecoverIC": 50,
+                    "FocusRecoverICA": 20,
+                    "FocusRecoverNM": 40,
+                    "FocusRecoverNMA": 20,
+                    "GaugeGainRatio": 100,
+                    "LifeFluctuation": 0,
+                    "MoveSpeedScale": 100,
+                    "OffensiveScale": 100,
+                    "TimeLimit": 0
+                },
+                "Entity": 0,
+                "Facial": {
+                    "Atck00FCE": {
+                        "0": {
+                            "MotionBank": 20,
+                            "MotionID": 100
+                        },
+                        "1": {
+                            "MotionBank": 20,
+                            "MotionID": 110
+                        },
+                        "2": {
+                            "MotionBank": 20,
+                            "MotionID": 120
+                        },
+                        "3": {
+                            "MotionBank": 20,
+                            "MotionID": 130
+                        },
+                        "4": {
+                            "MotionBank": 20,
+                            "MotionID": 140
+                        },
+                        "5": {
+                            "MotionBank": 20,
+                            "MotionID": 150
+                        }
+                    },
+                    "Atck10FCE": {
+                        "0": {
+                            "MotionBank": 20,
+                            "MotionID": 100
+                        },
+                        "1": {
+                            "MotionBank": 20,
+                            "MotionID": 110
+                        },
+                        "2": {
+                            "MotionBank": 20,
+                            "MotionID": 120
+                        },
+                        "3": {
+                            "MotionBank": 20,
+                            "MotionID": 130
+                        },
+                        "4": {
+                            "MotionBank": 20,
+                            "MotionID": 140
+                        },
+                        "5": {
+                            "MotionBank": 20,
+                            "MotionID": 150
+                        }
+                    },
+                    "Damg00FCE": {
+                        "0": {
+                            "MotionBank": 20,
+                            "MotionID": 200
+                        },
+                        "1": {
+                            "MotionBank": 20,
+                            "MotionID": 210
+                        },
+                        "2": {
+                            "MotionBank": 20,
+                            "MotionID": 220
+                        },
+                        "3": {
+                            "MotionBank": 20,
+                            "MotionID": 230
+                        },
+                        "4": {
+                            "MotionBank": 20,
+                            "MotionID": 240
+                        },
+                        "5": {
+                            "MotionBank": 20,
+                            "MotionID": 250
+                        }
+                    },
+                    "Damg10FCE": {
+                        "0": {
+                            "MotionBank": 20,
+                            "MotionID": 200
+                        },
+                        "1": {
+                            "MotionBank": 20,
+                            "MotionID": 210
+                        },
+                        "2": {
+                            "MotionBank": 20,
+                            "MotionID": 220
+                        },
+                        "3": {
+                            "MotionBank": 20,
+                            "MotionID": 230
+                        },
+                        "4": {
+                            "MotionBank": 20,
+                            "MotionID": 240
+                        },
+                        "5": {
+                            "MotionBank": 20,
+                            "MotionID": 250
+                        }
+                    },
+                    "NormalFCE": {
+                        "0": {
+                            "MotionBank": 0,
+                            "MotionID": 0
+                        }
+                    },
+                    "_NameA0": "Attack (Weak) > [20/100] [20/110] [20/120] [20/130] [20/140] [20/150]",
+                    "_NameA1": "Attack (Norm) > [20/100] [20/110] [20/120] [20/130] [20/140] [20/150]",
+                    "_NameD0": "Damage (Weak) > [20/200] [20/210] [20/220] [20/230] [20/240] [20/250]",
+                    "_NameD1": "Damage (Norm) > [20/200] [20/210] [20/220] [20/230] [20/240] [20/250]",
+                    "_NameN0": "Standby   >>> [ 0 / 0 ]"
+                },
+                "Motion": {
+                    "AirNorm": {
+                        "MotionBank": 10,
+                        "MotionID": 205
+                    },
+                    "AirWeak": {
+                        "MotionBank": 10,
+                        "MotionID": 205
+                    },
+                    "CrouchNorm": {
+                        "MotionBank": 0,
+                        "MotionID": 100
+                    },
+                    "CrouchWeak": {
+                        "MotionBank": 5,
+                        "MotionID": 100
+                    },
+                    "StandNorm": {
+                        "MotionBank": 0,
+                        "MotionID": 0
+                    },
+                    "StandWeak": {
+                        "MotionBank": 5,
+                        "MotionID": 0
+                    },
+                    "_Name00": "(_Stand/Normal)  >>> [ 0 / 0 ]",
+                    "_Name01": "(_Stand/__Weak)  >>> [ 5 / 0 ]",
+                    "_Name10": "(Crouch/Normal)  >>> [ 0 / 100 ]",
+                    "_Name11": "(Crouch/__Weak)  >>> [ 5 / 100 ]",
+                    "_Name20": "(___Air/Normal)  >>> [ 10 / 205 ]",
+                    "_Name21": "(___Air/__Weak)  >>> [ 10 / 205 ]"
+                },
+                "Parts": {
+                    "useCommon": false,
+                    "useTarget": false
+                },
+                "Skill": {
+                    "Ability": 0,
+                    "DisableAction": 32328
+                },
+                "State": {
+                    "DelayState": 0,
+                    "TerminateState": 0
+                },
+                "Version": 200,
+                "_IsAction": false,
+                "_IsBasic": false,
+                "_IsFacial": false,
+                "_IsMotion": false,
+                "_IsParts": false,
+                "_IsSkill": false,
+                "_IsState": false
+            }
+        },
+        "1": {
+            "ParentStyleID": 0,
+            "StyleData": {
+                "Action": {
+                    "Exit": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "Finish": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "Revoke": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "Start": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "Timeout": {
+                        "Action": -1,
+                        "Style": -1
+                    },
+                    "_Name0": "FinishAction",
+                    "_Name1": "InterruptAction(Timeout)",
+                    "_Name2": "InterruptAction(Revoke)",
+                    "_Name3": "InterruptAction(Start)",
+                    "_Name4": "InterruptAction(End)"
+                },
+                "Basic": {
+                    "DefensiveScale": 100,
+                    "FluctuationSA": 0,
+                    "FocusRecoverIC": 50,
+                    "FocusRecoverICA": 10,
+                    "FocusRecoverNM": 50,
+                    "FocusRecoverNMA": 10,
+                    "GaugeGainRatio": 100,
+                    "LifeFluctuation": 0,
+                    "MoveSpeedScale": 100,
+                    "OffensiveScale": 100,
+                    "TimeLimit": 0
+                },
+                "Entity": 127,
+                "Facial": {
+                    "_NameA0": "Attack (Weak)",
+                    "_NameA1": "Attack (Norm)",
+                    "_NameD0": "Damage (Weak)",
+                    "_NameD1": "Damage (Norm)",
+                    "_NameN0": "Standby"
+                },
+                "Motion": {
+                    "AirNorm": {
+                        "MotionBank": -1,
+                        "MotionID": -1
+                    },
+                    "AirWeak": {
+                        "MotionBank": -1,
+                        "MotionID": -1
+                    },
+                    "CrouchNorm": {
+                        "MotionBank": 0,
+                        "MotionID": 100
+                    },
+                    "CrouchWeak": {
+                        "MotionBank": 5,
+                        "MotionID": 100
+                    },
+                    "StandNorm": {
+                        "MotionBank": 0,
+                        "MotionID": 0
+                    },
+                    "StandWeak": {
+                        "MotionBank": 5,
+                        "MotionID": 0
+                    },
+                    "_Name00": "(_Stand/Normal)  >>> [ 0 / 0 ]",
+                    "_Name01": "(_Stand/__Weak)  >>> [ 5 / 0 ]",
+                    "_Name10": "(Crouch/Normal)  >>> [ 0 / 100 ]",
+                    "_Name11": "(Crouch/__Weak)  >>> [ 5 / 100 ]",
+                    "_Name20": "(___Air/Normal)",
+                    "_Name21": "(___Air/__Weak)"
+                },
+                "Parts": {
+                    "useCommon": false,
+                    "useTarget": false
+                },
+                "Skill": {
+                    "Ability": 0,
+                    "DisableAction": 32328
+                },
+                "State": {
+                    "DelayState": 0,
+                    "TerminateState": 4394288414719
+                },
+                "Version": 200,
+                "_IsAction": true,
+                "_IsBasic": true,
+                "_IsFacial": true,
+                "_IsMotion": true,
+                "_IsParts": true,
+                "_IsSkill": true,
+                "_IsState": true
+            }
+        }
+    }
+}

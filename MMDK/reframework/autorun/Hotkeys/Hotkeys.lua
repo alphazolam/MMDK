@@ -74,7 +74,7 @@ buttons.Select = buttons.CLeft
 buttons.Start = buttons.CRight 
 buttons["X (Square)"] = buttons.RLeft
 buttons["Y (Triangle)"] = buttons.RUp
-buttons["A (X)"] = buttons.RDown
+buttons["A (X)"] = buttons.RDown or buttons.Decide
 buttons["B (Circle)"] = buttons.RRight
 buttons["RB (R1)"] = buttons.RTrigTop
 buttons["RT (R2)"] = buttons.RTrigBottom
@@ -219,22 +219,27 @@ local function chk_trig(action_name)
 end
 
 --Checks if an action's binding is released or down
-local function check_hotkey(action_name, check_down)
+local function check_hotkey(action_name, check_down, check_triggered)
+	local key_name = hotkeys[action_name]
+	if key_name == "[Not Bound]" then return false end
 	if check_down == true then
 		if hotkeys_down[action_name] == nil then
-			local key_name = hotkeys[action_name]
 			hotkeys_down[action_name] = (kb_state.down[keys[key_name ] ]  or gp_state.down[buttons[key_name ] ] or mb_state.down[mbuttons[key_name ] ]) and (not hotkeys[action_name.."_$"] or check_hotkey(action_name.."_$", true))
 		end
 		return hotkeys_down[action_name]
+	elseif check_triggered or type(check_down) ~= "nil" then
+		if hotkeys_trig[action_name] == nil then
+			hotkeys_trig[action_name] = (kb_state.triggered[keys[key_name ] ]  or gp_state.triggered[buttons[key_name ] ] or mb_state.triggered[mbuttons[key_name ] ]) and (not hotkeys[action_name.."_$"] or check_hotkey(action_name.."_$", true))
+		end
+		return hotkeys_trig[action_name]
 	elseif hotkeys_up[action_name] == nil then 
-		local key_name = hotkeys[action_name]
 		hotkeys_up[action_name] = (kb_state.released[keys[key_name ] ]  or gp_state.released[buttons[key_name ] ] or mb_state.released[mbuttons[key_name ] ]) and (not hotkeys[action_name.."_$"] or check_hotkey(action_name.."_$", true))
 	end
 	return hotkeys_up[action_name]
 end
 
 --Displays an imgui button that you can click then and press a button to assign a button to an action
-local function hotkey_setter(action_name, hold_action_name, fake_name)
+local function hotkey_setter(action_name, hold_action_name, fake_name, title_tooltip)
 	
 	local key_updated = false
 	local is_down = check_hotkey(action_name, true) and (not hold_action_name or check_hotkey(hold_action_name, true))
@@ -285,6 +290,9 @@ local function hotkey_setter(action_name, hold_action_name, fake_name)
 		
 		if disp_name ~= "" then
 			imgui.text((disp_name) .. ": ")
+			if title_tooltip and imgui.is_item_hovered() then
+				imgui.set_tooltip(title_tooltip)
+			end
 			imgui.same_line()
 		end
 		
@@ -334,7 +342,7 @@ local function hotkey_setter(action_name, hold_action_name, fake_name)
 				key_updated = true
 			end
 			if not is_mod_2 and not had_hold and hotkeys[action_name] ~= "[Not Bound]" and imgui.menu_item((hotkeys[action_name.."_$"] and "Disable " or "Enable ") .. "Modifier") then
-				hotkeys[action_name.."_$"] = not hotkeys[action_name.."_$"] and ((is_mod_1 and "LShift") or "LAlt") or nil
+				hotkeys[action_name.."_$"] = not hotkeys[action_name.."_$"] and (pad and pad:get_Connecting() and ((is_mod_1 and "LB (L1)") or "LT (L2)")) or ((is_mod_1 and "LShift") or "LAlt") or nil
 				hotkeys[action_name.."_$_$"], hk_data.modifier_actions[action_name.."_$_$"] = nil
 				hk_data.modifier_actions[action_name.."_$"] = hotkeys[action_name.."_$"]
 				json.dump_file("Hotkeys_data.json", hk_data)
@@ -386,12 +394,14 @@ re.on_pre_application_entry("UpdateHID", function()
 		end
 	end
 	
-	if pad then 
+	if mouse then 
 		local m_up, m_down, m_trig = mouse:call("get_ButtonUp"), mouse:call("get_Button"), mouse:call("get_ButtonDown")
-		for button, state in pairs(mb_state.released) do 
-			mb_state.released[button]	= ((m_up | button) == m_up) 
-			mb_state.down[button] 		= ((m_down | button) == m_down) 
-			mb_state.triggered[button]  = ((m_trig | button) == m_trig)
+		if m_up then
+			for button, state in pairs(mb_state.released) do 
+				mb_state.released[button]	= ((m_up | button) == m_up) 
+				mb_state.down[button] 		= ((m_down | button) == m_down) 
+				mb_state.triggered[button]  = ((m_trig | button) == m_trig)
+			end
 		end
 	end
 	

@@ -10523,50 +10523,6 @@
             "inputs": {
                 "00": {
                     "charge": {
-                        "id": 2,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 10,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 2,
-                        "ok_key_flags": 2,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 2,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "01": {
-                    "charge": {
-                        "id": 10,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 10,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 2,
-                        "ok_key_flags": 10,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 10,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "02": {
-                    "charge": {
                         "id": 8,
                         "is_release": false,
                         "reserved": 0
@@ -10587,7 +10543,7 @@
                     },
                     "type": 0
                 },
-                "03": {
+                "01": {
                     "charge": {
                         "id": 2,
                         "is_release": false,
@@ -10599,7 +10555,7 @@
                         "ignore_key_flags": 0,
                         "ng_key_cond_check_flags": 0,
                         "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 2,
+                        "ok_key_cond_check_flags": 1,
                         "ok_key_flags": 2,
                         "reserved": 0
                     },
@@ -10609,29 +10565,29 @@
                     },
                     "type": 0
                 },
-                "04": {
+                "02": {
                     "charge": {
-                        "id": 10,
+                        "id": 6,
                         "is_release": false,
                         "reserved": 0
                     },
-                    "frame_num": 10,
+                    "frame_num": 11,
                     "normal": {
                         "ignore_key_cond_check_flags": 0,
                         "ignore_key_flags": 0,
                         "ng_key_cond_check_flags": 0,
                         "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 2,
-                        "ok_key_flags": 10,
+                        "ok_key_cond_check_flags": 1,
+                        "ok_key_flags": 6,
                         "reserved": 0
                     },
                     "rotate": {
-                        "count": 10,
+                        "count": 6,
                         "point": 0
                     },
                     "type": 0
                 },
-                "05": {
+                "03": {
                     "charge": {
                         "id": 8,
                         "is_release": false,
@@ -10643,12 +10599,56 @@
                         "ignore_key_flags": 0,
                         "ng_key_cond_check_flags": 0,
                         "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 2,
+                        "ok_key_cond_check_flags": 1,
                         "ok_key_flags": 8,
                         "reserved": 0
                     },
                     "rotate": {
                         "count": 8,
+                        "point": 0
+                    },
+                    "type": 0
+                },
+                "04": {
+                    "charge": {
+                        "id": 2,
+                        "is_release": false,
+                        "reserved": 0
+                    },
+                    "frame_num": 10,
+                    "normal": {
+                        "ignore_key_cond_check_flags": 0,
+                        "ignore_key_flags": 0,
+                        "ng_key_cond_check_flags": 0,
+                        "ng_key_flags": 0,
+                        "ok_key_cond_check_flags": 1,
+                        "ok_key_flags": 2,
+                        "reserved": 0
+                    },
+                    "rotate": {
+                        "count": 2,
+                        "point": 0
+                    },
+                    "type": 0
+                },
+                "05": {
+                    "charge": {
+                        "id": 4,
+                        "is_release": false,
+                        "reserved": 0
+                    },
+                    "frame_num": 11,
+                    "normal": {
+                        "ignore_key_cond_check_flags": 0,
+                        "ignore_key_flags": 0,
+                        "ng_key_cond_check_flags": 0,
+                        "ng_key_flags": 0,
+                        "ok_key_cond_check_flags": 2,
+                        "ok_key_flags": 4,
+                        "reserved": 0
+                    },
+                    "rotate": {
+                        "count": 4,
                         "point": 0
                     },
                     "type": 0
@@ -10874,7 +10874,7 @@
                     "type": 0
                 }
             },
-            "max_frame": 60,
+            "max_frame": 62,
             "total_frame": -1
         }
     },
@@ -11628,732 +11628,6 @@
                     },
                     "rotate": {
                         "count": 2,
-                        "point": 1
-                    },
-                    "type": 1
-                },
-                "01": {
-                    "charge": {
-                        "id": 8,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 3,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 2,
-                        "ok_key_flags": 8,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 8,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "02": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "03": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "04": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "05": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "06": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "07": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "08": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "09": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "10": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "11": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "12": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "13": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "14": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "15": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                }
-            },
-            "max_frame": 12,
-            "total_frame": 10
-        }
-    },
-    "35": {
-        "0": {
-            "CommandTimer": 8,
-            "charge_bit": 8,
-            "input_num": 2,
-            "inputs": {
-                "00": {
-                    "charge": {
-                        "id": 3,
-                        "is_release": true,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 65539,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 3,
-                        "point": 1
-                    },
-                    "type": 1
-                },
-                "01": {
-                    "charge": {
-                        "id": 8,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 9,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 2,
-                        "ok_key_flags": 8,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 8,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "02": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "03": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "04": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "05": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "06": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "07": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "08": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "09": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "10": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "11": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "12": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "13": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "14": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                },
-                "15": {
-                    "charge": {
-                        "id": 0,
-                        "is_release": false,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 0,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 0,
-                        "point": 0
-                    },
-                    "type": 0
-                }
-            },
-            "max_frame": 18,
-            "total_frame": 10
-        }
-    },
-    "36": {
-        "0": {
-            "CommandTimer": 2,
-            "charge_bit": 16,
-            "input_num": 2,
-            "inputs": {
-                "00": {
-                    "charge": {
-                        "id": 4,
-                        "is_release": true,
-                        "reserved": 0
-                    },
-                    "frame_num": 0,
-                    "normal": {
-                        "ignore_key_cond_check_flags": 0,
-                        "ignore_key_flags": 0,
-                        "ng_key_cond_check_flags": 0,
-                        "ng_key_flags": 0,
-                        "ok_key_cond_check_flags": 0,
-                        "ok_key_flags": 65540,
-                        "reserved": 0
-                    },
-                    "rotate": {
-                        "count": 4,
                         "point": 1
                     },
                     "type": 1

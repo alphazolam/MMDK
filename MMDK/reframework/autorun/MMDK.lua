@@ -1,7 +1,7 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6
 -- By alphaZomega
--- June 28, 2024
-local version = "1.0.7"
+-- November 29, 2024
+local version = "1.0.8"
 
 player_data = {}
 tmp_fns = {}
@@ -28,7 +28,6 @@ local mot_info = sdk.create_instance("via.motion.MotionInfo"):add_ref()
 local scene = sdk.call_native_func(sdk.get_native_singleton("via.SceneManager"), sdk.find_type_definition("via.SceneManager"), "get_CurrentScene()")
 local speed_sfix = sdk.find_type_definition("via.sfix"):get_field("Zero"):get_data(nil)
 local minfo = sdk.create_instance("via.motion.MotionInfo"):add_ref()
-
 
 local mot_fns = {}
 local cached_names = {}
@@ -187,28 +186,26 @@ PlayerData = {
 	
 	--Create a new instance of this Lua class:
 	new = function(self, player_index, do_make_dict, data)
-		
+		local pl_id = player_index - 1
 		data = data or {}
 		self.__index = self
 		setmetatable(data, self)
 		player_data[player_index] = data
-		
 		data.player_index = player_index
 		data.moves_dict = {By_Name = {}, By_ID = {}, By_Index = {}}
-		data.person = gResource.Data[player_index-1]
-		data.chara_id = gPlayer.mPlayerType[player_index-1].mValue
+		data.person = gResource.Data[pl_id]
+		data.chara_id = gPlayer.mPlayerType[pl_id].mValue
 		data.name = characters[data.chara_id]
-		data.cPlayer = gPlayer.mcPlayer[player_index-1]
-		data.hit_datas = gPlayer.mpLoadHitDataAddress[player_index-1]
+		data.cPlayer = gPlayer.mcPlayer[pl_id]
+		data.hit_datas = gPlayer.mpLoadHitDataAddress[pl_id]
 		data.projectile_datas = data.person.Projectile
 		data.engine = engines[player_index]
-		data.pb = gBattle:get_field("PBManager"):get_data().Players[player_index-1]
+		data.pb = gBattle:get_field("PBManager"):get_data().Players[pl_id]
 		data.gameobj = data.pb:get_GameObject()
 		data.motion =  data.pb.mpMot
 		data.sfx_component = getC(getC(data.gameobj, "app.sound.SoundBattleObjectAccessor")["<BattleObjectRef>k__BackingField"], "app.sound.SoundContainerApp")
 		data.sound_dict = data.sfx_component:get_RequestRefTable().SeRequestDataDictionary
 		data.voice_dict = data.sfx_component:get_RequestRefTable().VoiceRequestDataDictionary
-		
 		
 		data.vfx_by_ctr_id = {}
 		local vfx_arrays = {
@@ -219,21 +216,23 @@ PlayerData = {
 			table.insert(vfx_arrays, vfx_container.mStandardData)
 		end
 		for i, mStandardData in ipairs(vfx_arrays) do
-			for i, std_data_settings in pairs(lua_get_array(mStandardData._items)) do
-				local vfx_gameobj = scene:call("findGameObject(System.String)", std_data_settings.mData:get_Path():match(".+(epvs.+)%.pfb"))
-				local ctr_tbl = data.vfx_by_ctr_id[std_data_settings.mID] or {elements={}}
-				ctr_tbl.std_data_settings = std_data_settings
-				ctr_tbl.std_data = getC(vfx_gameobj, "via.effect.script.EPVStandardData")
-				if vfx_gameobj then
-					for i, element in pairs(lua_get_array(ctr_tbl.std_data.Elements, true)) do
-						ctr_tbl.elements[element.ID] = element --overwrite old System elements with new fighter-specific ones
+			for j, std_data_settings in pairs(lua_get_array(mStandardData._items)) do
+				if not std_data_settings.mData:get_IsEmpty() then
+					local vfx_gameobj = scene:call("findGameObject(System.String)", std_data_settings.mData:get_Path():match(".+(epvs.+)%.pfb"))
+					local ctr_tbl = data.vfx_by_ctr_id[std_data_settings.mID] or {elements={}}
+					ctr_tbl.std_data_settings = std_data_settings
+					ctr_tbl.std_data = getC(vfx_gameobj, "via.effect.script.EPVStandardData")
+					if vfx_gameobj then
+						for k, element in pairs(lua_get_array(ctr_tbl.std_data.Elements, true)) do
+							ctr_tbl.elements[element.ID] = element --overwrite old System elements with new fighter-specific ones
+						end
 					end
+					data.vfx_by_ctr_id[std_data_settings.mID] = ctr_tbl
 				end
-				data.vfx_by_ctr_id[std_data_settings.mID] = ctr_tbl
 			end
 		end
 		
-		data.triggers = gCommand:get_mUserEngine()[player_index-1]:call("GetTrigger()")
+		data.triggers = gCommand:get_mUserEngine()[pl_id]:call("GetTrigger()")
 		data.triggers_by_act_id = {}
 		
 		for i, trigger in pairs(data.triggers) do
@@ -253,10 +252,10 @@ PlayerData = {
 		end
 		
 		data.tgroups = {}
-		data.tgroups_dict = gCommand.mpBCMResource[data.player_index-1].pTrgGrp
+		data.tgroups_dict = gCommand.mpBCMResource[pl_id].pTrgGrp
 		
 		data.commands = {}
-		for i, list in pairs(lua_get_dict(gCommand.mpBCMResource[data.player_index-1].pCommand)) do
+		for i, list in pairs(lua_get_dict(gCommand.mpBCMResource[pl_id].pCommand)) do
 			data.commands[i] = {}
 			for j, command in pairs(list) do
 				if command then data.commands[i][j] = command end
@@ -264,9 +263,22 @@ PlayerData = {
 		end
 		
 		data.charge = {}
-		--for i, charge in pairs(lua_get_dict(gCommand.mpBCMResource[player_index-1].pCharge)) do
-		for id, charge in pairs(lua_get_dict(gCommand.StorageData.UserEngines[data.player_index-1].m_charge_infos)) do
+		for id, charge in pairs(lua_get_dict(gCommand.StorageData.UserEngines[pl_id].m_charge_infos)) do
 			data.charge[id] = charge
+		end
+		
+		data.atemi = lua_get_dict(gResource.Data[pl_id].Atemi)
+		
+		data.assist_combo = gCommand.mpBCMResource[pl_id].pAstCmb.RecipeData
+		
+		data.char_info = {
+			PlData = gResource.Data[pl_id].FAB.PlData, 
+			Styles = {},
+		}
+		for i = 0, gResource.Data[pl_id].FAB:GetStyleNum()-1 do
+			data.char_info.Styles[i] = {}
+			data.char_info.Styles[i].ParentStyleID = gResource.Data[pl_id].FAB:GetParentStyleID(i)
+			data.char_info.Styles[i].StyleData = gResource.Data[pl_id].FAB:GetStyleData(i)
 		end
 		
 		if do_make_dict then
@@ -599,6 +611,34 @@ PlayerData = {
 		end
 		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " moves_dict.json", json_data)
 		return json_data
+	end,
+	
+	--Dumps a json file of this PlayerData's atemis. 'atemis' and 'path' are optional
+	dump_atemi_json = function(self, path, atemis)
+		atemis = atemis or self.atemi
+		local atemi_json = {}
+		for atemi_id, atemi in pairs(atemis) do
+			atemi_id = string.format("%02d", atemi_id)
+			atemi_json[atemi_id] = convert_to_json_tbl(atemi)
+		end
+		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " atemi.json", atemi_json)
+	end,
+	
+	--Dumps a json file of this PlayerData's assist combos. 'assist_combo' and 'path' are optional
+	dump_assist_combo_json = function(self, path, assist_combo)
+		assist_combo = assist_combo or self.assist_combo
+		local ac_json = {}
+		for idx, recipedata in pairs(lua_get_array(self.assist_combo)) do
+			idx = string.format("%03d", idx-1)
+			ac_json[idx] = convert_to_json_tbl(recipedata)
+		end
+		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " assist_combo.json", ac_json)
+	end,
+	
+	dump_char_info_json = function(self, path, char_info)
+		char_info = char_info or self.char_info
+		local cinfo_json = convert_to_json_tbl(char_info)
+		json.dump_file(path or "MMDK\\PlayerData\\" .. self.name .."\\" .. self.name .. " char_info.json", cinfo_json)
 	end,
 	
 	--Returns an unmodified moves dict from a json file or from cache, and creates it if its not there (or creates all missing moves dicts)
@@ -993,8 +1033,6 @@ PlayerData = {
 						end
 						if jtrigger.commands_id and self.commands[jtrigger.commands_id][jtrigger.command_idx] then
 							trig.norm.command_ptr = self.commands[jtrigger.commands_id][jtrigger.command_idx]
-							aas = {trig.norm, trig.norm.command_ptr, trig.norm:MemberwiseClone():add_ref()}
-							--print(asd + 123)
 						end
 					end
 				end
@@ -1506,7 +1544,7 @@ re.on_frame(function()
 			
 			imgui.begin_child_window(nil, false, 0)
 			
-			local tooltip_msg = "Saves moves_dict data to\n	reframework\\data\\MMDK\\" .. data.name .. "\\" .. data.name
+			local tooltip_msg = "Saves fighter data to\n	reframework\\data\\MMDK\\" .. data.name .. "\\" .. data.name
 			if imgui.tree_node("[Lua Data]") then
 				if imgui.button("Dump Moves Dict") then
 					tmp_fns.dumper = function()
@@ -1534,30 +1572,20 @@ re.on_frame(function()
 				
 				imgui.same_line()
 				if imgui.button("Dump Atemis") then
-					-- hack: only dumps P1
-					local atemi = lua_get_dict(gResource.Data[0].Atemi)
-					local atemiJson = convert_to_json_tbl(atemi, nil, nil, nil, true)
-					json.dump_file("MMDK\\PlayerData\\" .. data.name .. "\\" .. data.name .. " atemi.json", atemiJson)
+					data:dump_atemi_json()
 
 					-- dump common as well
 					local commonAtemi = lua_get_dict(gResource.Data[6].Atemi)
 					local commonAtemiJson = convert_to_json_tbl(commonAtemi, nil, nil, nil, true)
 					json.dump_file("MMDK\\PlayerData\\common_atemi.json", commonAtemiJson)
 				end
-				--[[
-				imgui.same_line()
-				if imgui.button("Dump Charge") then
-					local chargeJson = convert_to_json_tbl(data.charge, nil, nil, nil, true)
-					json.dump_file("MMDK\\PlayerData\\" .. data.name .. "\\" .. data.name .. " Charge.json", chargeJson)
-				end]]
 				
-				imgui.same_line()
 				if imgui.button("Dump TriggerGroups") then
 					data:dump_tgroups_json()
 				end
 				tooltip(tooltip_msg .. " tgroups.json")
 				
-				--imgui.same_line()
+				imgui.same_line()
 				if imgui.button("Dump HitRects") then
  					data:dump_rects_json()
 					local commonRects = {}
@@ -1580,25 +1608,21 @@ re.on_frame(function()
 				tooltip(tooltip_msg .. " commands.json")
 
 				imgui.same_line()
-				if imgui.button("Dump char info (Style and PlData)") then
-					fabDict = {}
-					-- hack: only dumps P1
-					fabDict["PlData"] = gResource.Data[0].FAB.PlData
-					fabDict["Styles"] = {}
-					for i = 0,gResource.Data[0].FAB:GetStyleNum()-1 do
-						fabDict["Styles"][i] = {}
-						fabDict["Styles"][i]["ParentStyleID"] = gResource.Data[0].FAB:GetParentStyleID(i)
-						fabDict["Styles"][i]["StyleData"] = gResource.Data[0].FAB:GetStyleData(i)
-					end
-					local fabJson = convert_to_json_tbl(fabDict, nil, nil, nil, true)
-					json.dump_file("MMDK\\PlayerData\\" .. data.name .. "\\" .. data.name .. " CharInfo.json", fabJson)
-				end
-
-				imgui.same_line()
-				if imgui.button("Dump Charges") then
+				if imgui.button("Dump Charge") then
 					data:dump_charge_json()
 				end
 				tooltip(tooltip_msg .. " charge.json")
+				
+				if imgui.button("Dump Char Info (Style and PlData)") then
+					data:dump_char_info_json()
+				end
+				tooltip(tooltip_msg .. " char_info.json")
+				
+				imgui.same_line()
+				if imgui.button("Dump Assist Combos") then
+					data:dump_assist_combo_json()
+				end
+				tooltip(tooltip_msg .. " assist_combo.json")
 				
 				if EMV then
 					EMV.read_imgui_element(data)

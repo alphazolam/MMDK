@@ -1305,6 +1305,35 @@
             "SizeX": 38,
             "SizeY": 17
         },
+        "074": {
+            "OffsetX": 76,
+            "OffsetY": 101,
+            "PhyCoeffRateDesc": {
+                "CoeffType": 0,
+                "OffsetXRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                },
+                "OffsetYRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                },
+                "SizeXRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                },
+                "SizeYRate": {
+                    "Arm": 0.0,
+                    "Height": 1.0,
+                    "Leg": 0.0
+                }
+            },
+            "SizeX": 40,
+            "SizeY": 35
+        },
         "076": {
             "OffsetX": 64,
             "OffsetY": 110,

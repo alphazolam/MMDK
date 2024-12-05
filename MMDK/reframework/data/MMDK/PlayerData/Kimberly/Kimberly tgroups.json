@@ -16,7 +16,7 @@
         "015": "620 ATK_2HK(1)",
         "027": "631 ATK_4HK(1)",
         "028": "632 ATK_6HK(2)",
-        "032": "637 ATK_3MK(1)",
+        "032": "637 ATK_3MK(2)",
         "067": "973 SPA_SprayBomb_R(2)",
         "068": "975 SPA_SprayBomb_L(2)",
         "069": "976 SPA_SprayBomb_M(2)",
@@ -34,7 +34,7 @@
         "140": "855 ATK_CTA(4)",
         "146": "1200 SPA_Hayagake_LP(6)",
         "147": "1203 SPA_Hayagake_LP(7)",
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "163": "1220 SAA_Lv3_START",
         "167": "1224 SAA_Lv3_START(1)",
         "175": "962 SPA_ChargeChop_H(3)",
@@ -42,7 +42,6 @@
         "177": "978 SPA_SprayBomb_L(3)",
         "178": "979 SPA_SprayBomb_M(3)",
         "179": "980 SPA_SprayBomb_H(3)",
-        "180": "984 SPA_SprayBomb_M(3) PROJ",
         "181": "903 SPA_Hayagake_Start(3)",
         "199": "943 SPA_BushinSenpu_Start(3)",
         "201": "970 SPA_SpraySmoke_H",
@@ -90,7 +89,7 @@
         "097": "966 SPA_SpraySmoke_M(1)",
         "146": "1200 SPA_Hayagake_LP(6)",
         "147": "1203 SPA_Hayagake_LP(7)",
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "163": "1220 SAA_Lv3_START",
         "167": "1224 SAA_Lv3_START(1)",
         "175": "962 SPA_ChargeChop_H(3)",
@@ -98,7 +97,6 @@
         "177": "978 SPA_SprayBomb_L(3)",
         "178": "979 SPA_SprayBomb_M(3)",
         "179": "980 SPA_SprayBomb_H(3)",
-        "180": "984 SPA_SprayBomb_M(3) PROJ",
         "181": "903 SPA_Hayagake_Start(3)",
         "199": "943 SPA_BushinSenpu_Start(3)",
         "201": "970 SPA_SpraySmoke_H"
@@ -121,7 +119,7 @@
         "140": "855 ATK_CTA(4)",
         "146": "1200 SPA_Hayagake_LP(6)",
         "147": "1203 SPA_Hayagake_LP(7)",
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "163": "1220 SAA_Lv3_START",
         "167": "1224 SAA_Lv3_START(1)",
         "175": "962 SPA_ChargeChop_H(3)",
@@ -129,7 +127,6 @@
         "177": "978 SPA_SprayBomb_L(3)",
         "178": "979 SPA_SprayBomb_M(3)",
         "179": "980 SPA_SprayBomb_H(3)",
-        "180": "984 SPA_SprayBomb_M(3) PROJ",
         "181": "903 SPA_Hayagake_Start(3)",
         "199": "943 SPA_BushinSenpu_Start(3)",
         "201": "970 SPA_SpraySmoke_H"
@@ -159,7 +156,7 @@
         "140": "855 ATK_CTA(4)",
         "146": "1200 SPA_Hayagake_LP(6)",
         "147": "1203 SPA_Hayagake_LP(7)",
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "163": "1220 SAA_Lv3_START",
         "167": "1224 SAA_Lv3_START(1)",
         "175": "962 SPA_ChargeChop_H(3)",
@@ -167,7 +164,6 @@
         "177": "978 SPA_SprayBomb_L(3)",
         "178": "979 SPA_SprayBomb_M(3)",
         "179": "980 SPA_SprayBomb_H(3)",
-        "180": "984 SPA_SprayBomb_M(3) PROJ",
         "181": "903 SPA_Hayagake_Start(3)",
         "199": "943 SPA_BushinSenpu_Start(3)",
         "201": "970 SPA_SpraySmoke_H",
@@ -176,7 +172,7 @@
     "017": {
         "146": "1200 SPA_Hayagake_LP(6)",
         "147": "1203 SPA_Hayagake_LP(7)",
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "163": "1220 SAA_Lv3_START",
         "167": "1224 SAA_Lv3_START(1)",
         "175": "962 SPA_ChargeChop_H(3)",
@@ -184,7 +180,6 @@
         "177": "978 SPA_SprayBomb_L(3)",
         "178": "979 SPA_SprayBomb_M(3)",
         "179": "980 SPA_SprayBomb_H(3)",
-        "180": "984 SPA_SprayBomb_M(3) PROJ",
         "181": "903 SPA_Hayagake_Start(3)",
         "199": "943 SPA_BushinSenpu_Start(3)",
         "201": "970 SPA_SpraySmoke_H"
@@ -199,12 +194,12 @@
     "022": {
         "101": "998 SPA_Tengu_MISS",
         "102": "949 SPA_BushinSenpu_Air",
-        "158": "1211 SAA_Lv2_START(1)",
+        "158": "1210 SAA_Lv2_START(1)",
         "204": "1006 SPA_Tengu_MISS(1)",
         "205": "951 SPA_BushinSenpu_Air(1)"
     },
     "023": {
-        "158": "1211 SAA_Lv2_START(1)",
+        "158": "1210 SAA_Lv2_START(1)",
         "204": "1006 SPA_Tengu_MISS(1)",
         "205": "951 SPA_BushinSenpu_Air(1)"
     },
@@ -325,7 +320,7 @@
         "140": "855 ATK_CTA(4)",
         "146": "1200 SPA_Hayagake_LP(6)",
         "147": "1203 SPA_Hayagake_LP(7)",
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "163": "1220 SAA_Lv3_START",
         "167": "1224 SAA_Lv3_START(1)",
         "175": "962 SPA_ChargeChop_H(3)",
@@ -333,13 +328,12 @@
         "177": "978 SPA_SprayBomb_L(3)",
         "178": "979 SPA_SprayBomb_M(3)",
         "179": "980 SPA_SprayBomb_H(3)",
-        "180": "984 SPA_SprayBomb_M(3) PROJ",
         "181": "903 SPA_Hayagake_Start(3)",
         "199": "943 SPA_BushinSenpu_Start(3)",
         "201": "970 SPA_SpraySmoke_H"
     },
     "052": {
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "165": "1220 SAA_Lv3_START",
         "169": "1224 SAA_Lv3_START(1)"
     },
@@ -352,7 +346,7 @@
         "204": "1006 SPA_Tengu_MISS(1)"
     },
     "058": {
-        "160": "1211 SAA_Lv2_START(1)"
+        "160": "1211 SAA_Lv2_START(2)"
     },
     "060": {
         "142": "852 ATK_CTA_4(2)"
@@ -366,7 +360,7 @@
         "022": "627 ATK_8HK",
         "101": "998 SPA_Tengu_MISS",
         "102": "949 SPA_BushinSenpu_Air",
-        "158": "1211 SAA_Lv2_START(1)",
+        "158": "1210 SAA_Lv2_START(1)",
         "204": "1006 SPA_Tengu_MISS(1)",
         "205": "951 SPA_BushinSenpu_Air(1)"
     },
@@ -378,30 +372,30 @@
         "021": "624 ATK_8HP",
         "022": "627 ATK_8HK",
         "101": "998 SPA_Tengu_MISS",
-        "158": "1211 SAA_Lv2_START(1)",
+        "158": "1210 SAA_Lv2_START(1)",
         "204": "1006 SPA_Tengu_MISS(1)"
     },
     "064": {
         "101": "998 SPA_Tengu_MISS",
         "102": "949 SPA_BushinSenpu_Air",
-        "158": "1211 SAA_Lv2_START(1)",
+        "158": "1210 SAA_Lv2_START(1)",
         "204": "1006 SPA_Tengu_MISS(1)",
         "205": "951 SPA_BushinSenpu_Air(1)"
     },
     "066": {
         "102": "949 SPA_BushinSenpu_Air",
-        "158": "1211 SAA_Lv2_START(1)",
+        "158": "1210 SAA_Lv2_START(1)",
         "205": "951 SPA_BushinSenpu_Air(1)"
     },
     "067": {
         "101": "998 SPA_Tengu_MISS",
         "102": "949 SPA_BushinSenpu_Air",
-        "158": "1211 SAA_Lv2_START(1)",
+        "158": "1210 SAA_Lv2_START(1)",
         "204": "1006 SPA_Tengu_MISS(1)",
         "205": "951 SPA_BushinSenpu_Air(1)"
     },
     "068": {
-        "023": "638 ATK_82HP"
+        "023": "639 ATK_82HP"
     },
     "070": {
         "003": "600 ATK_5LP(2)",
@@ -418,7 +412,7 @@
         "015": "620 ATK_2HK(1)",
         "027": "631 ATK_4HK(1)",
         "028": "632 ATK_6HK(2)",
-        "032": "637 ATK_3MK(1)",
+        "032": "637 ATK_3MK(2)",
         "067": "973 SPA_SprayBomb_R(2)",
         "068": "975 SPA_SprayBomb_L(2)",
         "069": "976 SPA_SprayBomb_M(2)",
@@ -434,7 +428,7 @@
         "140": "855 ATK_CTA(4)",
         "146": "1200 SPA_Hayagake_LP(6)",
         "147": "1203 SPA_Hayagake_LP(7)",
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "163": "1220 SAA_Lv3_START",
         "167": "1224 SAA_Lv3_START(1)",
         "175": "962 SPA_ChargeChop_H(3)",
@@ -442,7 +436,6 @@
         "177": "978 SPA_SprayBomb_L(3)",
         "178": "979 SPA_SprayBomb_M(3)",
         "179": "980 SPA_SprayBomb_H(3)",
-        "180": "984 SPA_SprayBomb_M(3) PROJ",
         "181": "903 SPA_Hayagake_Start(3)",
         "199": "943 SPA_BushinSenpu_Start(3)"
     },
@@ -462,7 +455,7 @@
         "140": "855 ATK_CTA(4)",
         "146": "1200 SPA_Hayagake_LP(6)",
         "147": "1203 SPA_Hayagake_LP(7)",
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "163": "1220 SAA_Lv3_START",
         "167": "1224 SAA_Lv3_START(1)",
         "175": "962 SPA_ChargeChop_H(3)",
@@ -470,7 +463,6 @@
         "177": "978 SPA_SprayBomb_L(3)",
         "178": "979 SPA_SprayBomb_M(3)",
         "179": "980 SPA_SprayBomb_H(3)",
-        "180": "984 SPA_SprayBomb_M(3) PROJ",
         "181": "903 SPA_Hayagake_Start(3)",
         "199": "943 SPA_BushinSenpu_Start(3)",
         "211": "1500 DEM_APPEAL_04"
@@ -497,7 +489,7 @@
         "015": "620 ATK_2HK(1)",
         "027": "631 ATK_4HK(1)",
         "028": "632 ATK_6HK(2)",
-        "032": "637 ATK_3MK(1)",
+        "032": "637 ATK_3MK(2)",
         "067": "973 SPA_SprayBomb_R(2)",
         "068": "975 SPA_SprayBomb_L(2)",
         "069": "976 SPA_SprayBomb_M(2)",
@@ -514,7 +506,7 @@
         "140": "855 ATK_CTA(4)",
         "146": "1200 SPA_Hayagake_LP(6)",
         "147": "1203 SPA_Hayagake_LP(7)",
-        "151": "1210 SAA_Lv2_START",
+        "151": "1209 SAA_Lv2_START",
         "163": "1220 SAA_Lv3_START",
         "167": "1224 SAA_Lv3_START(1)",
         "175": "962 SPA_ChargeChop_H(3)",
