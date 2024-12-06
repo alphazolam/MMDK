@@ -1,6 +1,6 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6 -- Shared Functions
 -- By alphaZomega
--- September 19, 2023
+-- December 5th, 2024
 
 local enums = {}
 
@@ -449,7 +449,15 @@ local function convert_to_json_tbl(tbl_or_object, max_layers, skip_arrays, skip_
 						end
 					end
 				elseif td_name:find("via%.[Ss]fix") then
-					return read_sfix(obj)
+					local out = read_sfix(obj)
+					if type(out) ~= "number" then
+						for i, name in ipairs(xyzw) do
+							if out[name] == nil then break end
+							new_tbl[name] = out[name]
+						end
+						return get_non_null_value(new_tbl)
+					end
+					return get_non_null_value(out)
 				elseif td:get_field("x") then --ValueTypes with xyzw
 					local xtype = td:get_field("x"):get_type()
 					for i, name in ipairs(xyzw) do

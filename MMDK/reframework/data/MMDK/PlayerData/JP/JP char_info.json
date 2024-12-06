@@ -270,14 +270,34 @@
                             "IsON": true,
                             "JointHash": -2003049796,
                             "MasterID": 0,
-                            "PartsID": 0
+                            "PartsID": 0,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": -70.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 3
+                            "PartsID": 3,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,

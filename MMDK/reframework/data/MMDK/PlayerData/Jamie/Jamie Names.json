@@ -1,5 +1,5 @@
 {
-    "0001": "BAS_STD_Loop",
+    "0001": "BAS_STD_Lv1_Loop",
     "0002": "BAS_STD_IDLING_01",
     "0003": "BAS_STD_IDLING_02",
     "0004": "BAS_CRH_Lv1_Loop",
@@ -11,7 +11,7 @@
     "0010": "BAS_FORWARD_Loop",
     "0011": "BAS_FORWARD_END",
     "0013": "BAS_BACKWARD_START",
-    "0014": "BAS_BACKWARD_Loop",
+    "0014": "BAS_BACKWARD_DRK_Loop",
     "0015": "BAS_BACKWARD_END",
     "0017": "BAS_DASH_F",
     "0018": "BAS_DASH_B",
@@ -171,7 +171,7 @@
     "0501": "BAS_DASH_F(2)",
     "0504": "BAS_DASH_B(1)",
     "0505": "BAS_DASH_B(2)",
-    "0510": "BAS_STD_TIRED_Loop",
+    "0510": "BAS_STD_TIRED_Loop(1)",
     "0511": "BAS_CRH_TIRED_Loop",
     "0512": "BAS_STD_CRH_Tired",
     "0513": "BAS_CRH_STD_Tired(3)",
@@ -369,5 +369,5 @@
     "1217": "CAD_GETUGASAIHOU_END",
     "1497": "DEM_APPEAL_01",
     "1498": "DEM_APPEAL_02",
-    "1499": "DEM_APPEAL_03_Lv0(1)"
+    "1499": "DEM_APPEAL_03_Lv2"
 }

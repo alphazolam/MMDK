@@ -1,6 +1,6 @@
 -- MMDK - Moveset Mod Development Kit for Street Fighter 6
 -- By alphaZomega
--- November 29, 2024
+-- December 5th, 2024
 local version = "1.0.8"
 
 player_data = {}
@@ -1550,9 +1550,6 @@ re.on_frame(function()
 					tmp_fns.dumper = function()
 						tmp_fns.dumper = nil
  						data:dump_moves_dict_json()
-						-- dump common moves separately
-						-- need to fix this to work even when 'collect common moves unchcked'
-						-- dont want common moves in the char-specific json at all
 						data:dump_moves_dict_json("common_moves.json", common_move_dict)
 					end
 				end
@@ -1588,9 +1585,8 @@ re.on_frame(function()
 				imgui.same_line()
 				if imgui.button("Dump HitRects") then
  					data:dump_rects_json()
-					local commonRects = {}
-		
 					-- dump common rects as well
+					local commonRects = {}
 					for i, dict in pairs(gResource.Data[6].Rect.RectList) do
 						commonRects[i] = {}
 						for id, rect in pairs(lua_get_dict(dict)) do
@@ -1623,6 +1619,36 @@ re.on_frame(function()
 					data:dump_assist_combo_json()
 				end
 				tooltip(tooltip_msg .. " assist_combo.json")
+				
+				imgui.same_line()
+				if imgui.button("Dump All") then
+					tmp_fns.dumper = function()
+						tmp_fns.dumper = nil
+ 						data:dump_moves_dict_json()
+						data:dump_moves_dict_json("common_moves.json", common_move_dict)
+					end
+					data:dump_hit_dt_json()
+					data:dump_trigger_json()
+					data:dump_atemi_json()
+					local commonAtemi = lua_get_dict(gResource.Data[6].Atemi)
+					local commonAtemiJson = convert_to_json_tbl(commonAtemi, nil, nil, nil, true)
+					json.dump_file("MMDK\\PlayerData\\common_atemi.json", commonAtemiJson)
+					data:dump_tgroups_json()
+ 					data:dump_rects_json()
+					local commonRects = {}
+					for i, dict in pairs(gResource.Data[6].Rect.RectList) do
+						commonRects[i] = {}
+						for id, rect in pairs(lua_get_dict(dict)) do
+							commonRects[i][id] = rect
+						end
+					end
+					data:dump_rects_json("common_rects.json", commonRects)
+					data:dump_commands_json()
+					data:dump_charge_json()
+					data:dump_char_info_json()
+					data:dump_assist_combo_json()
+				end
+				tooltip("Dump all fighter datas to their respective json files")
 				
 				if EMV then
 					EMV.read_imgui_element(data)

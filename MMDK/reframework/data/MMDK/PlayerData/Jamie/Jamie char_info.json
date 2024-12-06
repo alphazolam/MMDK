@@ -135,28 +135,68 @@
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 0
+                            "PartsID": 0,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 2
+                            "PartsID": 2,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "2": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 4
+                            "PartsID": 4,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "3": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 7
+                            "PartsID": 7,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,
@@ -380,28 +420,68 @@
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 0
+                            "PartsID": 0,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 2
+                            "PartsID": 2,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "2": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 4
+                            "PartsID": 4,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "3": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 7
+                            "PartsID": 7,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,
@@ -508,28 +588,68 @@
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 0
+                            "PartsID": 0,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 2
+                            "PartsID": 2,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "2": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 4
+                            "PartsID": 4,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "3": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 7
+                            "PartsID": 7,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,
@@ -636,28 +756,68 @@
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 0
+                            "PartsID": 0,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 2
+                            "PartsID": 2,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "2": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 4
+                            "PartsID": 4,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "3": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 7
+                            "PartsID": 7,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,
@@ -764,28 +924,68 @@
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 1
+                            "PartsID": 1,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 3
+                            "PartsID": 3,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "2": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 4
+                            "PartsID": 4,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "3": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 7
+                            "PartsID": 7,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,
@@ -892,28 +1092,68 @@
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 1
+                            "PartsID": 1,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 2
+                            "PartsID": 2,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "2": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 4
+                            "PartsID": 4,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "3": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 7
+                            "PartsID": 7,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,
@@ -1020,28 +1260,68 @@
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 1
+                            "PartsID": 1,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 2
+                            "PartsID": 2,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "2": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 4
+                            "PartsID": 4,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "3": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 7
+                            "PartsID": 7,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,
@@ -1148,28 +1428,68 @@
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 1
+                            "PartsID": 1,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 2
+                            "PartsID": 2,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "2": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 4
+                            "PartsID": 4,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "3": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 7
+                            "PartsID": 7,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,
@@ -1276,28 +1596,68 @@
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 1
+                            "PartsID": 1,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "1": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 2
+                            "PartsID": 2,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "2": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 4
+                            "PartsID": 4,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         },
                         "3": {
                             "AttachTo": 0,
                             "IsON": true,
                             "JointHash": -1,
                             "MasterID": 0,
-                            "PartsID": 7
+                            "PartsID": 7,
+                            "Position": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "Rotation": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
                         }
                     },
                     "useCommon": false,
