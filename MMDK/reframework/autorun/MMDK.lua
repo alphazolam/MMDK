@@ -1364,7 +1364,7 @@ re.on_frame(function()
 	local data = player_data[p_idx]
 	local other_data = player_data[other_p_idx]
 	
-	if reframework:is_drawing_ui() and gPlayer.move_ctr > 0 and engines[1] and (os.clock() - time_last_reset) > 0.5 then
+	if reframework:is_drawing_ui() and engines[1] and (os.clock() - time_last_reset) > 0.5 then
 		
 		if not mmsettings.research_enabled or imgui.begin_window("MMDK - Moveset Research ", true, (mmsettings.transparent_window and 128) or 0) == false then 
 			mmsettings.research_enabled = false
