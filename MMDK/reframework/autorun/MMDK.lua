@@ -207,30 +207,30 @@ PlayerData = {
 		data.sound_dict = data.sfx_component:get_RequestRefTable().SeRequestDataDictionary
 		data.voice_dict = data.sfx_component:get_RequestRefTable().VoiceRequestDataDictionary
 		
-		data.vfx_by_ctr_id = {}
-		local vfx_arrays = {
-			gResource.VfxHolder.commonData.mStandardData,
-			gResource.VfxHolder.systemData.mStandardData,
-		}
-		for i, vfx_container in pairs(lua_get_array(data.person.VfxDatas._items)) do
-			table.insert(vfx_arrays, vfx_container.mStandardData)
-		end
-		for i, mStandardData in ipairs(vfx_arrays) do
-			for j, std_data_settings in pairs(lua_get_array(mStandardData._items)) do
-				if not std_data_settings.mData:get_IsEmpty() then
-					local vfx_gameobj = scene:call("findGameObject(System.String)", std_data_settings.mData:get_Path():match(".+(epvs.+)%.pfb"))
-					local ctr_tbl = data.vfx_by_ctr_id[std_data_settings.mID] or {elements={}}
-					ctr_tbl.std_data_settings = std_data_settings
-					ctr_tbl.std_data = getC(vfx_gameobj, "via.effect.script.EPVStandardData")
-					if vfx_gameobj then
-						for k, element in pairs(lua_get_array(ctr_tbl.std_data.Elements, true)) do
-							ctr_tbl.elements[element.ID] = element --overwrite old System elements with new fighter-specific ones
-						end
-					end
-					data.vfx_by_ctr_id[std_data_settings.mID] = ctr_tbl
-				end
-			end
-		end
+		-- data.vfx_by_ctr_id = {}
+		-- local vfx_arrays = {
+		-- 	gResource.VfxHolder.commonData.mStandardData,
+		-- 	gResource.VfxHolder.systemData.mStandardData,
+		-- }
+		-- for i, vfx_container in pairs(lua_get_array(data.person.VfxDatas._items)) do
+		-- 	table.insert(vfx_arrays, vfx_container.mStandardData)
+		-- end
+		-- for i, mStandardData in ipairs(vfx_arrays) do
+		-- 	for j, std_data_settings in pairs(lua_get_array(mStandardData._items)) do
+		-- 		if not std_data_settings.mData:get_IsEmpty() then
+		-- 			local vfx_gameobj = scene:call("findGameObject(System.String)", std_data_settings.mData:get_Path():match(".+(epvs.+)%.pfb"))
+		-- 			local ctr_tbl = data.vfx_by_ctr_id[std_data_settings.mID] or {elements={}}
+		-- 			ctr_tbl.std_data_settings = std_data_settings
+		-- 			ctr_tbl.std_data = getC(vfx_gameobj, "via.effect.script.EPVStandardData")
+		-- 			if vfx_gameobj then
+		-- 				for k, element in pairs(lua_get_array(ctr_tbl.std_data.Elements, true)) do
+		-- 					ctr_tbl.elements[element.ID] = element --overwrite old System elements with new fighter-specific ones
+		-- 				end
+		-- 			end
+		-- 			data.vfx_by_ctr_id[std_data_settings.mID] = ctr_tbl
+		-- 		end
+		-- 	end
+		-- end
 		
 		data.triggers = gCommand:get_mUserEngine()[pl_id]:call("GetTrigger()")
 		data.triggers_by_act_id = {}
@@ -339,11 +339,11 @@ PlayerData = {
 		if self.player_index then --if its a player and not a simple_fighter_data
 			if move.fab.Projectile.DataIndex > -1 then
 				move.pdata = self.projectile_datas[move.fab.Projectile.DataIndex]
-				move.vfx = move.vfx or move.pdata and self.vfx_by_ctr_id[move.pdata.VfxID] and {
-					core = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.Core.Data.ElementID],
-					aura = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.Aura.Data.ElementID],
-					fade = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.FadeAway.Data.ElementID],
-				}
+				-- move.vfx = move.vfx or move.pdata and self.vfx_by_ctr_id[move.pdata.VfxID] and {
+				-- 	core = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.Core.Data.ElementID],
+				-- 	aura = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.Aura.Data.ElementID],
+				-- 	fade = self.vfx_by_ctr_id[move.pdata.VfxID].elements[move.pdata.FadeAway.Data.ElementID],
+				-- }
 			end
 		end
 		
@@ -434,13 +434,13 @@ PlayerData = {
 							move[keytype_name].sfx[key.SoundID] = ((keytype_name == "SEKey") and self.sound_dict or self.voice_dict)[key.SoundID]
 						end]]
 						
-						if keytype_name:lower() == "vfxkey" then
-							move.vfx = move.vfx or {}
-							local vfx_tbl = self.vfx_by_ctr_id[key.ContainerID] and self.vfx_by_ctr_id[key.ContainerID].elements[key.ElementID]
-							if vfx_tbl and not find_index(move.vfx, vfx_tbl) then
-								move.vfx[k] = vfx_tbl
-							end
-						end
+						-- if keytype_name:lower() == "vfxkey" then
+						-- 	move.vfx = move.vfx or {}
+						-- 	local vfx_tbl = self.vfx_by_ctr_id[key.ContainerID] and self.vfx_by_ctr_id[key.ContainerID].elements[key.ElementID]
+						-- 	if vfx_tbl and not find_index(move.vfx, vfx_tbl) then
+						-- 		move.vfx[k] = vfx_tbl
+						-- 	end
+						-- end
 						
 						if self.motion and (keytype_name == "MotionKey" or keytype_name == "ExtMotionKey" or keytype_name == "FacialAutoKey" or keytype_name == "FacialKey") then
 							local motion = (keytype_name:find("Facial") and self.motion_fac) or self.motion
