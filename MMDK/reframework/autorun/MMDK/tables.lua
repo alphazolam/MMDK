@@ -34,6 +34,7 @@ local characters = {
 	[31] = "Alex",
 	[32] = "Ingrid",
 	[33] = "Yasmine",
+	[34] = "Arjun",
 }
 
 --Table of indexes into the param of a HIT_DT_TBL, labelled by their purpose
